@@ -1,0 +1,131 @@
+﻿<Window x:Class="SistemaRPG.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="700" Width="1360" ResizeMode="NoResize" WindowState="Maximized">
+    <Grid Margin="0,6,-43,-72" Height="737" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1397">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FFEFEFF2"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="453*"/>
+            <ColumnDefinition Width="147*"/>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="763*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Content="Salvar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="55" Margin="0,0,105,625" Height="21" RenderTransformOrigin="0.5,0.5" Click="Button_Click_2">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.89"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Content="Limpar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" Margin="292,65,0,0" Height="18"/>
+        <Button Content="Enviar" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="55" Margin="292,0,0,600" Height="18"/>
+
+        <Button Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="16,478,0,0" Height="20"/>
+        <RichTextBox HorizontalAlignment="Left" Height="126" VerticalAlignment="Top" Width="120" Margin="17,510,0,0">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="16,450,0,0" Height="22"/>
+        <Label Content="Vantagens" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,428,0,0" Height="26" Width="102"/>
+        <Button Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="148,478,0,0" Height="20"/>
+        <Button Opacity="0.5" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="219,478,0,0" RenderTransformOrigin="-0.667,3.1" Height="20">
+            <Button.Effect>
+                <DropShadowEffect Color="Aqua" ShadowDepth="2.5" Opacity="5" Direction="135" BlurRadius="5"/>
+            </Button.Effect>
+        </Button>
+        <RichTextBox HorizontalAlignment="Left" Height="126" VerticalAlignment="Top" Width="120" Margin="149,510,0,0">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="148,450,0,0" Height="22"/>
+        <Label Content="Desvantagens" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="143,429,0,0" Height="26" Width="84"/>
+        <Label Content="Pontos de vida:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,195,0,0" Width="120" Height="26"/>
+        <Label x:Name="lblPV" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,195,0,0" Width="86" Height="26"/>
+        <Image HorizontalAlignment="Left" Height="126" VerticalAlignment="Top" Width="172" Margin="26,65,0,0" >
+            <Image.Effect>
+                <DropShadowEffect Color="Aquamarine" BlurRadius="30"/>
+
+            </Image.Effect>
+        </Image>
+        <Label Content="Nome" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,227,0,0" Height="26" Width="43"/>
+        <Label Content="Raça" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,253,0,0" Height="26" Width="35"/>
+        <Label Content="Nível" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,287,0,0" Height="26" Width="37"/>
+        <TextBox x:Name="txtNomePer" HorizontalAlignment="Left" Height="24" Margin="64,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204"/>
+        <TextBox x:Name="txtRaca" HorizontalAlignment="Left" Height="24" Margin="64,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" SelectionBrush="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+        <TextBox x:Name="txtNivel" HorizontalAlignment="Left" Height="24" Margin="64,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86"/>
+        <Label Content="Inventário" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="292,479,0,0" Height="26" Width="138"/>
+        <Image Source="Imagens/dice3d160.png" Stretch="Fill" Margin="127,216,0,0" RenderTransformOrigin="0.311,0.598" HorizontalAlignment="Left" Width="171" Height="134" VerticalAlignment="Top" Grid.Column="3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.524"/>
+                    <TranslateTransform X="0.068" Y="0.158"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <DropShadowEffect Color="#FFEFEFF2" BlurRadius="50"/>
+
+            </Image.Effect>
+        </Image>
+        <Label Content="Rolar Dados" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="183,0,0,342" RenderTransformOrigin="-0.027,0.538" Height="24" Width="82" Grid.Column="3"/>
+        <WebBrowser HorizontalAlignment="Right" Margin="0,155,656,334" Width="338" Grid.ColumnSpan="4">
+            <WebBrowser.Effect>
+                <DropShadowEffect Color="#FFEFEFF2"></DropShadowEffect>
+            </WebBrowser.Effect>
+        </WebBrowser>
+        <Button Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="86,478,0,0" Height="20"/>
+        <Button Content="Sair" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" Margin="353,641,0,0" Height="21" Grid.Column="3" Click="Button_Click_1"/>
+        <RichTextBox Margin="292,450,0,0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Width="622" Height="186" VerticalAlignment="Top">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <RichTextBox Margin="353,0,0,101" HorizontalAlignment="Left" Width="327" Height="404" VerticalAlignment="Bottom" Grid.Column="3">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Label Content="Background" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="353,206,0,0" Height="26" Width="138" Grid.Column="3"/>
+        <Label Content="Força" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,342,0,0" Height="26" Width="43"/>
+        <Label Content="Res." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,342,0,0" Height="26" Width="35"/>
+        <Label Content="Arm." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="148,367,0,0" Height="26" Width="37"/>
+        <TextBox x:Name="txtForca" HorizontalAlignment="Left" Height="24" Margin="66,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
+        <TextBox x:Name="txtRes" HorizontalAlignment="Left" Height="24" Margin="182,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" LostKeyboardFocus="txtRes_LostKeyboardFocus"/>
+        <TextBox x:Name="txtArm" HorizontalAlignment="Left" Height="24" Margin="182,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72"/>
+        <Label Content="Hab." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,367,0,0" Height="26" Width="43"/>
+        <TextBox x:Name="txtHabil" HorizontalAlignment="Left" Height="24" Margin="66,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
+        <Label Content="PDF" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,393,0,0" Height="26" Width="37"/>
+        <TextBox x:Name="txtPDF" HorizontalAlignment="Left" Height="24" Margin="66,397,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
+        <Image HorizontalAlignment="Left" Height="126" VerticalAlignment="Top" Width="192" Margin="28,53,0,0" Source="Imagens/trainercard-duran.png">
+            <Image.Effect>
+                <DropShadowEffect Color="#FFEFEFF2" BlurRadius="510"/>
+
+            </Image.Effect>
+        </Image>
+        <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha - Cadastro de fichas" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,659,0,0" FontSize="36" Grid.ColumnSpan="4"/>
+
+
+
+
+    </Grid>
+</Window>

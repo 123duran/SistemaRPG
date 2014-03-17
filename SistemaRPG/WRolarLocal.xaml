@@ -1,0 +1,24 @@
+﻿<Window x:Class="SistemaRPG.WRolarLocal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Rolar dados" Height="327.068" Width="501.88">
+    <Grid Margin="0,0,-8,-5">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="White"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <RadioButton x:Name="rbD20" Content="D20" HorizontalAlignment="Left" Margin="215,49,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="3"/>
+        <RadioButton x:Name="rbD6" Content="D6" HorizontalAlignment="Left" Margin="215,85,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="3"/>
+        <Label Content="Selecione o tipo de dado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="109,2,0,0" FontSize="24"/>
+        <Button IsCancel="True" Content="Sair" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="394,255,0,0" Click="Button_Click_1"/>
+        <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,288,0,0" FontSize="22"/>
+        <Image MouseDown="click_MouseLeftButtonDown" HorizontalAlignment="Left" Height="122" VerticalAlignment="Top" Width="169" Margin="171,139,0,0" Source="Imagens/unnamed.png">
+            <Image.Effect>
+                <DropShadowEffect Color="#FFEFEFF2" BlurRadius="500"/>
+            </Image.Effect>
+        </Image>
+
+    </Grid>
+</Window>

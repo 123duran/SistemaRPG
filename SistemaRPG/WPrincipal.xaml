@@ -1,0 +1,67 @@
+﻿<Window x:Class="SistemaRPG.WPrincipal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sistema de RPG Defensores de Tóquio Alpha" Height="397.526" Width="935.83" Foreground="#FFF6F0F0">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="#FFEFEFF2" Offset="0.1"/>
+            <GradientStop Color="#FF010105" Offset="0.989"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Image Source="Imagens/orig.png" Stretch="Fill" Margin="11,0,0,35" RenderTransformOrigin="0.311,0.598" HorizontalAlignment="Left" Width="356" MouseDown="Image_MouseDown_1" Height="265" VerticalAlignment="Bottom">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.524"/>
+                    <TranslateTransform X="0.068" Y="0.158"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <DropShadowEffect Color="#FFEFEFF2" BlurRadius="600" Direction="30" ShadowDepth="2"/>
+
+            </Image.Effect>
+        </Image>
+
+        <Menu BorderThickness="2" Name="menu1" Height="30" Width="452" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFEFEFF2" Foreground="Black" BorderBrush="#FFEFEFF2" >
+
+
+
+            <MenuItem Header="AVENTURA" Background="#FFEFEFF2">
+                <MenuItem Header="_Iniciar nova aventura (sessão de jogo)" Background="#FFEFEFF2"/>
+                <MenuItem Header="_Carregar aventura anterior (sessão de jogo)" Background="#FFEFEFF2" />
+                <MenuItem Header="_Gravar Ponto da história" Background="#FFEFEFF2" />
+            </MenuItem>
+
+            <MenuItem Header="CADASTRO" Background="#FFEFEFF2">
+                <MenuItem Header="Fichas" Background="#FFEFEFF2" >
+                    <MenuItem Header="Cadastrar Ficha (NPC)" Background="#FFEFEFF2"  />
+                    <MenuItem Header="Cadastrar Ficha (Personagem)" Click="mnCadastrarFicha" Background="#FFEFEFF2" />
+                </MenuItem>
+                <MenuItem Header="Cadastrar Jogador na Partida" Background="#FFEFEFF2" />
+               
+                
+            </MenuItem>
+            <MenuItem Header="IMPORTAÇÃO" Background="#FFEFEFF2" Width="84">
+                <MenuItem Header="_Importar Ficha (Personagem)" Background="#FFEFEFF2" Click="mnImportarFicha" />
+                <MenuItem Header="_Importar Ficha (NPC)" Background="#FFEFEFF2" />
+            </MenuItem>
+            <MenuItem Header="ENVIO" Background="#FFEFEFF2">
+                <MenuItem Header="_Enviar Ficha por E-mail" Background="#FFEFEFF2" Click="mnEnviarFicha" />
+                <MenuItem Header="_Enviar Mensagem aos jogadores" Background="#FFEFEFF2" />
+                <MenuItem Header="_Envio de dados" Background="#FFEFEFF2">
+                    <MenuItem Header="Enviar dados aos jogadores" Background="#FFEFEFF2" ></MenuItem>
+                    <MenuItem Header="Rolar dados (local) " Background="#FFEFEFF2" Click="mnRolarLocal" ></MenuItem>
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="EXPERIÊNCIA" Background="#FFEFEFF2">
+                <MenuItem Header="_Envio de XP aos jogadores" Background="#FFEFEFF2" Foreground="Black"/>
+            </MenuItem>
+           
+            
+        </Menu>
+        <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha " HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="6,0,0,11" FontSize="22"/>
+    </Grid>
+</Window>
