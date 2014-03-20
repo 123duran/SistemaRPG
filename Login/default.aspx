@@ -20,7 +20,7 @@
         &nbsp;
         
 
-        <asp:Button ID="Button1" runat="server" Text="Rolar Dado" OnClick="Button1_Click" Width="110px" />
+        <asp:Button ID="Button1" runat="server" Text="Rolar Dado" OnClick="Button1_Click" Width="110px"         />
         
 
         <br />

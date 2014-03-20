@@ -21,7 +21,7 @@ namespace Login
             Random random = new Random();
             i = random.Next(1, 7);
             ClientScript.RegisterStartupScript(this.GetType(), "Aviso", "confirm('" +" Você tirou "+ i.ToString()+" no dado" + "');", true);
-         //  Response.Write("<script>alert('Olá mundo')</script>");
+          // Response.Write(@"<script>function myFunction() { window.alert(""I'm a textbox"");  }   </script>");
           
         }
     }
