@@ -11,7 +11,7 @@
         </Grid.Background>
         <RadioButton x:Name="rbD20" Content="D20" HorizontalAlignment="Left" Margin="215,49,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="3"/>
         <RadioButton x:Name="rbD6" Content="D6" HorizontalAlignment="Left" Margin="215,85,0,0" VerticalAlignment="Top" FontSize="20" BorderThickness="3"/>
-        <Label Content="Selecione o tipo de dado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="109,2,0,0" FontSize="24"/>
+        <Label Content="Selecione o tipo de dado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="109,2,0,0" FontSize="24" TextOptions.TextFormattingMode="Display"/>
         <Button IsCancel="True" Content="Sair" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="394,255,0,0" Click="Button_Click_1"/>
         <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,288,0,0" FontSize="22"/>
         <Image MouseDown="click_MouseLeftButtonDown" HorizontalAlignment="Left" Height="122" VerticalAlignment="Top" Width="169" Margin="171,139,0,0" Source="Imagens/unnamed.png">

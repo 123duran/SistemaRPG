@@ -54,6 +54,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CaracteristicasBO.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="ManipulaXML.cs" />
     <Compile Include="PerBO.cs" />
     <Compile Include="WEnviarEmail.xaml.cs">
@@ -64,6 +65,9 @@
     </Compile>
     <Compile Include="WImportaFicha.xaml.cs">
       <DependentUpon>WImportaFicha.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WLogin.xaml.cs">
+      <DependentUpon>WLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPrincipal.xaml.cs">
       <DependentUpon>WPrincipal.xaml</DependentUpon>
@@ -92,6 +96,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="WImportaFicha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -69,22 +69,7 @@
         <TextBox x:Name="txtRaca" HorizontalAlignment="Left" Height="24" Margin="64,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" SelectionBrush="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
         <TextBox x:Name="txtNivel" HorizontalAlignment="Left" Height="24" Margin="64,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86"/>
         <Label Content="Inventário" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="292,479,0,0" Height="26" Width="138"/>
-        <Image Source="Imagens/dice3d160.png" Stretch="Fill" Margin="127,216,0,0" RenderTransformOrigin="0.311,0.598" HorizontalAlignment="Left" Width="171" Height="134" VerticalAlignment="Top" Grid.Column="3">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.524"/>
-                    <TranslateTransform X="0.068" Y="0.158"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <DropShadowEffect Color="#FFEFEFF2" BlurRadius="50"/>
-
-            </Image.Effect>
-        </Image>
-        <Label Content="Rolar Dados" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="183,0,0,342" RenderTransformOrigin="-0.027,0.538" Height="24" Width="82" Grid.Column="3"/>
-        <WebBrowser HorizontalAlignment="Right" Margin="0,155,656,334" Width="338" Grid.ColumnSpan="4">
+        <WebBrowser HorizontalAlignment="Right" Margin="0,147,542,342" Width="338" Grid.ColumnSpan="3" Grid.Column="1">
             <WebBrowser.Effect>
                 <DropShadowEffect Color="#FFEFEFF2"></DropShadowEffect>
             </WebBrowser.Effect>

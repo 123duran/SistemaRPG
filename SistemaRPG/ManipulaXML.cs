@@ -9,9 +9,7 @@ namespace SistemaRPG
 {
     class ManipulaXML
     {
-         public void escrever(PerBO ficha){
-
-            
+         public void escrever(PerBO ficha){         
              XmlTextWriter writer = new XmlTextWriter(@"c:\teste\edados.xml", null);
              writer.WriteStartDocument();
              //escreve o elmento raiz
@@ -22,8 +20,6 @@ namespace SistemaRPG
              writer.WriteEndElement();
              //Escreve o XML para o arquivo e fecha o objeto escritor
              writer.Close();
-            
-         
          }
               
     }

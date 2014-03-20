@@ -11,7 +11,7 @@
     <Grid>
         <TextBox x:Name="txtCaminho" HorizontalAlignment="Left" Height="67" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Margin="26,56,0,0"/>
         <Button Content="Procurar" Margin="250,56,0,0" Click="btProcurar" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148"/>
-        <Button Content="Enviar" Margin="250,100,0,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148"/>
+        <Button Content="Enviar" Margin="250,100,0,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148" Click="Button_Click_1"/>
         <Label Foreground="White" Content="Local da Ficha&#xD;&#xA;" HorizontalAlignment="Left" Margin="26,30,0,0" VerticalAlignment="Top" Width="97" Height="26"/>
         <Label Foreground="White" Content="Enviar fichas" HorizontalAlignment="Left" Margin="23,0,0,225" FontSize="22" Height="39" VerticalAlignment="Bottom" Width="375"/>
         <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha " HorizontalAlignment="Left" Margin="10,0,0,17" FontSize="22" Height="39" VerticalAlignment="Bottom"/>

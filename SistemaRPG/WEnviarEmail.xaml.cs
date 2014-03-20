@@ -23,5 +23,17 @@ namespace SistemaRPG
         {
             InitializeComponent();
         }
+
+
+
+        public String path 
+        {
+            get { return this.txtEnviarEmail.Text; }
+            set { this.txtEnviarEmail.Text = value; }
+        }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

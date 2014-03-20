@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="WEnviarEmail" Height="268.421" Width="471.429">
     <Grid>
-        
+        <TextBox x:Name="txtEnviarEmail" HorizontalAlignment="Left" Height="23" Margin="49,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="363"/>
+        <Button Content="Enviar" HorizontalAlignment="Left" Margin="337,162,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+
     </Grid>
 </Window>

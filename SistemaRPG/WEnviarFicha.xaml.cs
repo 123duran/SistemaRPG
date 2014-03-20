@@ -35,7 +35,7 @@ namespace SistemaRPG
             // Mostra o OpenFileDialog chamando método ShowDialog
             Nullable<bool> result = dlg.ShowDialog();
 
-            //Pega o nome do arquivo selecionado e mostra em na textbox
+            //Pega o nome do arquivo selecionado e mostra em uma textbox
 
             if (result == true)
             {
@@ -43,6 +43,14 @@ namespace SistemaRPG
                 string filename = dlg.FileName;
                 txtCaminho.Text = filename;
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //Método para passar o caminho do textbox para o form de enviar email
+            WEnviarEmail email = new WEnviarEmail();
+            email.path = txtCaminho.Text;
+            email.ShowDialog();
         }
     }
 }

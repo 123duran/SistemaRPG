@@ -10,15 +10,15 @@ namespace SistemaRPG
     class CaracteristicasBO
     {
         [XmlElement ("codCarac")]
-        private int codCarac { get; set; }
+        public int codCarac { get; set; }
 
         [XmlElement("nmCarac")]
-        private String nmCarac { get; set; }
+        public String nmCarac { get; set; }
 
         [XmlElement("tipoCarac")]
-        private String tipoCarac { get; set; }
+        public String tipoCarac { get; set; }
 
         [XmlElement("modCarac")]
-        private int modCarac { get; set; }
+        public int modCarac { get; set; }
     }
 }
