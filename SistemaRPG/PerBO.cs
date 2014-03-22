@@ -45,6 +45,6 @@ namespace SistemaRPG
         [XmlElement("pdfPer")]
         public int pdfPer { get; set; }
 
-        public CaracteristicasBO caracBO;
+        public CaracteristicasBO caracBO =null;
     }
 }

@@ -38,5 +38,11 @@ namespace SistemaRPG
             }
 
         }
+
+        private void Label_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            WCadastro cadastra = new WCadastro();
+            cadastra.ShowDialog();
+        }
     }
 }

@@ -10,7 +10,7 @@
         <Label Content="E-mail:" HorizontalAlignment="Left" Margin="56,57,0,0" VerticalAlignment="Top"/>
         <Label Content="Senha:" HorizontalAlignment="Left" Margin="56,103,0,0" VerticalAlignment="Top"/>
         <Label Content="Esqueceu senha?" HorizontalAlignment="Left" Margin="111,131,0,0" VerticalAlignment="Top" FontSize="8"/>
-        <Label Content="Cadastre-se" HorizontalAlignment="Left" Margin="194,131,0,0" VerticalAlignment="Top" FontSize="8"/>
+        <Label  Content="Cadastre-se" HorizontalAlignment="Left" Margin="194,131,0,0" VerticalAlignment="Top" FontSize="8" MouseDown="Label_MouseDown_1"/>
 
     </Grid>
 </Window>
