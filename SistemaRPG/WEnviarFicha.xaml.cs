@@ -51,6 +51,7 @@ namespace SistemaRPG
             WEnviarEmail email = new WEnviarEmail();
             email.path = txtCaminho.Text;
             email.ShowDialog();
+            this.Close();
         }
     }
 }

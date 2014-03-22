@@ -27,10 +27,11 @@ namespace SistemaRPG
         private void btLogin(object sender, RoutedEventArgs e)
         {
             //Método de validação do usuário
-            if (txtEmail.Text == "admin" && txtSenha.Text == "00000")
+            if (txtEmail.Text == "admin" && txtSenha.Text == "123")
             {
                 WPrincipal principal = new WPrincipal();
-                principal.ShowDialog();
+                principal.Show();
+                this.Close();
             }
             else 
             {

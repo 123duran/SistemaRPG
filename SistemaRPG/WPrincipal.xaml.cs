@@ -59,7 +59,7 @@ namespace SistemaRPG
         private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
             WRolarLocal frm = new WRolarLocal();
-            frm.ShowDialog();
+            frm.Show();
         }
     }
 }

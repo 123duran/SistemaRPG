@@ -9,7 +9,7 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
-        <Image Source="Imagens/orig.png" Stretch="Fill" Margin="11,0,0,35" RenderTransformOrigin="0.311,0.598" HorizontalAlignment="Left" Width="356" MouseDown="Image_MouseDown_1" Height="265" VerticalAlignment="Bottom">
+        <Image ToolTip="Clique para rolar dados" Source="Imagens/orig.png" Stretch="Fill" Margin="11,0,0,35" RenderTransformOrigin="0.311,0.598" HorizontalAlignment="Left" Width="356" MouseDown="Image_MouseDown_1" Height="265" VerticalAlignment="Bottom">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
