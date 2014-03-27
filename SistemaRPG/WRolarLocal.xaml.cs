@@ -31,6 +31,7 @@ namespace SistemaRPG
             Random random = new Random();
             if (rbD6.IsChecked == true)
             {
+                
                 i = random.Next(1, 7);
                 MessageBox.Show("Você tirou: " + i.ToString() + " no dado");
                 try

@@ -1,0 +1,33 @@
+﻿<Window x:Class="SistemaRPG.WPrincipalUsuario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sistema de RPG Defensores de Tóquio Alpha" Height="397.526" Width="935.83" Foreground="#FFF6F0F0">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="#FFEFEFF2" Offset="0.1"/>
+            <GradientStop Color="#FF010105" Offset="0.989"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Menu BorderThickness="2" Name="menu1" Height="30" Width="452" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFEFEFF2" Foreground="Black" BorderBrush="#FFEFEFF2" >
+            <MenuItem Header="CADASTRO" Background="#FFEFEFF2">
+                <MenuItem Header="Fichas" Background="#FFEFEFF2" >
+                    <MenuItem Header="Cadastrar Ficha (NPC)" Background="#FFEFEFF2"  />
+                    <MenuItem Header="Cadastrar Ficha (Personagem)" Click="mnCadastrarFicha" Background="#FFEFEFF2" />
+                </MenuItem>
+         
+
+            </MenuItem>
+            <MenuItem Header="IMPORTAÇÃO" Background="#FFEFEFF2" Width="84">
+                <MenuItem Header="_Importar Ficha (Personagem)" Background="#FFEFEFF2" Click="mnImportarFicha" />
+                <MenuItem Header="_Importar Ficha (NPC)" Background="#FFEFEFF2" />
+            </MenuItem>
+            <MenuItem Header="ENVIO" Background="#FFEFEFF2">
+                <MenuItem Header="_Enviar Ficha por E-mail" Background="#FFEFEFF2" Click="mnEnviarFicha" />
+                <MenuItem Header="_Enviar Mensagem aos jogadores" Background="#FFEFEFF2" />
+            </MenuItem>
+           </Menu>
+        <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha " HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="6,0,0,11" FontSize="22"/>
+
+    </Grid>
+</Window>

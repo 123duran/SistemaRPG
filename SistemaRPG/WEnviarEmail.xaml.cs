@@ -33,6 +33,9 @@ namespace SistemaRPG
             get { return this.txtCaminho.Text; }
             set { this.txtCaminho.Text = value; }
         }
+        
+      
+        
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string emailDestino = "";
@@ -55,6 +58,12 @@ namespace SistemaRPG
             }
         }
 
+        /// <summary>
+        /// Recebe o conteúdo dos campos de texto já tratados e envia o e-mail
+        /// </summary>
+        /// <param name="emailDestino"></param>
+        /// <param name="emailRemetente"></param>
+        /// <param name="senhaRemetente"></param>
         public void enviaEmail(string emailDestino, string emailRemetente, string senhaRemetente)
         {
             MailMessage Email = new MailMessage();
