@@ -1,9 +1,20 @@
 ﻿<Window x:Class="SistemaRPG.WRolarWeb"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="WRolarWeb" Height="300" Width="300">
+        Title="Rolar Dados" Height="300" Width="328">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="#FFEFEFF2" Offset="0.1"/>
+            <GradientStop Color="#FF010105" Offset="0.989"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
-        <Button x:Name="btnRolarDado" Content="Rolar Dado Web" HorizontalAlignment="Left" Margin="54,79,0,0" VerticalAlignment="Top" Width="195" Height="112" Click="btnRolarDado_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="117*"/>
+            <ColumnDefinition Width="175*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnRolarDado" Content="Rolar Dado Web" HorizontalAlignment="Left" Margin="76,54,0,0" VerticalAlignment="Top" Width="195" Height="112" Click="btnRolarDado_Click" Grid.ColumnSpan="2"/>
+        <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha " HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="60,0,0,46" FontSize="22" Width="225" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

@@ -130,6 +130,12 @@ namespace SistemaRPG
 
         }
 
+        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            WSelecionarImagem frm = new WSelecionarImagem();
+            frm.ShowDialog();
+        }
+
 
     }
 }

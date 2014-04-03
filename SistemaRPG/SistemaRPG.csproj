@@ -90,6 +90,9 @@
     <Compile Include="WEnviarFicha.xaml.cs">
       <DependentUpon>WEnviarFicha.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WGravarPonto.xaml.cs">
+      <DependentUpon>WGravarPonto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WImportaFicha.xaml.cs">
       <DependentUpon>WImportaFicha.xaml</DependentUpon>
     </Compile>
@@ -107,6 +110,9 @@
     </Compile>
     <Compile Include="WRolarWeb.xaml.cs">
       <DependentUpon>WRolarWeb.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WSelecionarImagem.xaml.cs">
+      <DependentUpon>WSelecionarImagem.xaml</DependentUpon>
     </Compile>
     <Page Include="WCadastro.xaml">
       <SubType>Designer</SubType>
@@ -132,6 +138,10 @@
       <DependentUpon>WFicha.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WGravarPonto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WImportaFicha.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -153,6 +163,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WRolarWeb.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WSelecionarImagem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -254,6 +268,24 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\%24%28KGrHqN,!o0FIvYBWPOeBSPy3UMWyg~~60_35.JPG" />
+    <Resource Include="Imagens\197.png" />
+    <Resource Include="Imagens\best-lord-of-the-rings-legolas-cartoon-coloring-pages-for-playing.jpg" />
+    <Resource Include="Imagens\dwarf.jpeg" />
+    <Resource Include="Imagens\elf.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\images.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\images1.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\mago.jpeg" />
+    <Resource Include="Imagens\orc.jpeg" />
+    <Resource Include="Imagens\orcface1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

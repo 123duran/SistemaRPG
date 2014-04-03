@@ -101,7 +101,7 @@
         <TextBox x:Name="txtHabil" HorizontalAlignment="Left" Height="24" Margin="66,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
         <Label Content="PDF" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,393,0,0" Height="26" Width="37"/>
         <TextBox x:Name="txtPDF" HorizontalAlignment="Left" Height="24" Margin="66,397,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
-        <Image HorizontalAlignment="Left" Height="126" VerticalAlignment="Top" Width="192" Margin="28,53,0,0" Source="Imagens/trainercard-duran.png">
+        <Image HorizontalAlignment="Left" Height="126" VerticalAlignment="Top" Width="192" Margin="28,53,0,0" Source="Imagens/trainercard-duran.png" MouseDown="Image_MouseDown_1">
             <Image.Effect>
                 <DropShadowEffect Color="#FFEFEFF2" BlurRadius="510"/>
 
