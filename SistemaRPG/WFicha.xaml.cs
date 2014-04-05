@@ -21,7 +21,8 @@ namespace SistemaRPG
     public partial class MainWindow : Window
     {
         PerBO ficha = new PerBO();
-
+        WSelecionarImagem wImg = new WSelecionarImagem();
+        int img = 0;
         public MainWindow()
         {
 
@@ -35,6 +36,7 @@ namespace SistemaRPG
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            wImg.Close();
             this.Close();
         }
 
@@ -57,6 +59,7 @@ namespace SistemaRPG
 
         public void prenche()
         {
+            retornaImagemSelecionada(img);
             string varTemp = "";
 
             //Insere o nome do personagem na ficha
@@ -91,14 +94,15 @@ namespace SistemaRPG
             {
                 ficha.habPer = Convert.ToInt32(txtHabil.Text);
             }
-            else {
+            else
+            {
                 varTemp += " Habilidade";
             }
             if (txtPDF.Text.Length > 0)
             {
                 ficha.pdfPer = Convert.ToInt32(txtPDF.Text);
             }
-            else 
+            else
             {
                 varTemp += " Poder de Fogo";
             }
@@ -115,25 +119,51 @@ namespace SistemaRPG
 
         private void txtRes_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
+            if (txtRes.Text.Count() > 0)
+            {
+                calculaMaxPV(res = Convert.ToInt32(txtRes.Text));
+            }
 
-            calculaMaxPV(res = Convert.ToInt32(txtRes.Text));
+        }
+
+
+        /// <summary>
+        /// Recebe o valor da imagem selecionada no form WSelecionarImagem, caso o form não tenha sido aberto ele irá colocar a imagem do humano padrão (1)
+        /// </summary>
+        /// <param name="img"></param>
+        public void retornaImagemSelecionada(int img)
+        {
+            //variável local recebe valor setado no form WSelecionarImagem através do método getImagem
+            img = wImg.getImagem;
+            if ((img == 0))
+            {
+                ficha.imgPer = 1;
+            }
+            else if (img != 0)
+            {
+                ficha.imgPer = img;
+            }
+
 
 
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
-
+            prenche();
             ManipulaXML mani = new ManipulaXML();
             mani.escrever(ficha);
+            this.Close();
+          
 
         }
 
         private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            WSelecionarImagem frm = new WSelecionarImagem();
-            frm.ShowDialog();
+            //WSelecionarImagem frm = new WSelecionarImagem();
+            MessageBox.Show(wImg.getImagem.ToString());
+            wImg.ShowDialog();
+            MessageBox.Show(wImg.getImagem.ToString());
         }
 
 

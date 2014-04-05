@@ -18,6 +18,9 @@ namespace SistemaRPG
         [XmlElement ("nomePer")]
         public String nomePer { get; set; }
 
+        [XmlElement("imgPer")]
+        public int imgPer { get; set; }
+
         [XmlElement("tipoPer")]
         public String tipoPer { get; set; }
 
