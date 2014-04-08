@@ -1,7 +1,7 @@
 ﻿<Window x:Class="SistemaRPG.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="700" Width="1360" ResizeMode="NoResize" WindowState="Maximized" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="MainWindow" Height="740" Width="1360" ResizeMode="NoResize" WindowState="Maximized" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid Margin="0,6,-43,-72" Height="737" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1397">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -75,7 +75,7 @@
             </WebBrowser.Effect>
         </WebBrowser>
         <Button Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="86,478,0,0" Height="20"/>
-        <Button Content="Sair" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" Margin="353,641,0,0" Height="21" Grid.Column="3" Click="Button_Click_1"/>
+        <Button IsCancel="True" Content="Sair" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" Margin="353,641,0,0" Height="21" Grid.Column="3" Click="Button_Click_1"/>
         <RichTextBox Margin="292,450,0,0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Width="622" Height="186" VerticalAlignment="Top">
             <FlowDocument>
                 <Paragraph>

@@ -61,5 +61,12 @@ namespace SistemaRPG
             WRolarLocal frm = new WRolarLocal();
             frm.Show();
         }
+
+        private void mnGravarPonto(object sender, RoutedEventArgs e)
+        {
+            WGravarPonto frm = new WGravarPonto();
+            frm.ShowDialog();
+        }
+
     }
 }

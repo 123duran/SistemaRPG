@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace SistemaRPG
 {
     /// <summary>
@@ -20,9 +21,11 @@ namespace SistemaRPG
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         PerBO ficha = new PerBO();
         WSelecionarImagem wImg = new WSelecionarImagem();
         int img = 0;
+        string lvlPer = "0";
         public MainWindow()
         {
 
@@ -148,13 +151,29 @@ namespace SistemaRPG
 
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
+        public void escreverFicha(string lvlPer) {
+
+            ficha.tipoPer = lvlPer;
             prenche();
             ManipulaXML mani = new ManipulaXML();
             mani.escrever(ficha);
             this.Close();
-          
+        
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+           MessageBoxResult result =  MessageBox.Show("Seu personagem é um NPC?", "Importante!", MessageBoxButton.YesNo,MessageBoxImage.Question);
+           if (result == MessageBoxResult.Yes)
+           {
+               lvlPer = txtNivel.Text;
+               if (txtNivel.Text.Length > 0)
+               escreverFicha(lvlPer);
+
+           }
+           else {
+               escreverFicha(lvlPer);
+           }
 
         }
 

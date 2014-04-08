@@ -8,7 +8,7 @@
             <GradientStop Color="#FF010105" Offset="0.989"/>
         </LinearGradientBrush>
     </Window.Background>
-    <Grid>
+    <Grid Margin="1,0,-1,0">
         <Image ToolTip="Clique para rolar dados" Source="Imagens/orig.png" Stretch="Fill" Margin="11,69,0,0" RenderTransformOrigin="0.311,0.598" HorizontalAlignment="Left" Width="356" MouseDown="Image_MouseDown_1" Height="265" VerticalAlignment="Top">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -31,7 +31,7 @@
             <MenuItem Header="AVENTURA" Background="#FFEFEFF2">
                 <MenuItem Header="_Iniciar nova aventura (sessão de jogo)" Background="#FFEFEFF2"/>
                 <MenuItem Header="_Carregar aventura anterior (sessão de jogo)" Background="#FFEFEFF2" />
-                <MenuItem Header="_Gravar Ponto da história" Background="#FFEFEFF2" />
+                <MenuItem Header="_Gravar Ponto da história" Background="#FFEFEFF2" Click="mnGravarPonto" />
             </MenuItem>
 
             <MenuItem Header="CADASTRO" Background="#FFEFEFF2">
@@ -42,9 +42,8 @@
                 
             </MenuItem>
             <MenuItem Header="IMPORTAÇÃO" Background="#FFEFEFF2" Width="84">
-                <MenuItem Header="_Importar Ficha (Personagem)" Background="#FFEFEFF2" Click="mnImportarFicha" />
-                <MenuItem Header="_Importar Ficha (NPC)" Background="#FFEFEFF2" />
-            </MenuItem>
+                <MenuItem Header="_Importar Ficha" Background="#FFEFEFF2" Click="mnImportarFicha" />
+                            </MenuItem>
             <MenuItem Header="ENVIO" Background="#FFEFEFF2">
                 <MenuItem Header="_Enviar Ficha por E-mail" Background="#FFEFEFF2" Click="mnEnviarFicha" />
                 <MenuItem Header="_Enviar Mensagem aos jogadores" Background="#FFEFEFF2" />
