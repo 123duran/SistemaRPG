@@ -84,11 +84,17 @@
     <Compile Include="WCadastro.xaml.cs">
       <DependentUpon>WCadastro.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WDadosJogadores.xaml.cs">
+      <DependentUpon>WDadosJogadores.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WEnviarEmail.xaml.cs">
       <DependentUpon>WEnviarEmail.xaml</DependentUpon>
     </Compile>
     <Compile Include="WEnviarFicha.xaml.cs">
       <DependentUpon>WEnviarFicha.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WEnviarMensagem.xaml.cs">
+      <DependentUpon>WEnviarMensagem.xaml</DependentUpon>
     </Compile>
     <Compile Include="WGravarPonto.xaml.cs">
       <DependentUpon>WGravarPonto.xaml</DependentUpon>
@@ -98,6 +104,9 @@
     </Compile>
     <Compile Include="WLogin.xaml.cs">
       <DependentUpon>WLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WNovaAventura.xaml.cs">
+      <DependentUpon>WNovaAventura.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPrincipal.xaml.cs">
       <DependentUpon>WPrincipal.xaml</DependentUpon>
@@ -118,11 +127,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WDadosJogadores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WEnviarEmail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WEnviarFicha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WEnviarMensagem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WNovaAventura.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

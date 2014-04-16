@@ -28,9 +28,9 @@
 
 
 
-            <MenuItem Header="AVENTURA" Background="#FFEFEFF2">
-                <MenuItem Header="_Iniciar nova aventura (sessão de jogo)" Background="#FFEFEFF2"/>
-                <MenuItem Header="_Carregar aventura anterior (sessão de jogo)" Background="#FFEFEFF2" />
+            <MenuItem Header="AVENTURA" Background="#FFEFEFF2" >
+                <MenuItem Header="_Iniciar nova aventura (sessão de jogo)" Background="#FFEFEFF2" Click="mnNovaAventura" />
+                <MenuItem Header="_Carregar aventura anterior (sessão de jogo)" Background="#FFEFEFF2"  />
                 <MenuItem Header="_Gravar Ponto da história" Background="#FFEFEFF2" Click="mnGravarPonto" />
             </MenuItem>
 
@@ -47,7 +47,7 @@
             <MenuItem Header="ENVIO" Background="#FFEFEFF2">
                 <MenuItem Header="_Enviar Ficha por E-mail" Background="#FFEFEFF2" Click="mnEnviarFicha" />
                 <MenuItem Header="_Enviar Mensagem aos jogadores" Background="#FFEFEFF2" />
-                <MenuItem Header="_Envio de dados" Background="#FFEFEFF2">
+                <MenuItem Header="_Envio de dados" Background="#FFEFEFF2" >
                     <MenuItem Header="Enviar dados aos jogadores" Background="#FFEFEFF2" ></MenuItem>
                     <MenuItem Header="Rolar dados (local) " Background="#FFEFEFF2" Click="mnRolarLocal" ></MenuItem>
                 </MenuItem>

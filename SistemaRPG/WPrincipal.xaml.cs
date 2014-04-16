@@ -51,6 +51,12 @@ namespace SistemaRPG
             frm.ShowDialog();
         }
 
+        private void mnNovaAventura(object sender, RoutedEventArgs e)
+        {
+            WNovaAventura nova= new WNovaAventura();
+            nova.ShowDialog();
+        }
+
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
 
@@ -58,14 +64,20 @@ namespace SistemaRPG
 
         private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            WRolarLocal frm = new WRolarLocal();
-            frm.Show();
+            WRolarLocal rola = new WRolarLocal();
+            rola.Show();
         }
 
         private void mnGravarPonto(object sender, RoutedEventArgs e)
         {
-            WGravarPonto frm = new WGravarPonto();
-            frm.ShowDialog();
+            WGravarPonto gravarP = new WGravarPonto();
+            gravarP.ShowDialog();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            WDadosJogadores dadosJ = new WDadosJogadores();
+            dadosJ.ShowDialog();
         }
 
     }
