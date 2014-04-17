@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace SistemaRPG
 {
     /// <summary>
@@ -23,5 +24,18 @@ namespace SistemaRPG
         {
             InitializeComponent();
         }
+
+        private void btnCadastrar(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            CadastroDAO dao = CadastroDAO.getInstance();
+            login.Nome = txtNome.Text;
+            login.Email = txtEmail.Text;
+            login.Senha = pwSenha.Password ;//pwSenha.ToString();
+            login.Perfil = "Administrador";
+            login.Ativo = 1;
+            dao.Gravar(login);
+        }
+
     }
 }

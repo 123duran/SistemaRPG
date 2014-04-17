@@ -37,7 +37,7 @@
             <MenuItem Header="CADASTRO" Background="#FFEFEFF2">
                 <MenuItem Header="Fichas" Click="mnCadastrarFicha" Background="#FFEFEFF2" >
                                     </MenuItem>
-                <MenuItem Header="Cadastrar Jogador na Partida" Background="#FFEFEFF2" />
+                <MenuItem Header="Cadastrar Jogador na Partida" Background="#FFEFEFF2" Click="mnCadastrarJogador"/>
                
                 
             </MenuItem>

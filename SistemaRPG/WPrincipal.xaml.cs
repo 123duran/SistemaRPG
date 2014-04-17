@@ -80,5 +80,11 @@ namespace SistemaRPG
             dadosJ.ShowDialog();
         }
 
+        private void mnCadastrarJogador(object sender, RoutedEventArgs e)
+        {
+            WCadastro cadastro = new WCadastro();
+            cadastro.ShowDialog();
+        }
+
     }
 }

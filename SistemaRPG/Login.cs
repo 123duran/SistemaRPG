@@ -9,15 +9,48 @@ namespace SistemaRPG
 {
     class Login
     {
-        [XmlElement ("codLogin")]
-        public int codLogin { get; set; }
+        [XmlElement("codLogin")]
+        private int codLogin;
+        private String nome;
+        private String email;
+        private String senha;
+        private String perfil;
+        private int ativo;
 
-        public String nome { get; set; }
+        public int CodLogin
+        {
+            get { return codLogin; }
+            set { codLogin = value; }
+        }
 
-        public String email { get; set; }
+        public String Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
 
-        public String senha { get; set; }
+        public String Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
 
-        //Criar o método de consulta no banco de dados
+        public String Senha
+        {
+            get { return senha; }
+            set { senha = value; }
+        }
+
+        public String Perfil
+        {
+            get { return perfil; }
+            set { perfil = value; }
+        }
+
+        public int Ativo
+        {
+            get { return ativo; }
+            set { ativo = value; }
+        }
     }
 }

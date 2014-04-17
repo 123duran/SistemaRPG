@@ -70,7 +70,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Banco.cs" />
+    <Compile Include="CadastroDAO.cs" />
+    <Compile Include="Conexao.cs" />
     <Compile Include="CaracteristicasBO.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="ManipulaXML.cs" />
