@@ -27,14 +27,14 @@ namespace SistemaRPG
 
         private void btnCadastrar(object sender, RoutedEventArgs e)
         {
-            Login login = new Login();
+            Cadastro cadastro = new Cadastro();
             CadastroDAO dao = CadastroDAO.getInstance();
-            login.Nome = txtNome.Text;
-            login.Email = txtEmail.Text;
-            login.Senha = pwSenha.Password ;//pwSenha.ToString();
-            login.Perfil = "Administrador";
-            login.Ativo = 1;
-            dao.Gravar(login);
+            cadastro.Nome = txtNome.Text;
+            cadastro.Email = txtEmail.Text;
+            cadastro.Senha = pwSenha.Password;
+            cadastro.Perfil = "Administrador";
+            cadastro.Ativo = 1;
+            dao.Gravar(cadastro);
         }
 
     }

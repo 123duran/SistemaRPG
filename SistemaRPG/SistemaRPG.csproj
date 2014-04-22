@@ -73,7 +73,7 @@
     <Compile Include="CadastroDAO.cs" />
     <Compile Include="Conexao.cs" />
     <Compile Include="CaracteristicasBO.cs" />
-    <Compile Include="Login.cs" />
+    <Compile Include="Cadastro.cs" />
     <Compile Include="ManipulaXML.cs" />
     <Compile Include="PerBO.cs" />
     <Compile Include="Service References\localhost\Reference.cs">

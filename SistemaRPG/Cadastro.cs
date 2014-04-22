@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace SistemaRPG
 {
-    class Login
+    class Cadastro
     {
         [XmlElement("codLogin")]
         private int codLogin;
