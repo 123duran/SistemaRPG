@@ -74,8 +74,11 @@
     <Compile Include="Conexao.cs" />
     <Compile Include="CaracteristicasBO.cs" />
     <Compile Include="Login.cs" />
+    <Compile Include="Caracteristicas.cs" />
+    <Compile Include="Cadastro.cs" />
     <Compile Include="ManipulaXML.cs" />
-    <Compile Include="PerBO.cs" />
+    <Compile Include="Personagem.cs" />
+    <Compile Include="PersonagemDAO.cs" />
     <Compile Include="Service References\localhost\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
