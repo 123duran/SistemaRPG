@@ -9,21 +9,21 @@ namespace SistemaRPG
 {
     class ManipulaXML
     {
-         public void escrever(PerBO ficha){         
+         public void escrever(Personagem ficha){         
              XmlTextWriter writer = new XmlTextWriter(@"c:\rpg\ficha.xml", null);
              writer.WriteStartDocument();
              //escreve o elmento raiz
              writer.WriteStartElement("Ficha");
              //Escreve os sub-elementos
-             writer.WriteElementString("resPer",ficha.resPer.ToString());
-             writer.WriteElementString("pdvPer", ficha.pdvPer.ToString());
-             writer.WriteElementString("imgPer", ficha.imgPer.ToString());
+             writer.WriteElementString("resPer",ficha.ResPer.ToString());
+             writer.WriteElementString("pdvPer", ficha.PvPer.ToString());
+             writer.WriteElementString("imgPer", ficha.ImgPer.ToString());
              writer.WriteEndElement();
              //Escreve o XML para o arquivo e fecha o objeto escritor
              writer.Close();
          }
 
-         public PerBO lerFicha(string caminhoXML)
+         public Personagem lerFicha(string caminhoXML)
          {
              //Cria instância de uM documento
              XmlDocument oXML = new XmlDocument();
@@ -35,10 +35,10 @@ namespace SistemaRPG
              oXML.Load(arquivoXML);
 
              //Lê o filho de um Nó Pai específico e adiciona no Objeto
-             PerBO ficha = new PerBO();
-             ficha.resPer = Convert.ToInt32(oXML.SelectSingleNode("Ficha").ChildNodes[0].InnerText);
-             ficha.pdvPer = Convert.ToInt32(oXML.SelectSingleNode("Ficha").ChildNodes[1].InnerText);
-             ficha.imgPer = Convert.ToInt32(oXML.SelectSingleNode("Ficha").ChildNodes[2].InnerText);
+             Personagem ficha = new Personagem();
+             ficha.ResPer = Convert.ToInt32(oXML.SelectSingleNode("Ficha").ChildNodes[0].InnerText);
+             ficha.PvPer = Convert.ToInt32(oXML.SelectSingleNode("Ficha").ChildNodes[1].InnerText);
+             ficha.ImgPer = Convert.ToInt32(oXML.SelectSingleNode("Ficha").ChildNodes[2].InnerText);
 
              return ficha;
          }

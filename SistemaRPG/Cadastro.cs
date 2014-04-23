@@ -9,7 +9,6 @@ namespace SistemaRPG
 {
     class Cadastro
     {
-        [XmlElement("codLogin")]
         private int codLogin;
         private String nome;
         private String email;

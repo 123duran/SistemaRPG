@@ -22,7 +22,7 @@ namespace SistemaRPG
     public partial class MainWindow : Window
     {
         
-        PerBO ficha = new PerBO();
+        Personagem ficha = new Personagem();
         WSelecionarImagem wImg = new WSelecionarImagem();
         int img = 0;
         string lvlPer = "0";
@@ -52,9 +52,9 @@ namespace SistemaRPG
         public void calculaMaxPV(int res)
         {
 
-            ficha.resPer = res;
-            ficha.pdvPer = ficha.resPer * 2;//calcula o valor máximo de pontos de vida do personagem, usando a fórmula (PDV = RES *2)
-            lblPV.Content = ficha.pdvPer.ToString(); // Preenche o label relativo aos pontos de vida
+            ficha.ResPer = res;
+            ficha.PvPer = ficha.ResPer * 2;//calcula o valor máximo de pontos de vida do personagem, usando a fórmula (PDV = RES *2)
+            lblPV.Content = ficha.PvPer.ToString(); // Preenche o label relativo aos pontos de vida
 
 
 
@@ -68,7 +68,7 @@ namespace SistemaRPG
             //Insere o nome do personagem na ficha
             if (txtNomePer.Text.Length > 0)
             {
-                ficha.nomePer = txtNomePer.Text;
+                ficha.NomePer = txtNomePer.Text;
             }
             else
             {
@@ -78,7 +78,7 @@ namespace SistemaRPG
             //Insere a armadura do personagem na ficha
             if (txtArm.Text.Length > 0)
             {
-                ficha.armPer = Convert.ToInt32(txtArm.Text);
+                ficha.ArmPer = Convert.ToInt32(txtArm.Text);
             }
             else
             {
@@ -86,7 +86,7 @@ namespace SistemaRPG
             }
             if (txtForca.Text.Length > 0)
             {
-                ficha.forcaPer = Convert.ToInt32(txtForca.Text);
+                ficha.ForcaPer = Convert.ToInt32(txtForca.Text);
             }
             else
             {
@@ -95,7 +95,7 @@ namespace SistemaRPG
 
             if (txtHabil.Text.Length > 0)
             {
-                ficha.habPer = Convert.ToInt32(txtHabil.Text);
+                ficha.HabPer = Convert.ToInt32(txtHabil.Text);
             }
             else
             {
@@ -103,7 +103,7 @@ namespace SistemaRPG
             }
             if (txtPDF.Text.Length > 0)
             {
-                ficha.pdfPer = Convert.ToInt32(txtPDF.Text);
+                ficha.PdfPer = Convert.ToInt32(txtPDF.Text);
             }
             else
             {
@@ -111,13 +111,13 @@ namespace SistemaRPG
             }
             if (txtRaca.Text.Length > 0)
             {
-                ficha.racaPer = txtRaca.Text;
+                ficha.RacaPer = txtRaca.Text;
             }
             else
             {
                 varTemp += " Raça";
             }
-            ficha.tipoPer = "personagem";
+            ficha.TipoPer = "personagem";
         }
 
         private void txtRes_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -140,11 +140,11 @@ namespace SistemaRPG
             img = wImg.getImagem;
             if ((img == 0))
             {
-                ficha.imgPer = 1;
+                ficha.ImgPer = 1;
             }
             else if (img != 0)
             {
-                ficha.imgPer = img;
+                ficha.ImgPer = img;
             }
 
 
@@ -153,7 +153,7 @@ namespace SistemaRPG
 
         public void escreverFicha(string lvlPer) {
 
-            ficha.tipoPer = lvlPer;
+            ficha.TipoPer = lvlPer;
             prenche();
             ManipulaXML mani = new ManipulaXML();
             mani.escrever(ficha);
