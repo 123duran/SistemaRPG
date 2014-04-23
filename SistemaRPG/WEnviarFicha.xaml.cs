@@ -27,7 +27,7 @@ namespace SistemaRPG
         private void btProcurar(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
+            dlg.InitialDirectory = @"C:\RPG\";
             dlg.DefaultExt = ".xml";
             dlg.Filter = "Fichas em xml (*.xml)|*.xml";
 

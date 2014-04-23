@@ -27,7 +27,7 @@ namespace SistemaRPG
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
+            dlg.InitialDirectory = @"C:\RPG\";
             dlg.DefaultExt = ".xml";
             dlg.Filter = "Fichas xml (*.xml)|*.xml";
 
@@ -43,6 +43,15 @@ namespace SistemaRPG
                 string filename = dlg.FileName;
                 txtCaminho.Text = filename;
             }
+        }
+
+        private void btnImportar_Click(object sender, RoutedEventArgs e)
+        {
+            ManipulaXML xml = new ManipulaXML();
+            PerBO ficha = null;
+            ficha = xml.lerFicha(txtCaminho.Text);
+            MessageBox.Show ( "imagem : " +ficha.imgPer.ToString() + "resistencia" + ficha.resPer.ToString() + "pdv: " + ficha.pdvPer.ToString());
+
         }
     }
 }
