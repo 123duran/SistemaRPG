@@ -1,49 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-namespace SistemaRPG
-{
-    /// <summary>
-    /// Interaction logic for WLogin.xaml
-    /// </summary>
-    public partial class WLogin : Window
-    {
-        public WLogin()
-        {
-            InitializeComponent();
-        }
-
-        private void btLogin(object sender, RoutedEventArgs e)
-        {
-            //Método de validação do usuário
-            if (txtEmail.Text == "admin" && txtSenha.Text == "123")
-            {
-                WPrincipal principal = new WPrincipal();
-                principal.Show();
-                this.Close();
-            }
-            else 
-            {
-                MessageBox.Show("Cadastro Inexistente!");
-            }
-
-        }
-
-        private void Label_MouseDown_1(object sender, MouseButtonEventArgs e)
-        {
-            WCadastro cadastra = new WCadastro();
-            cadastra.ShowDialog();
-        }
-    }
-}
+﻿-	﻿using System;
+-	using System.Collections.Generic;
+-	using System.Linq;
+-	using System.Text;
+-	using System.Threading.Tasks;
+-	using System.Xml.Serialization;
+-	
+-	namespace SistemaRPG
+-	{
+-	    class Login
+-	    {
+-	        [XmlElement("codLogin")]
+-	        private int codLogin;
+-	        private String nome;
+-	        private String email;
+-	        private String senha;
+-	        private String perfil;
+-	        private int ativo;
+-	
+-	        public int CodLogin
+-	        {
+-	            get { return codLogin; }
+-	            set { codLogin = value; }
+-	        }
+-	
+-	        public String Nome
+-	        {
+-	            get { return nome; }
+-	            set { nome = value; }
+-	        }
+-	
+-	        public String Email
+-	        {
+-	            get { return email; }
+-	            set { email = value; }
+-	        }
+-	
+-	        public String Senha
+-	        {
+-	            get { return senha; }
+-	            set { senha = value; }
+-	        }
+-	
+-	        public String Perfil
+-	        {
+-	            get { return perfil; }
+-	            set { perfil = value; }
+-	        }
+-	
+-	        public int Ativo
+-	        {
+-	            get { return ativo; }
+-	            set { ativo = value; }
+-	        }
+-	    }
+-	}

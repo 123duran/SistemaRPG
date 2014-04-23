@@ -16,7 +16,7 @@ namespace SistemaRPG
             return dao;
         }
 
-        public void Gravar(Cadastro c)
+        public void Gravar(Login l)
         {
             try
             {
@@ -29,11 +29,11 @@ namespace SistemaRPG
 
                         cmd.CommandText = "INSERT INTO Cadastro (NOME, EMAIL, SENHA, PERFIL, ATIVO) VALUES (@nome, @email, @senha, @perfil, @ativo)";
 
-                        SqlParameter parNome = new SqlParameter("@nome", c.Nome);
-                        SqlParameter parEmail = new SqlParameter("@email", c.Email);
-                        SqlParameter parSenha = new SqlParameter("@senha", c.Senha);
-                        SqlParameter parPerfil = new SqlParameter("@perfil", c.Perfil);
-                        SqlParameter parAtivo = new SqlParameter("@ativo", c.Ativo);
+                        SqlParameter parNome = new SqlParameter("@nome", l.Nome);
+                        SqlParameter parEmail = new SqlParameter("@email", l.Email);
+                        SqlParameter parSenha = new SqlParameter("@senha", l.Senha);
+                        SqlParameter parPerfil = new SqlParameter("@perfil", l.Perfil);
+                        SqlParameter parAtivo = new SqlParameter("@ativo", l.Ativo);
 
                         cmd.Parameters.Add(parNome);
                         cmd.Parameters.Add(parEmail);
