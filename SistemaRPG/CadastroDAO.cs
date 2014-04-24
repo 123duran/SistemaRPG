@@ -16,7 +16,48 @@ namespace SistemaRPG
             return dao;
         }
 
-        public void Gravar(Login l)
+        public SqlDataReader Seleciona(Cadastro c)
+        {
+            SqlDataReader drLogin = null;
+            try
+            {
+                using (SqlConnection con = Conexao.obterConexao())
+                {
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+
+                        cmd.CommandText = "SELECT EMAIL, SENHA, PERFIL, ATIVO " +
+                    " FROM Jogador WHERE EMAIL = @email AND SENHA = @senha";
+
+                        SqlParameter parEmail = new SqlParameter("@email", c.Email);
+                        SqlParameter parSenha = new SqlParameter("@senha", c.Senha);
+
+                        cmd.Parameters.Add(parEmail);
+                        cmd.Parameters.Add(parSenha);
+
+                        drLogin = cmd.ExecuteReader();
+                        return drLogin;                      
+
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        Conexao.fecharConexao();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public void Gravar(Cadastro l)
         {
             try
             {
