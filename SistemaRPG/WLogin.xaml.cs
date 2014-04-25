@@ -42,7 +42,8 @@ namespace SistemaRPG
  
             try
             {
-                if (c.Ativo == 1) {
+                if (c.Ativo == 1)
+                {
 
                     MessageBox.Show("Bem vindo jogador! ");
                     WPrincipal princ = new WPrincipal();
@@ -50,45 +51,12 @@ namespace SistemaRPG
                     this.Close();
 
                 }
+                else
+                {
+                    MessageBox.Show("Falha no login: Usuário não encontrado/senha incorreta");
+                }
 
-              /*
-                    while (dr.Read())
-                    {
-                        if (dr["ATIVO"].ToString() == "0")
-                            MessageBox.Show("Este usuário está desativado.\n\rContate a administrador para desativar sua conta.");
-                        else
-                        {
-                            if (txtEmail.Text == dr["EMAIL"].ToString() &&
-                                txtSenha.Text == dr["SENHA"].ToString())
-                            {
-                                MessageBox.Show("Bem vindo ao SistemaRPG 3D&T Alpha", "Bem vindo!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                                if (dr["PERFIL"].ToString() == "Administrador")
-                                {
-                                    WPrincipal wPrincipal = new WPrincipal();
-                                    wPrincipal.ShowDialog();
-                                    this.Hide();
-                                    txtEmail.Text = "";
-                                    txtSenha.Clear();
-                                }
-                                else
-                                {
-                                    //Se for Usuário ao abrir formulário devera ser desabilitado algumas funções
-                                    WPrincipal wPrincipal = new WPrincipal();
-                                    wPrincipal.ShowDialog();
-                                    this.Hide();
-                                    txtEmail.Text = "";
-                                    txtSenha.Clear();
-                                }
-
-                            }
-                            else
-                            {
-                                MessageBox.Show("Usuário/Senha incorretos, tente novamente!", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-                            }
-                        }
-
-                    }
-               */
+            
 
             }
             catch (Exception e)

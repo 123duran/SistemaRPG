@@ -66,6 +66,51 @@ namespace SistemaRPG
             }
         }
 
+        public Boolean checaUsu(string usuario) { 
+         SqlDataReader drLogin = null;
+            try
+            {
+                using (SqlConnection con = Conexao.obterConexao())
+                {
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+
+                        cmd.CommandText = @"SELECT nome
+                                            FROM Cadastro
+                                            WHERE nome = @usuario ;"
+                            ;
+
+                        SqlParameter parUsu = new SqlParameter("@usuario", usuario);
+                    cmd.Parameters.Add(parUsu);
+                      drLogin =  cmd.ExecuteReader();
+                      if (drLogin.HasRows)
+                      {
+                          return true;
+                      }
+                      else {
+
+                          return false;
+                      }
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        Conexao.fecharConexao();
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public void Gravar(Cadastro l)
         {
             try
@@ -107,6 +152,7 @@ namespace SistemaRPG
             {
                 throw e;
             }
+
         }
     }
 }

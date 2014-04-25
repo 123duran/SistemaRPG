@@ -47,5 +47,30 @@ namespace SistemaRPG
             }
         }
 
+        private void btnChecarDisp_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtNomeUsuario.Text.Length > 0)
+            {
+                string usuario = txtNomeUsuario.Text;
+                if (checaUsu(usuario))
+                {
+                    MessageBox.Show("Usuário já cadastrado em nossa base de dados!");
+                }
+                else 
+                {
+                    MessageBox.Show("Nome de usuário diponível para cadastro.");
+                }
+            }
+            else {
+                MessageBox.Show("Preencha o seu nome de usuário por favor!");
+            }
+        }
+
+        public Boolean checaUsu(string usuario) 
+        {
+            CadastroDAO dao =  CadastroDAO.getInstance();
+            return  dao.checaUsu(usuario);
+                        
+        }
     }
 }
