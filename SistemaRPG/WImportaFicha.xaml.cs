@@ -24,7 +24,7 @@ namespace SistemaRPG
             InitializeComponent();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void btnProcurar(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
             dlg.InitialDirectory = @"C:\RPG\";
@@ -45,13 +45,12 @@ namespace SistemaRPG
             }
         }
 
-        private void btnImportar_Click(object sender, RoutedEventArgs e)
+        private void btnImportar(object sender, RoutedEventArgs e)
         {
             ManipulaXML xml = new ManipulaXML();
             Personagem ficha = null;
             ficha = xml.lerFicha(txtCaminho.Text);
-            MessageBox.Show ( "imagem : " +ficha.ImgPer.ToString() + "resistencia" + ficha.ResPer.ToString() + "pdv: " + ficha.PvPer.ToString());
-
+            MessageBox.Show("imagem : " + ficha.ImgPer.ToString() + "resistencia" + ficha.ResPer.ToString() + "pdv: " + ficha.PvPer.ToString());
         }
     }
 }

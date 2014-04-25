@@ -31,10 +31,20 @@ namespace SistemaRPG
             CadastroDAO dao = CadastroDAO.getInstance();
             c.Nome = txtNome.Text;
             c.Email = txtEmail.Text;
-            c.Senha = pwSenha.Password ;//pwSenha.ToString();
+            c.Senha = pwSenha.Password;
             c.Perfil = "Administrador";
             c.Ativo = 1;
-            dao.Gravar(c);
+            
+            try
+            {
+                dao.Gravar(c);
+                MessageBox.Show("Cadastro efetuado com sucesso!", "Cadastro", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Contate o suporte\n\rERRO: "
+                    + ex.Message.ToString(), "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
     }

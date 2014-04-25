@@ -16,7 +16,7 @@ namespace SistemaRPG
             return dao;
         }
 
-        public SqlDataReader Seleciona(Cadastro c)
+        public Cadastro Seleciona(string emailLogin, string senhaLogin)
         {
             SqlDataReader drLogin = null;
             try
@@ -29,19 +29,28 @@ namespace SistemaRPG
                         cmd.Connection = con;
 
                         cmd.CommandText = "SELECT EMAIL, SENHA, PERFIL, ATIVO " +
-                    " FROM Jogador WHERE EMAIL = @email AND SENHA = @senha";
+                    " FROM Cadastro WHERE EMAIL = @email AND SENHA = @senha";
 
-                        SqlParameter parEmail = new SqlParameter("@email", c.Email);
-                        SqlParameter parSenha = new SqlParameter("@senha", c.Senha);
+                        SqlParameter parEmail = new SqlParameter("@email", emailLogin);
+                        SqlParameter parSenha = new SqlParameter("@senha", senhaLogin);
 
                         cmd.Parameters.Add(parEmail);
                         cmd.Parameters.Add(parSenha);
 
                         drLogin = cmd.ExecuteReader();
-                        return drLogin;                      
-
+                        Cadastro cad = new Cadastro();
+                        
+                        while (drLogin.Read())
+                        {
+                            cad.Email = drLogin["EMAIL"].ToString();
+                            cad.Senha = drLogin["SENHA"].ToString();
+                            cad.Perfil = drLogin["PERFIL"].ToString();
+                            cad.Ativo = Convert.ToInt32(drLogin["ATIVO"]);
+                        }
+                        drLogin.Close();
+                        return cad;
                     }
-                    catch (SqlException ex)
+                    catch (Exception ex)
                     {
                         throw ex;
                     }

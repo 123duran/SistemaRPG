@@ -15,10 +15,10 @@
                 <GradientStop Color="#FFEFEFF2"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button Content="Procurar" Margin="233,56,0,0" Click="Button_Click_1" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148" TextOptions.TextFormattingMode="Display"/>
-        <Button x:Name="btnImportar" Content="Importar" Margin="233,100,0,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148" TextOptions.TextFormattingMode="Display" Click="btnImportar_Click"/>
-        <TextBox x:Name="txtCaminho" HorizontalAlignment="Left" Height="67" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Margin="26,56,0,0"/>
-        <Label Content="Local da ficha" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,30,0,0" Foreground="Black"/>
+        <Button Content="Procurar" Margin="233,56,0,0" Click="btnProcurar" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148" TextOptions.TextFormattingMode="Display" FontSize="14" TabIndex="2"/>
+        <Button x:Name="btnImportar" Content="Importar" Margin="233,100,0,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148" TextOptions.TextFormattingMode="Display" Click="btnImportar" FontSize="14" TabIndex="3"/>
+        <TextBox x:Name="txtCaminho" HorizontalAlignment="Left" Height="67" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Margin="26,56,0,0" FontSize="14" TabIndex="1"/>
+        <Label Content="Local da ficha" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,30,0,0" Foreground="Black" FontSize="14"/>
         <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha " HorizontalAlignment="Left" Margin="10,0,0,17" FontSize="22" Height="39" VerticalAlignment="Bottom"/>
         <Label Foreground="Black" Content="Importação de Ficha de Personagens" HorizontalAlignment="Left" Margin="25,0,0,223" FontSize="22" Height="39" VerticalAlignment="Bottom" Width="375" TextOptions.TextFormattingMode="Display"/>
 

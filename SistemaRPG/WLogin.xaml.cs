@@ -19,29 +19,15 @@ namespace SistemaRPG
     /// Interaction logic for WLogin.xaml
     /// </summary>
     public partial class WLogin : Window
-    {
-        Conexao cnLogin = new Conexao();
-        Cadastro user;
-                
-       
+    {         
         public WLogin()
         {
             InitializeComponent();
         }
-
-        const string conec = @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\RPG\SistemaRPG.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
-        SqlConnection cn = new SqlConnection(conec);
         
         private void btLogin(object sender, RoutedEventArgs e)
         {
             ValidaUsuario();
-        }
-
-        private void Label_MouseDown_1(object sender, MouseButtonEventArgs e)
-        {
-            
-            WCadastro cadastra = new WCadastro();
-            cadastra.ShowDialog();
         }
 
         private void ValidaUsuario()
@@ -49,18 +35,23 @@ namespace SistemaRPG
             Cadastro c = new Cadastro();
             CadastroDAO dao = new CadastroDAO();
 
-            c.Email = txtEmail.Text;
-            c.Senha = txtSenha.Text;
-            SqlDataReader dr = dao.Seleciona(c);
+            string emailLogin= txtEmail.Text;
+            string senhaLogin = txtSenha.Password;
+            c = dao.Seleciona(emailLogin,senhaLogin); 
 
  
             try
             {
-                if (!dr.HasRows)
-                    MessageBox.Show("Usuário não existe. \nTente novamente.", "Login Falhou", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (c.Ativo == 1) {
 
-                else
-                {
+                    MessageBox.Show("Bem vindo jogador! ");
+                    WPrincipal princ = new WPrincipal();
+                    princ.Show();
+                    this.Close();
+
+                }
+
+              /*
                     while (dr.Read())
                     {
                         if (dr["ATIVO"].ToString() == "0")
@@ -97,8 +88,8 @@ namespace SistemaRPG
                         }
 
                     }
-                }
-                dr.Close();
+               */
+
             }
             catch (Exception e)
             {
@@ -107,9 +98,14 @@ namespace SistemaRPG
             }
             finally
             {
-                
-                //cnLogin.fecharConexao();
+                Conexao.fecharConexao();
             }
+        }
+
+        private void lblCadastro(object sender, MouseButtonEventArgs e)
+        {
+            WCadastro cadastra = new WCadastro();
+            cadastra.ShowDialog();
         }
     }
 }

@@ -45,7 +45,7 @@ namespace SistemaRPG
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void btEnviarFicha(object sender, RoutedEventArgs e)
         {
             //Método para passar o caminho do textbox para o form de enviar email
             WEnviarEmail email = new WEnviarEmail();

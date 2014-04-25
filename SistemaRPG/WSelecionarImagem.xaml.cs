@@ -73,7 +73,7 @@ namespace SistemaRPG
                 img = 0;
             }
             this.Hide();
-            }
+        }
 
     }
 }

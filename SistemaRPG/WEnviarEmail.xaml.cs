@@ -26,17 +26,45 @@ namespace SistemaRPG
             InitializeComponent();
         }
 
-
-
         public String path
         {
             get { return this.txtCaminho.Text; }
             set { this.txtCaminho.Text = value; }
         }
-        
-      
-        
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+
+        /// <summary>
+        /// Recebe o conteúdo dos campos de texto já tratados e envia o e-mail
+        /// </summary>
+        /// <param name="emailDestino"></param>
+        /// <param name="emailRemetente"></param>
+        /// <param name="senhaRemetente"></param>
+        public void enviaEmail(string emailDestino, string emailRemetente, string senhaRemetente)
+        {
+            MailMessage Email = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+            MailAddress sDe = new MailAddress(emailRemetente);
+
+            Email.To.Add(emailDestino);
+            Email.From = sDe;
+            Email.Priority = MailPriority.Normal;
+            Email.IsBodyHtml = false;
+            Email.Subject = "Te enviaram a ficha de um personagem";
+            Email.Body = "Este e-mail contém a ficha do personagem em formato XML em anexo para importação no sistema de RPG.";
+
+            System.Net.Mail.Attachment attachment;
+            attachment = new System.Net.Mail.Attachment(txtCaminho.Text);
+            Email.Attachments.Add(attachment);
+
+            SmtpServer.Port = 587;  
+            SmtpServer.Credentials = new System.Net.NetworkCredential(emailRemetente,senhaRemetente);
+            SmtpServer.EnableSsl = true;
+
+            SmtpServer.Send(Email);
+            MessageBox.Show("E-mail enviado com sucesso!");
+            this.Close();
+        }
+
+        private void btnEnviarEmail(object sender, RoutedEventArgs e)
         {
             string emailDestino = "";
             string emailRemetente = "";
@@ -56,44 +84,6 @@ namespace SistemaRPG
                     MessageBox.Show("Ocorreu um erro ao enviar o e-mail: " + error.ToString());
                 }
             }
-        }
-
-        /// <summary>
-        /// Recebe o conteúdo dos campos de texto já tratados e envia o e-mail
-        /// </summary>
-        /// <param name="emailDestino"></param>
-        /// <param name="emailRemetente"></param>
-        /// <param name="senhaRemetente"></param>
-        public void enviaEmail(string emailDestino, string emailRemetente, string senhaRemetente)
-        {
-            MailMessage Email = new MailMessage();
-            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-            MailAddress sDe = new MailAddress(emailRemetente);
-
-            
-            Email.To.Add(emailDestino);
-            Email.From = sDe;
-            Email.Priority = MailPriority.Normal;
-            Email.IsBodyHtml = false;
-            Email.Subject = "Te enviaram a ficha de um personagem";
-            Email.Body = "Este e-mail contém a ficha do personagem em formato XML em anexo para importação no sistema de RPG.";
-
-            System.Net.Mail.Attachment attachment;
-            attachment = new System.Net.Mail.Attachment(txtCaminho.Text);
-            Email.Attachments.Add(attachment);
-
-            SmtpServer.Port = 587;
-
-            
-            SmtpServer.Credentials = new System.Net.NetworkCredential(emailRemetente,senhaRemetente);
-            SmtpServer.EnableSsl = true;
-
-            SmtpServer.Send(Email);
-            MessageBox.Show("E-mail enviado com sucesso!");
-            this.Close();
-
-
-
         }
     }
 }

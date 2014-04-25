@@ -3,16 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="WEnviarEmail" Height="268.421" Width="471.429">
     <Grid>
-        <TextBox x:Name="txtCaminho" HorizontalAlignment="Left" Height="23" Margin="235,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" IsEnabled="False"/>
-        <Button Content="Enviar" HorizontalAlignment="Left" Margin="337,162,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <TextBox x:Name="txtCaminho" HorizontalAlignment="Left" Height="23" Margin="235,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" IsEnabled="False" FontSize="14" TabIndex="4"/>
+        <Button Content="Enviar" HorizontalAlignment="Left" Margin="337,162,0,0" VerticalAlignment="Top" Width="75" Click="btnEnviarEmail" FontSize="14" TabIndex="5"/>
         <Label x:Name="lbCaminho" Content="XML
-               " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="235,25,0,0"/>
-        <Label Content="E-mail Destinatário" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,122,0,0"/>
-        <TextBox x:Name="txtEmail" ToolTip="E-mail de destino" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="182" Margin="15,148,0,0"/>
-        <Label Content="E-mail Remetente (Apenas Gmail)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,25,0,0"/>
-        <TextBox x:Name="txtRemetente" ToolTip="E-mail de destino" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="182" Margin="15,51,0,0"/>
-        <Label Content="Senha (Sua senha não fica armazenada em nosso sistema)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,79,0,0" FontSize="10"/>
-        <PasswordBox x:Name="psSenha" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,105,0,0" Width="180"/>
+               " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="235,25,0,0" FontSize="14"/>
+        <Label Content="E-mail Destinatário" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,122,0,0" FontSize="14"/>
+        <TextBox x:Name="txtEmail" ToolTip="E-mail de destino" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="182" Margin="15,148,0,0" FontSize="14" TabIndex="3"/>
+        <Label Content="E-mail Remetente (Apenas Gmail)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,25,0,0" FontSize="14"/>
+        <TextBox x:Name="txtRemetente" ToolTip="E-mail de destino" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="182" Margin="15,51,0,0" FontSize="14" TabIndex="1"/>
+        <Label Content="Senha (Sua senha não fica armazenada em nosso sistema)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,79,0,0"/>
+        <PasswordBox x:Name="psSenha" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,105,0,0" Width="180" FontSize="14" TabIndex="2"/>
 
     </Grid>
 </Window>
