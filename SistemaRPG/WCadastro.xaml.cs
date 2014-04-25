@@ -27,14 +27,51 @@ namespace SistemaRPG
 
         private void btnCadastrar(object sender, RoutedEventArgs e)
         {
+
+            // valida se há algum textbox em branco
+            if (validaTxt()) 
+            {
+                // valida se o nome de usuário está dísponivel
+                if (!checaUsu(txtNome.Text))
+                {
+                    CadastraUsu(txtNome.Text, txtEmail.Text, pwSenha.Password);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Nome de usuário já existe em nosso banco de dados!");
+                    txtNomeUsuario.Focus();
+                }
+            }
+            else {
+                MessageBox.Show("Erro ao cadastrar: Preencha todos os campos! ");
+            }
+
+           
+        }
+        /// <summary>
+        /// Essa função valida se os campos da tela de cadastro foram todos preenchidos
+        /// </summary>
+        /// <returns></returns>
+        public Boolean validaTxt() {
+
+            if ((txtNome.Text.Length > 0) && (txtEmail.Text.Length > 0) && (txtNomeUsuario.Text.Length > 0) && (pwSenha.Password.Length > 0))
+                return true;
+            return false;
+            
+           
+        }
+
+        public void CadastraUsu(string nome, string email, string senha)
+        {
             Cadastro c = new Cadastro();
             CadastroDAO dao = CadastroDAO.getInstance();
-            c.Nome = txtNome.Text;
-            c.Email = txtEmail.Text;
-            c.Senha = pwSenha.Password;
+            c.Nome = nome;
+            c.Email = email;
+            c.Senha = senha;
             c.Perfil = "Administrador";
             c.Ativo = 1;
-            
+
             try
             {
                 dao.Gravar(c);
@@ -45,6 +82,7 @@ namespace SistemaRPG
                 MessageBox.Show("Contate o suporte\n\rERRO: "
                     + ex.Message.ToString(), "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        
         }
 
         private void btnChecarDisp_Click(object sender, RoutedEventArgs e)
@@ -55,6 +93,8 @@ namespace SistemaRPG
                 if (checaUsu(usuario))
                 {
                     MessageBox.Show("Usuário já cadastrado em nossa base de dados!");
+                    txtNomeUsuario.Focus();
+
                 }
                 else 
                 {
@@ -65,7 +105,11 @@ namespace SistemaRPG
                 MessageBox.Show("Preencha o seu nome de usuário por favor!");
             }
         }
-
+        /// <summary>
+        /// Checa se o nome de usuário está disponível
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         public Boolean checaUsu(string usuario) 
         {
             CadastroDAO dao =  CadastroDAO.getInstance();

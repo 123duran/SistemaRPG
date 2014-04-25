@@ -28,8 +28,9 @@ namespace SistemaRPG
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = "SELECT EMAIL, SENHA, PERFIL, ATIVO " +
-                    " FROM Cadastro WHERE EMAIL = @email AND SENHA = @senha";
+                        cmd.CommandText = @"SELECT EMAIL, SENHA, PERFIL, ATIVO
+                                            FROM Cadastro 
+                                            WHERE EMAIL = @email AND SENHA = @senha";
 
                         SqlParameter parEmail = new SqlParameter("@email", emailLogin);
                         SqlParameter parSenha = new SqlParameter("@senha", senhaLogin);
@@ -39,7 +40,7 @@ namespace SistemaRPG
 
                         drLogin = cmd.ExecuteReader();
                         Cadastro cad = new Cadastro();
-                        
+
                         while (drLogin.Read())
                         {
                             cad.Email = drLogin["EMAIL"].ToString();
@@ -66,8 +67,9 @@ namespace SistemaRPG
             }
         }
 
-        public Boolean checaUsu(string usuario) { 
-         SqlDataReader drLogin = null;
+        public Boolean checaUsu(string usuario)
+        {
+            SqlDataReader drLogin = null;
             try
             {
                 using (SqlConnection con = Conexao.obterConexao())
@@ -83,16 +85,17 @@ namespace SistemaRPG
                             ;
 
                         SqlParameter parUsu = new SqlParameter("@usuario", usuario);
-                    cmd.Parameters.Add(parUsu);
-                      drLogin =  cmd.ExecuteReader();
-                      if (drLogin.HasRows)
-                      {
-                          return true;
-                      }
-                      else {
+                        cmd.Parameters.Add(parUsu);
+                        drLogin = cmd.ExecuteReader();
+                        if (drLogin.HasRows)
+                        {
+                            return true;
+                        }
+                        else
+                        {
 
-                          return false;
-                      }
+                            return false;
+                        }
                     }
                     catch (SqlException ex)
                     {
@@ -122,7 +125,7 @@ namespace SistemaRPG
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = "INSERT INTO Cadastro (NOME, EMAIL, SENHA, PERFIL, ATIVO) VALUES (@nome, @email, @senha, @perfil, @ativo)";
+                        cmd.CommandText = @"INSERT INTO Cadastro (NOME, EMAIL, SENHA, PERFIL, ATIVO) VALUES (@nome, @email, @senha, @perfil, @ativo)";
 
                         SqlParameter parNome = new SqlParameter("@nome", l.Nome);
                         SqlParameter parEmail = new SqlParameter("@email", l.Email);

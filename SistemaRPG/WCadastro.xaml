@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Cadastre-se" Height="280.166" Width="600">
     <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="Black" Offset="1"/>
-            <GradientStop Color="White"/>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="#FF3D98C7" Offset="0.393"/>
+            <GradientStop Color="#FF1F5F8B" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
