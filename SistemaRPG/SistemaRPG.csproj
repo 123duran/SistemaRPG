@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AventuraDAO.cs" />
     <Compile Include="CadastroDAO.cs" />
     <Compile Include="Conexao.cs" />
     <Compile Include="Caracteristicas.cs" />

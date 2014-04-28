@@ -4,8 +4,8 @@
         Title="Sistema de RPG Defensores de Tóquio Alpha" Height="397.526" Width="935.83" Foreground="#FFF6F0F0" ResizeMode="NoResize" Visibility="Visible" WindowState="Maximized">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-            <GradientStop Color="#FFEFEFF2" Offset="0.1"/>
-            <GradientStop Color="#FF010105" Offset="0.989"/>
+            <GradientStop Color="#FF3D98C7" Offset="0.393"/>
+            <GradientStop Color="#FF1F5F8B" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
     <Grid Margin="1,0,-1,0">
@@ -19,32 +19,32 @@
                 </TransformGroup>
             </Image.RenderTransform>
             <Image.Effect>
-                <DropShadowEffect Color="#FFEFEFF2" BlurRadius="600" Direction="30" ShadowDepth="2"/>
+                <DropShadowEffect Color="#FFEFEFF2" BlurRadius="6" Direction="30" ShadowDepth="2"/>
 
             </Image.Effect>
         </Image>
 
-        <Menu BorderThickness="2" Name="menu1" Height="30" Width="452" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFEFEFF2" Foreground="Black" BorderBrush="#FFEFEFF2" >
+        <Menu BorderThickness="2" Name="menu1" Height="30" Width="452" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF3D98C7" Foreground="Black" BorderBrush="#FF3D98C7" >
 
 
 
-            <MenuItem Header="AVENTURA" Background="#FFEFEFF2" >
-                <MenuItem Header="_Iniciar nova aventura (sessão de jogo)" Background="#FFEFEFF2" Click="mnNovaAventura" />
-                <MenuItem Header="_Carregar aventura anterior (sessão de jogo)" Background="#FFEFEFF2"  />
+            <MenuItem Header="AVENTURA" Foreground="White" Background="#FF3D98C7" BorderBrush="#FF3D98C7" >
+                <MenuItem Header="_Iniciar nova aventura (sessão de jogo)" BorderBrush="#FF3D98C7" Background="#FF3D98C7" Click="mnNovaAventura" />
+                <MenuItem Header="_Carregar aventura anterior (sessão de jogo)" Background="#FF3D98C7"  />
                 <MenuItem Header="_Gravar Ponto da história" Background="#FFEFEFF2" Click="mnGravarPonto" />
             </MenuItem>
 
-            <MenuItem Header="CADASTRO" Background="#FFEFEFF2">
+            <MenuItem Header="CADASTRO" Background="#FF3D98C7">
                 <MenuItem Header="Fichas" Click="mnCadastrarFicha" Background="#FFEFEFF2" >
                                     </MenuItem>
                 <MenuItem Header="Cadastrar Jogador na Partida" Background="#FFEFEFF2" Click="mnCadastrarJogador"/>
                
                 
             </MenuItem>
-            <MenuItem Header="IMPORTAÇÃO" Background="#FFEFEFF2" Width="84">
+            <MenuItem Header="IMPORTAÇÃO" Background="#FF3D98C7" Width="84">
                 <MenuItem Header="_Importar Ficha" Background="#FFEFEFF2" Click="mnImportarFicha" />
                             </MenuItem>
-            <MenuItem Header="ENVIO" Background="#FFEFEFF2">
+            <MenuItem Header="ENVIO" Background="#FF3D98C7">
                 <MenuItem Header="_Enviar Ficha por E-mail" Background="#FFEFEFF2" Click="mnEnviarFicha" />
                 <MenuItem Header="_Enviar Mensagem aos jogadores" Background="#FFEFEFF2" />
                 <MenuItem Header="_Envio de dados" Background="#FFEFEFF2" >
@@ -53,7 +53,7 @@
                 </MenuItem>
             </MenuItem>
 
-            <MenuItem Header="EXPERIÊNCIA" Background="#FFEFEFF2">
+            <MenuItem Header="EXPERIÊNCIA" Background="#FF3D98C7">
                 <MenuItem Header="_Envio de XP aos jogadores" Background="#FFEFEFF2" Foreground="Black"/>
             </MenuItem>
            

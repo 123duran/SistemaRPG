@@ -75,5 +75,10 @@ namespace SistemaRPG
             WCadastro cadastra = new WCadastro();
             cadastra.ShowDialog();
         }
+
+        private void lblSair_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

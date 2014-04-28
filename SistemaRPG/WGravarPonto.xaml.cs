@@ -28,5 +28,33 @@ namespace SistemaRPG
         {
             this.Close();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (validaTxt(txtInfo.Text))
+            {
+                MessageBox.Show("Preencha as informações antes de gravar!");
+            }
+            else
+            {
+                MessageBox.Show("não está vazio");
+            }
+        }
+
+
+
+        public bool validaTxt (string texto)
+        {
+            if (texto.Length == 0)
+                return true;
+            else
+                return false;
+        }
+
+        public void gravarPonto(string texto)
+        {
+
+
+        }
     }
 }
