@@ -37,27 +37,33 @@ namespace SistemaRPG
 
             string emailLogin= txtEmail.Text;
             string senhaLogin = txtSenha.Password;
-            c = dao.Seleciona(emailLogin,senhaLogin); 
+            c = dao.SelecionaCadastro(emailLogin,senhaLogin); 
 
  
             try
             {
                 if (c.Ativo == 1)
                 {
-
-                    MessageBox.Show("Bem vindo jogador! ");
-                    WPrincipal princ = new WPrincipal();
-                    princ.Show();
-                    this.Close();
+                    if (c.Perfil == "Administrador")
+                    {
+                        MessageBox.Show("Bem vindo ");
+                        WPrincipal princ = new WPrincipal();
+                        princ.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bem vindo ");
+                        WPrincipalUsuario princUser = new WPrincipalUsuario();
+                        princUser.Show();
+                        this.Close();
+                    }
 
                 }
                 else
                 {
                     MessageBox.Show("Falha no login: Usuário não encontrado/senha incorreta");
                 }
-
-            
-
             }
             catch (Exception e)
             {

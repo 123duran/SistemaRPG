@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Aventura.cs" />
     <Compile Include="AventuraDAO.cs" />
     <Compile Include="CadastroDAO.cs" />
     <Compile Include="Conexao.cs" />
@@ -122,6 +123,9 @@
     </Compile>
     <Compile Include="WRolarWeb.xaml.cs">
       <DependentUpon>WRolarWeb.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WSelecionaJogador.xaml.cs">
+      <DependentUpon>WSelecionaJogador.xaml</DependentUpon>
     </Compile>
     <Compile Include="WSelecionarImagem.xaml.cs">
       <DependentUpon>WSelecionarImagem.xaml</DependentUpon>
@@ -187,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WRolarWeb.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WSelecionaJogador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

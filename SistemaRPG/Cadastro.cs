@@ -15,6 +15,7 @@ namespace SistemaRPG
         private String senha;
         private String perfil;
         private int ativo;
+        private Personagem personagem;
 
         public int CodLogin
         {
@@ -50,6 +51,12 @@ namespace SistemaRPG
         {
             get { return ativo; }
             set { ativo = value; }
+        }
+
+        public Personagem Personagem
+        {
+            get { return personagem; }
+            set { personagem = value; }
         }
     }
 }

@@ -47,5 +47,24 @@ namespace SistemaRPG
             int ultima = dao.maxAventura();
             return ultima + 1;
         }
+
+        private void btnNovaAventura(object sender, RoutedEventArgs e)
+        {
+            Aventura av = new Aventura();
+            AventuraDAO dao = new AventuraDAO();
+            av.NomeAventura = txtNovaAventura.Text;
+            av.Senha = pSenhaAventura.Password;
+
+            try
+            {
+                dao.Gravar(av);
+                MessageBox.Show("Aventura cadastrada com sucesso!", "Aventura", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Contate o suporte\n\rERRO: "
+                    + ex.Message.ToString(), "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

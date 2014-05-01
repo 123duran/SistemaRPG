@@ -11,13 +11,13 @@
     <Grid>
         
         <Label Foreground="White" Content="Nome da aventura " HorizontalAlignment="Left" Margin="39,63,0,0" FontSize="11" Height="36" VerticalAlignment="Top"/>
-        <TextBox  HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Margin="153,67,0,0"/>
+        <TextBox x:Name="txtNovaAventura"  HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Margin="153,67,0,0"/>
         <Button Content="Sair" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="44" Margin="253,173,0,0" Click="Button_Click_1"/>
-        <Button IsDefault="True" Content="Nova aventura" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Margin="153,132,0,0"/>
+        <Button IsDefault="True" Content="Nova aventura" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Margin="153,132,0,0" Click="btnNovaAventura"/>
         <Label Foreground="White" Content="Aventura número:" HorizontalAlignment="Left" Margin="48,26,0,0" FontSize="11" Height="36" VerticalAlignment="Top"/>
         <Label x:Name="lbNumAvent" Foreground="White" Content="0000" HorizontalAlignment="Left" Margin="153,26,0,0" FontSize="11" Height="36" VerticalAlignment="Top"/>
         <Label Foreground="White" Content="Senha da aventura " HorizontalAlignment="Left" Margin="39,93,0,0" FontSize="11" Height="36" VerticalAlignment="Top"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="153,94,0,0" VerticalAlignment="Top" Width="96"/>
+        <PasswordBox x:Name="pSenhaAventura" HorizontalAlignment="Left" Margin="153,94,0,0" VerticalAlignment="Top" Width="96"/>
 
     </Grid>
 </Window>

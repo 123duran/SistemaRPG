@@ -69,13 +69,24 @@ namespace SistemaRPG
             c.Nome = nome;
             c.Email = email;
             c.Senha = senha;
-            c.Perfil = "Administrador";
             c.Ativo = 1;
+
+            MessageBoxResult result = MessageBox.Show("Você gostaria de cadastrar como Mestre?", "Perfil do Jogador", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             try
             {
-                dao.Gravar(c);
-                MessageBox.Show("Cadastro efetuado com sucesso!", "Cadastro", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                if (result == MessageBoxResult.Yes)
+                {
+                    c.Perfil = "Administrador";
+                    dao.Gravar(c);
+                    MessageBox.Show("Cadastro efetuado com sucesso!", "Cadastro", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                }
+                else
+                {
+                    c.Perfil = "Usuário";
+                    dao.Gravar(c);
+                    MessageBox.Show("Cadastro efetuado com sucesso!", "Cadastro", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                }
             }
             catch (Exception ex)
             {
