@@ -73,8 +73,9 @@
     <Compile Include="Aventura.cs" />
     <Compile Include="AventuraDAO.cs" />
     <Compile Include="CadastroDAO.cs" />
+    <Compile Include="CaracteristicaDAO.cs" />
     <Compile Include="Conexao.cs" />
-    <Compile Include="Caracteristicas.cs" />
+    <Compile Include="Caracteristica.cs" />
     <Compile Include="Cadastro.cs" />
     <Compile Include="ManipulaXML.cs" />
     <Compile Include="Personagem.cs" />

@@ -48,7 +48,7 @@ namespace SistemaRPG
         [XmlElement("pdfPer")]
         private int pdfPer;
 
-        private Caracteristicas caracteristica;
+        private Caracteristica caracteristica;
 
         public int CodPer
         {
@@ -122,7 +122,7 @@ namespace SistemaRPG
             set { pdfPer = value; }
         }
 
-        public Caracteristicas Caracteristica
+        public Caracteristica Caracteristica
         {
             get { return caracteristica; }
             set { caracteristica = value; }

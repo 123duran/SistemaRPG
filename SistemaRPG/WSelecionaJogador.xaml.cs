@@ -23,5 +23,20 @@ namespace SistemaRPG
         {
             InitializeComponent();
         }
+
+        private void btnListar_Click(object sender, RoutedEventArgs e)
+        {
+            Cadastro c = new Cadastro();
+            CadastroDAO dao = CadastroDAO.getInstance();
+            c.Nome = txtJogador.Text;
+
+            dtJogadores.Columns.Clear();
+            dtJogadores.Items.Clear();
+
+            if (txtJogador.Text.Length != 0)
+            {
+                dao.SelecionaPersonagem(c);
+            }
+        }
     }
 }

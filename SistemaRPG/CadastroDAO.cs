@@ -113,6 +113,7 @@ namespace SistemaRPG
 
         public Cadastro SelecionaPersonagem(Cadastro c)
         {
+            SqlDataReader drLogin = null;
             try
             {
                 using (SqlConnection con = Conexao.obterConexao())
@@ -122,11 +123,48 @@ namespace SistemaRPG
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = "SELECT NOME ";
+                        cmd.CommandText = @"SELECT ca.NOME AS Nome, ca.EMAIL AS Email, p.NOME_PER AS Personagem, p.RACA_PER AS Raça, p.FORCA_PER AS Força, p.TIPO_PER AS 'Tipo de Personagem', 
+                                                p.NIVEL_PER AS Nível, p.HAB_PER AS Habilidade, p.RES_PER AS Resistência, p.ARM_PER AS Armadura, p.PV_PER AS 'Pontos de Vida', 
+                                                p.PDF_PER AS 'Poder de Fogo', c.NOME_CAR AS Característica, c.MOD_CAR AS 'MOD', c.TIPO_CAR AS 'Tipo de Caracteristica'
+                                                FROM Cadastro ca, Personagem p, Caracteristica c, Personagem_Caracteristica pc 
+                                                WHERE ca.COD_PER = p.COD_PER 
+                                                AND p.COD_PER = pc.COD_PER
+                                                AND c.COD_CAR = pc.COD_CAR
+                                                AND ca.NOME LIKE @nome ORDER BY ca.NOME";
+
+                        SqlParameter parNome = new SqlParameter("@nome", c.Nome);
+                        cmd.Parameters.Add(parNome);
+                        drLogin = cmd.ExecuteReader();
+
+                        while (drLogin.Read())
+                        {
+                            c.Nome = drLogin["Nome"].ToString();
+                            c.Email = drLogin["Email"].ToString();
+                            c.Personagem.NomePer = drLogin["Personagem"].ToString();
+                            c.Personagem.RacaPer = drLogin["Raça"].ToString();
+                            c.Personagem.ForcaPer = Convert.ToInt32(drLogin["Força"]);
+                            c.Personagem.TipoPer = drLogin["Tipo de Personagem"].ToString();
+                            c.Personagem.NivelPer = Convert.ToInt32(drLogin["Nível"]);
+                            c.Personagem.HabPer = Convert.ToInt32(drLogin["Habilidade"]);
+                            c.Personagem.ResPer = Convert.ToInt32(drLogin["Resistência"]);
+                            c.Personagem.ArmPer = Convert.ToInt32(drLogin["Armadura"]);
+                            c.Personagem.PvPer = Convert.ToInt32(drLogin["Pontos de Vida"]);
+                            c.Personagem.PdfPer = Convert.ToInt32(drLogin["Poder de Fogo"]);
+                            c.Personagem.Caracteristica.NmCarac = drLogin["Caracteristica"].ToString();
+                            c.Personagem.Caracteristica.ModCarac = Convert.ToInt32(drLogin["MOD"]);
+                            c.Personagem.Caracteristica.TipoCarac = drLogin["Tipo de Caracteristica"].ToString();
+                        }
+                        drLogin.Close();
+                        return c;
+
                     }
                     catch (SqlException ex)
                     {
                         throw ex;
+                    }
+                    finally
+                    {
+                        Conexao.fecharConexao();
                     }
                 }
             }
@@ -134,6 +172,11 @@ namespace SistemaRPG
             {
                 throw e;
             }
+        }
+
+        private int ConvertToInt32()
+        {
+            throw new NotImplementedException();
         }
 
         public void Gravar(Cadastro c)

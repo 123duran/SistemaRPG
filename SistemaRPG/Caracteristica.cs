@@ -7,19 +7,13 @@ using System.Xml.Serialization;
 
 namespace SistemaRPG
 {
-    class Caracteristicas
+    class Caracteristica
     {
-        [XmlElement ("codCarac")]
         private int codCarac;
-
-        [XmlElement("nmCarac")]
         private String nmCarac;
-
-        [XmlElement("tipoCarac")]
         private String tipoCarac;
-
-        [XmlElement("modCarac")]
         private int modCarac;
+        private Personagem personagem;
 
         public int CodCarac
         {
@@ -43,6 +37,12 @@ namespace SistemaRPG
         {
             get { return modCarac; }
             set { modCarac = value; }
+        }
+
+        public Personagem Personagem
+        {
+            get { return personagem; }
+            set { personagem = value; }
         }
     }
 }
