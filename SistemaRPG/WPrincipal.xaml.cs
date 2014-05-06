@@ -82,7 +82,7 @@ namespace SistemaRPG
 
         private void mnCadastrarJogador(object sender, RoutedEventArgs e)
         {
-            WCadastro cadastro = new WCadastro();
+            WSelecionaJogador cadastro = new WSelecionaJogador();
             cadastro.ShowDialog();
         }
 

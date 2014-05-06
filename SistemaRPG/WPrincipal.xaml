@@ -29,9 +29,21 @@
 
 
             <MenuItem Header="AVENTURA" Foreground="White" Background="#FF3D98C7" BorderBrush="#FF3D98C7" >
-                <MenuItem Header="_Iniciar nova aventura (sessão de jogo)" BorderBrush="#FF3D98C7" Background="#FF3D98C7" Click="mnNovaAventura" />
-                <MenuItem Header="_Carregar aventura anterior (sessão de jogo)" Background="#FF3D98C7"  />
-                <MenuItem Header="_Gravar Ponto da história" Background="#FFEFEFF2" Click="mnGravarPonto" />
+                <MenuItem  Header="_Iniciar nova aventura (sessão de jogo)" BorderBrush="#FF3D98C7" Background="#FF3D98C7" Click="mnNovaAventura" >
+                    <MenuItem.Icon>
+                        <Image Source="Imagens\star.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Carregar aventura anterior (sessão de jogo)" Background="#FF3D98C7"  >
+                    <MenuItem.Icon>
+                        <Image Source="Imagens\load.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Gravar Ponto da história" Background="#FFEFEFF2" Click="mnGravarPonto" >
+                    <MenuItem.Icon>
+                        <Image Source="Imagens\save.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
 
             <MenuItem Header="CADASTRO" Background="#FF3D98C7">

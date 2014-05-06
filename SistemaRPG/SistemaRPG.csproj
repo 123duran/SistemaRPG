@@ -323,6 +323,15 @@
   <ItemGroup>
     <Resource Include="Imagens\BOLD_gradient_pack_by_Kip0130.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\load.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

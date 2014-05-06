@@ -144,16 +144,6 @@ namespace SistemaRPG
 
                             c.Add(cad);
                             
-                            //foreach(Cadastro i in c)
-                            //{
-
-                                //i.Personagem.NomePer = drLogin["Personagem"].ToString();
-                                //c[0].Nome = drLogin["Nome"].ToString();
-                                //c[0].Email = drLogin["Email"].ToString();
-                                //c[0].Personagem.NomePer = drLogin["Personagem"].ToString();
-                            //}
-                            
-                            
                             /*c.Nome = drLogin["Nome"].ToString();
                             c.Email = drLogin["Email"].ToString();
                             c.Personagem.NomePer = drLogin["Personagem"].ToString();
