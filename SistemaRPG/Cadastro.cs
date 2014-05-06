@@ -15,7 +15,9 @@ namespace SistemaRPG
         private String senha;
         private String perfil;
         private int ativo;
-        private Personagem personagem;
+        private Personagem personagem = new Personagem();
+
+
 
         public int CodLogin
         {

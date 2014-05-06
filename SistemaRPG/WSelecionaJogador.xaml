@@ -1,11 +1,11 @@
 ﻿<Window x:Class="SistemaRPG.WSelecionaJogador"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="WSelecionaJogador" Height="633.722" Width="996.992">
-    <Grid>
+        Title="WSelecionaJogador" Height="633.722" Width="996.992" Loaded="Window_Loaded_1">
+    <Grid >
         <Button x:Name="btnListar" Content="Listar" HorizontalAlignment="Left" Margin="781,23,0,0" VerticalAlignment="Top" Width="145" Height="37" FontSize="16" Click="btnListar_Click"/>
         <TextBox x:Name="txtJogador" HorizontalAlignment="Left" Height="37" Margin="109,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="658" FontSize="16"/>
-        <DataGrid x:Name="dtJogadores" HorizontalAlignment="Left" Margin="21,132,0,0" VerticalAlignment="Top" Height="296" Width="623"/>
+        <DataGrid x:Name="dtJogadores" ItemsSource="{Binding}" AutoGenerateColumns="True" AlternationCount="2"  HorizontalAlignment="Left" Margin="21,132,0,0" VerticalAlignment="Top" Height="296" Width="623" Loaded="dtJogadores_Loaded"/>
         <DataGrid x:Name="dtSelecionados" HorizontalAlignment="Left" Margin="655,132,0,0" VerticalAlignment="Top" Height="188" Width="294"/>
         <Button x:Name="btnApagar" Content="Remover da lista" HorizontalAlignment="Left" Margin="669,337,0,0" VerticalAlignment="Top" Width="134" Height="37" FontSize="16"/>
         <Button x:Name="btnAdicionar" Content="Adicionar à  lista" HorizontalAlignment="Left" Margin="10,449,0,0" VerticalAlignment="Top" Width="136" Height="37" FontSize="16"/>

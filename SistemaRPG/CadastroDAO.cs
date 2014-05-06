@@ -111,6 +111,84 @@ namespace SistemaRPG
             }
         }
 
+        public List<Cadastro> SelecionaPersonagem()
+        {
+            SqlDataReader drLogin = null;
+            try
+            {
+                using (SqlConnection con = Conexao.obterConexao())
+                {
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+
+                        cmd.CommandText = @"SELECT c.NOME AS Nome, c.EMAIL AS Email, p.NOME_PER AS Personagem 
+                                            FROM Cadastro c INNER JOIN Personagem p
+                                            ON c.COD_LOGIN = p.COD_LOGIN 
+                                            WHERE c.ATIVO = 1 ORDER BY c.NOME";
+                        
+                        drLogin = cmd.ExecuteReader();
+                        List<Cadastro> c = new List<Cadastro>();
+                        Cadastro cad = null;
+                        
+                        
+
+                        while (drLogin.Read())
+                        {
+                            Console.WriteLine(drLogin["Nome"].ToString());
+                            cad = new Cadastro();
+                            cad.Nome = drLogin["Nome"].ToString();
+                            cad.Email = drLogin["Email"].ToString();
+                            cad.Personagem.NomePer = drLogin["Personagem"].ToString();
+
+                            c.Add(cad);
+                            
+                            //foreach(Cadastro i in c)
+                            //{
+
+                                //i.Personagem.NomePer = drLogin["Personagem"].ToString();
+                                //c[0].Nome = drLogin["Nome"].ToString();
+                                //c[0].Email = drLogin["Email"].ToString();
+                                //c[0].Personagem.NomePer = drLogin["Personagem"].ToString();
+                            //}
+                            
+                            
+                            /*c.Nome = drLogin["Nome"].ToString();
+                            c.Email = drLogin["Email"].ToString();
+                            c.Personagem.NomePer = drLogin["Personagem"].ToString();
+                              c.Personagem.RacaPer = drLogin["Raça"].ToString();
+                              c.Personagem.ForcaPer = Convert.ToInt32(drLogin["Força"]);
+                              c.Personagem.TipoPer = drLogin["Tipo de Personagem"].ToString();
+                              c.Personagem.NivelPer = Convert.ToInt32(drLogin["Nível"]);
+                              c.Personagem.HabPer = Convert.ToInt32(drLogin["Habilidade"]);
+                              c.Personagem.ResPer = Convert.ToInt32(drLogin["Resistência"]);
+                              c.Personagem.ArmPer = Convert.ToInt32(drLogin["Armadura"]);
+                              c.Personagem.PvPer = Convert.ToInt32(drLogin["Pontos de Vida"]);
+                              c.Personagem.PdfPer = Convert.ToInt32(drLogin["Poder de Fogo"]);
+                              c.Personagem.Caracteristica.NmCarac = drLogin["Caracteristica"].ToString();
+                              c.Personagem.Caracteristica.ModCarac = Convert.ToInt32(drLogin["MOD"]);
+                              c.Personagem.Caracteristica.TipoCarac = drLogin["Tipo de Caracteristica"].ToString();*/
+                        }
+                        drLogin.Close();
+                        return c;
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        Conexao.fecharConexao();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public Cadastro SelecionaPersonagem(Cadastro c)
         {
             SqlDataReader drLogin = null;
@@ -141,7 +219,7 @@ namespace SistemaRPG
                             c.Nome = drLogin["Nome"].ToString();
                             c.Email = drLogin["Email"].ToString();
                             c.Personagem.NomePer = drLogin["Personagem"].ToString();
-                            c.Personagem.RacaPer = drLogin["Raça"].ToString();
+                          /*  c.Personagem.RacaPer = drLogin["Raça"].ToString();
                             c.Personagem.ForcaPer = Convert.ToInt32(drLogin["Força"]);
                             c.Personagem.TipoPer = drLogin["Tipo de Personagem"].ToString();
                             c.Personagem.NivelPer = Convert.ToInt32(drLogin["Nível"]);
@@ -152,7 +230,7 @@ namespace SistemaRPG
                             c.Personagem.PdfPer = Convert.ToInt32(drLogin["Poder de Fogo"]);
                             c.Personagem.Caracteristica.NmCarac = drLogin["Caracteristica"].ToString();
                             c.Personagem.Caracteristica.ModCarac = Convert.ToInt32(drLogin["MOD"]);
-                            c.Personagem.Caracteristica.TipoCarac = drLogin["Tipo de Caracteristica"].ToString();
+                            c.Personagem.Caracteristica.TipoCarac = drLogin["Tipo de Caracteristica"].ToString();*/
                         }
                         drLogin.Close();
                         return c;
@@ -174,10 +252,7 @@ namespace SistemaRPG
             }
         }
 
-        private int ConvertToInt32()
-        {
-            throw new NotImplementedException();
-        }
+     
 
         public void Gravar(Cadastro c)
         {

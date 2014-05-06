@@ -48,6 +48,8 @@ namespace SistemaRPG
         [XmlElement("pdfPer")]
         private int pdfPer;
 
+        private Cadastro cadastro;
+
         private Caracteristica caracteristica;
 
         public int CodPer
@@ -120,6 +122,12 @@ namespace SistemaRPG
         {
             get { return pdfPer; }
             set { pdfPer = value; }
+        }
+
+        public Cadastro Cadastro
+        {
+            get { return cadastro; }
+            set { cadastro = value; }
         }
 
         public Caracteristica Caracteristica
