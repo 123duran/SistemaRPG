@@ -47,10 +47,20 @@ namespace SistemaRPG
 
         private void btnImportar(object sender, RoutedEventArgs e)
         {
-            ManipulaXML xml = new ManipulaXML();
-            Personagem ficha = null;
-            ficha = xml.lerFicha(txtCaminho.Text);
-            MessageBox.Show("imagem : " + ficha.ImgPer.ToString() + "resistencia" + ficha.ResPer.ToString() + "pdv: " + ficha.PvPer.ToString());
+            if (txtCaminho.Text.Length > 0)
+            {
+                try
+                {
+                    ManipulaXML xml = new ManipulaXML();
+                    Personagem ficha = null;
+                    ficha = xml.lerFicha(txtCaminho.Text);
+                    MessageBox.Show("imagem : " + ficha.ImgPer.ToString() + "resistencia" + ficha.ResPer.ToString() + "pdv: " + ficha.PvPer.ToString());
+                }
+                catch (Exception er)
+                {
+                    throw er;
+                }
+            }
         }
     }
 }

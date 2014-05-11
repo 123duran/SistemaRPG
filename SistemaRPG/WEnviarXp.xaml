@@ -1,0 +1,22 @@
+﻿<Window x:Class="SistemaRPG.WEnviarXp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WEnviarXp" Height="301.06" Width="438.869" Loaded="Window_Loaded_1">
+            <Grid>
+            <ComboBox  HorizontalAlignment="Left" Margin="161,78,0,0" VerticalAlignment="Top" Width="150"/>
+            <Button Content="Enviar " HorizontalAlignment="Left" Margin="161,163,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="-0.239,0.572"/>
+            <Button Content="Sair" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="346,240,0,0"/>
+            <TextBox HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Margin="161,118,0,0"/>
+            <Label Content="Escolha o personagem:" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,78,0,0"/>
+            <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha " HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="16,0,0,2" FontSize="22" Width="225"/>
+            <Label Foreground="White" Content="Envio de XP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="161,34,0,0" FontSize="22" Width="225"/>
+        <Label Content="Escolha o montante de xp:" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,118,0,0"/>
+
+    </Grid>
+        <Window.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF3D98C7" Offset="0.393"/>
+                <GradientStop Color="#FF1F5F8B" Offset="1"/>
+            </LinearGradientBrush>
+        </Window.Background>
+</Window>

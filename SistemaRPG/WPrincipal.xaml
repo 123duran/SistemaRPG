@@ -39,34 +39,34 @@
                         <Image Source="Imagens\load.png"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_Gravar Ponto da história" Background="#FFEFEFF2" Click="mnGravarPonto" >
+                <MenuItem Header="_Gravar Ponto da história" Background="#FF3D98C7" Foreground="White" Click="mnGravarPonto" >
                     <MenuItem.Icon>
                         <Image Source="Imagens\save.png"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
 
-            <MenuItem Header="CADASTRO" Background="#FF3D98C7">
-                <MenuItem Header="Fichas" Click="mnCadastrarFicha" Background="#FFEFEFF2" >
+            <MenuItem Header="CADASTRO" Background="#FF3D98C7" Foreground="White">
+                <MenuItem Header="Fichas" Click="mnCadastrarFicha" Background="#FF3D98C7" >
                                     </MenuItem>
-                <MenuItem Header="Cadastrar Jogador na Partida" Background="#FFEFEFF2" Click="mnCadastrarJogador"/>
+                <MenuItem Header="Cadastrar Jogador na Partida" Background="#FF3D98C7" Click="mnCadastrarJogador"/>
                
                 
             </MenuItem>
-            <MenuItem Header="IMPORTAÇÃO" Background="#FF3D98C7" Width="84">
-                <MenuItem Header="_Importar Ficha" Background="#FFEFEFF2" Click="mnImportarFicha" />
+            <MenuItem Header="IMPORTAÇÃO" Background="#FF3D98C7" Foreground="White" Width="84">
+                <MenuItem Header="_Importar Ficha" Background="#FF3D98C7" Click="mnImportarFicha" />
                             </MenuItem>
-            <MenuItem Header="ENVIO" Background="#FF3D98C7">
-                <MenuItem Header="_Enviar Ficha por E-mail" Background="#FFEFEFF2" Click="mnEnviarFicha" />
-                <MenuItem Header="_Enviar Mensagem aos jogadores" Background="#FFEFEFF2" />
-                <MenuItem Header="_Envio de dados" Background="#FFEFEFF2" >
-                    <MenuItem Header="Enviar dados aos jogadores" Background="#FFEFEFF2" ></MenuItem>
-                    <MenuItem Header="Rolar dados (local) " Background="#FFEFEFF2" Click="mnRolarLocal" ></MenuItem>
+            <MenuItem Header="ENVIO" BorderBrush="#FF3D98C7"  Foreground="White" Background="#FF3D98C7">
+                <MenuItem Header="_Enviar Ficha por E-mail" BorderThickness="0" Background="#FF3D98C7" Click="mnEnviarFicha" />
+                <MenuItem Header="_Enviar Mensagem aos jogadores" Background="#FF3D98C7" Click="MenuItem_Click_3" />
+                <MenuItem Header="_Envio de dados" Background="#FF3D98C7"  Foreground="White" BorderBrush="#FF3D98C7">
+                    <MenuItem Header="Enviar dados aos jogadores" Background="#FF3D98C7" ></MenuItem>
+                    <MenuItem Header="Rolar dados (local) " Background="#FF3D98C7" Click="mnRolarLocal" ></MenuItem>
                 </MenuItem>
             </MenuItem>
 
-            <MenuItem Header="EXPERIÊNCIA" Background="#FF3D98C7">
-                <MenuItem Header="_Envio de XP aos jogadores" Background="#FFEFEFF2" Foreground="Black"/>
+            <MenuItem Header="EXPERIÊNCIA" Foreground="White" Background="#FF3D98C7">
+                <MenuItem Header="_Envio de XP aos jogadores" Background="#FF3D98C7" Foreground="White" Click="MenuItem_Click_4"/>
             </MenuItem>
            
             

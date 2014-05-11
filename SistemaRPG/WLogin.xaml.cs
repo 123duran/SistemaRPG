@@ -30,6 +30,13 @@ namespace SistemaRPG
             ValidaUsuario();
         }
 
+        public int login;
+        public int getLogin
+        {
+            get { return login; }
+            set { login = value; }
+        }
+
         private void ValidaUsuario()
         {
             Cadastro c = new Cadastro();
@@ -48,6 +55,7 @@ namespace SistemaRPG
                     {
                         MessageBox.Show("Bem vindo ");
                         WPrincipal princ = new WPrincipal();
+                        login = c.CodLogin;
                         princ.Show();
                         this.Close();
                     }

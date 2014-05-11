@@ -136,32 +136,66 @@ namespace SistemaRPG
 
                         while (drLogin.Read())
                         {
-                            Console.WriteLine(drLogin["Nome"].ToString());
                             cad = new Cadastro();
                             cad.Nome = drLogin["Nome"].ToString();
                             cad.Email = drLogin["Email"].ToString();
                             cad.Personagem.NomePer = drLogin["Personagem"].ToString();
 
                             c.Add(cad);
-                            
-                            /*c.Nome = drLogin["Nome"].ToString();
-                            c.Email = drLogin["Email"].ToString();
-                            c.Personagem.NomePer = drLogin["Personagem"].ToString();
-                              c.Personagem.RacaPer = drLogin["Raça"].ToString();
-                              c.Personagem.ForcaPer = Convert.ToInt32(drLogin["Força"]);
-                              c.Personagem.TipoPer = drLogin["Tipo de Personagem"].ToString();
-                              c.Personagem.NivelPer = Convert.ToInt32(drLogin["Nível"]);
-                              c.Personagem.HabPer = Convert.ToInt32(drLogin["Habilidade"]);
-                              c.Personagem.ResPer = Convert.ToInt32(drLogin["Resistência"]);
-                              c.Personagem.ArmPer = Convert.ToInt32(drLogin["Armadura"]);
-                              c.Personagem.PvPer = Convert.ToInt32(drLogin["Pontos de Vida"]);
-                              c.Personagem.PdfPer = Convert.ToInt32(drLogin["Poder de Fogo"]);
-                              c.Personagem.Caracteristica.NmCarac = drLogin["Caracteristica"].ToString();
-                              c.Personagem.Caracteristica.ModCarac = Convert.ToInt32(drLogin["MOD"]);
-                              c.Personagem.Caracteristica.TipoCarac = drLogin["Tipo de Caracteristica"].ToString();*/
                         }
                         drLogin.Close();
                         return c;
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        Conexao.fecharConexao();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public Personagem SelecionaPersonagem(Personagem p)
+        {
+            SqlDataReader drLogin = null;
+            try
+            {
+                using (SqlConnection con = Conexao.obterConexao())
+                {
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+
+                        cmd.CommandText = @"SELECT c.NOME AS Nome, c.EMAIL AS Email, p.NOME_PER AS Personagem 
+                                            FROM Cadastro c INNER JOIN Personagem p
+                                            ON c.COD_LOGIN = p.COD_LOGIN 
+                                            WHERE c.ATIVO = 1  AND c.NOME = @nome OR c.EMAIL = @email OR p.NOME_PER = @per
+                                            ORDER BY c.NOME";
+
+                        SqlParameter parNome =  new SqlParameter("@nome", p.Cadastro.Nome);
+                        SqlParameter parEmail = new SqlParameter("@email", p.Cadastro.Email);
+                        SqlParameter parNomePer = new SqlParameter("@per", p.NomePer);
+                        drLogin = cmd.ExecuteReader();
+
+                        Personagem per = null;
+
+                        while (drLogin.Read())
+                        {
+                            per = new Personagem();
+                            per.Cadastro.Nome = drLogin["Nome"].ToString();
+                            per.Cadastro.Email = drLogin["Email"].ToString();
+                            per.NomePer = drLogin["Personagem"].ToString();
+                        }
+                        drLogin.Close();
+                        return per;
                     }
                     catch (SqlException ex)
                     {
@@ -197,11 +231,8 @@ namespace SistemaRPG
                                                 FROM Cadastro ca, Personagem p, Caracteristica c, Personagem_Caracteristica pc 
                                                 WHERE ca.COD_PER = p.COD_PER 
                                                 AND p.COD_PER = pc.COD_PER
-                                                AND c.COD_CAR = pc.COD_CAR
-                                                AND ca.NOME LIKE @nome ORDER BY ca.NOME";
-
-                        SqlParameter parNome = new SqlParameter("@nome", c.Nome);
-                        cmd.Parameters.Add(parNome);
+                                                AND c.COD_CAR = pc.COD_CAR";
+                                                
                         drLogin = cmd.ExecuteReader();
 
                         while (drLogin.Read())

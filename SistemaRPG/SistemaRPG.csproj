@@ -78,8 +78,13 @@
     <Compile Include="Caracteristica.cs" />
     <Compile Include="Cadastro.cs" />
     <Compile Include="ManipulaXML.cs" />
+    <Compile Include="Partida.cs" />
+    <Compile Include="PartidaDAO.cs" />
     <Compile Include="Personagem.cs" />
     <Compile Include="PersonagemDAO.cs" />
+    <Compile Include="PersonagemPartida.cs" />
+    <Compile Include="Resultado.cs" />
+    <Compile Include="ResultadoDAO.cs" />
     <Compile Include="Service References\localhost\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,6 +105,9 @@
     </Compile>
     <Compile Include="WEnviarMensagem.xaml.cs">
       <DependentUpon>WEnviarMensagem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WEnviarXp.xaml.cs">
+      <DependentUpon>WEnviarXp.xaml</DependentUpon>
     </Compile>
     <Compile Include="WGravarPonto.xaml.cs">
       <DependentUpon>WGravarPonto.xaml</DependentUpon>
@@ -148,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WEnviarMensagem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WEnviarXp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

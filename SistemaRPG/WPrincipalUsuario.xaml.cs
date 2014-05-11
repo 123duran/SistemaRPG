@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Threading;
+using System.ComponentModel;
 
 namespace SistemaRPG
 {
@@ -19,9 +21,12 @@ namespace SistemaRPG
     /// </summary>
     public partial class WPrincipalUsuario : Window
     {
+        //  private BackgroundWorker worker;
         public WPrincipalUsuario()
         {
             InitializeComponent();
+            // worker = new BackgroundWorker();
+
         }
        
 

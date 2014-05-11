@@ -13,7 +13,7 @@ namespace SistemaRPG
         private String nmCarac;
         private String tipoCarac;
         private int modCarac;
-        private Personagem personagem;
+        //private Personagem personagem;
 
         public int CodCarac
         {
@@ -39,10 +39,6 @@ namespace SistemaRPG
             set { modCarac = value; }
         }
 
-        public Personagem Personagem
-        {
-            get { return personagem; }
-            set { personagem = value; }
-        }
+        
     }
 }

@@ -11,7 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Windows.Threading;
+using System.Threading;
+using System.ComponentModel;
 namespace SistemaRPG
 {
      
@@ -20,11 +22,14 @@ namespace SistemaRPG
     /// </summary>
     public partial class WPrincipal : Window
     {
-        
+      //  private BackgroundWorker worker;
         public WPrincipal()
         {
             InitializeComponent();
+           // worker = new BackgroundWorker();
+
         }
+     
 
         private void mnCadastrarFicha(object sender, RoutedEventArgs e) {
             MainWindow frm = new MainWindow();
@@ -84,6 +89,18 @@ namespace SistemaRPG
         {
             WSelecionaJogador cadastro = new WSelecionaJogador();
             cadastro.ShowDialog();
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            WEnviarMensagem msg = new WEnviarMensagem();
+            msg.ShowDialog();
+        }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            WEnviarXp xp = new WEnviarXp();
+            xp.ShowDialog();
         }
 
     }

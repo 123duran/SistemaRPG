@@ -15,7 +15,7 @@ namespace SistemaRPG
         private String senha;
         private String perfil;
         private int ativo;
-        private Personagem personagem = new Personagem();
+        //private Personagem personagem = new Personagem();
 
 
 
@@ -55,10 +55,6 @@ namespace SistemaRPG
             set { ativo = value; }
         }
 
-        public Personagem Personagem
-        {
-            get { return personagem; }
-            set { personagem = value; }
-        }
+        
     }
 }

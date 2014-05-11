@@ -15,20 +15,18 @@ using System.Windows.Shapes;
 namespace SistemaRPG
 {
     /// <summary>
-    /// Interaction logic for WEnviarMensagem.xaml
+    /// Interaction logic for WEnviarXp.xaml
     /// </summary>
-    public partial class WEnviarMensagem : Window
+    public partial class WEnviarXp : Window
     {
-        public WEnviarMensagem()
+        public WEnviarXp()
         {
             InitializeComponent();
         }
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            
+
         }
-
-
     }
 }
