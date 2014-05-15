@@ -168,7 +168,12 @@ namespace SistemaRPG
            {
                lvlPer = txtNivel.Text;
                if (txtNivel.Text.Length > 0)
-               escreverFicha(lvlPer);
+                   escreverFicha(lvlPer);
+               else 
+               {
+                   MessageBox.Show("Insira o nível do seu Pesonagem por favor.");
+               }
+
 
            }
            else {

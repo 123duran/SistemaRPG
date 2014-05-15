@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SistemaRPG
 {
@@ -123,7 +124,7 @@ namespace SistemaRPG
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = @"SELECT c.NOME AS Nome, c.EMAIL AS Email, p.NOME_PER AS Personagem 
+                        cmd.CommandText = @"SELECT  c.NOME AS Nome, c.EMAIL AS Email, p.COD_PER, p.NOME_PER AS Personagem 
                                             FROM Cadastro c INNER JOIN Personagem p
                                             ON c.COD_LOGIN = p.COD_LOGIN 
                                             WHERE c.ATIVO = 1 ORDER BY c.NOME";
@@ -131,15 +132,19 @@ namespace SistemaRPG
                         drLogin = cmd.ExecuteReader();
                         List<Cadastro> c = new List<Cadastro>();
                         Cadastro cad = null;
-                        
-                        
 
                         while (drLogin.Read())
                         {
                             cad = new Cadastro();
+                            Personagem p = new Personagem();
+                            p.CodPer = Convert.ToInt32(drLogin["cod_per"]);
+                            p.nomePer = drLogin["Personagem"].ToString();
+                            
                             cad.Nome = drLogin["Nome"].ToString();
                             cad.Email = drLogin["Email"].ToString();
-                            cad.Personagem.NomePer = drLogin["Personagem"].ToString();
+
+
+                            cad.Personagem = p;
 
                             c.Add(cad);
                         }
@@ -153,13 +158,15 @@ namespace SistemaRPG
                     finally
                     {
                         Conexao.fecharConexao();
+                       
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception error)
             {
-                throw e;
+                throw error;
             }
+
         }
 
         public Personagem SelecionaPersonagem(Personagem p)
@@ -272,8 +279,6 @@ namespace SistemaRPG
                 throw e;
             }
         }
-
-     
 
         public void Gravar(Cadastro c)
         {

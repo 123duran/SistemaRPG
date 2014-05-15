@@ -5,7 +5,7 @@
     <Grid >
         <Button x:Name="btnListar" Content="Listar" HorizontalAlignment="Left" Margin="701,23,0,0" VerticalAlignment="Top" Width="145" Height="37" FontSize="16" Click="btnListar_Click"/>
         <TextBox x:Name="txtJogador" HorizontalAlignment="Left" Height="37" Margin="21,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="630" FontSize="16"/>
-        <DataGrid x:Name="dtJogadores" ItemsSource="{Binding}" AutoGenerateColumns="False"   HorizontalAlignment="Left" Margin="21,132,0,0" VerticalAlignment="Top" SelectionMode="Extended"  Width="Auto" Height="Auto"
+        <DataGrid x:Name="dtJogadores" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False"   HorizontalAlignment="Left" Margin="21,132,0,0" VerticalAlignment="Top" SelectionMode="Extended"  Width="Auto" Height="Auto"
                    >
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Jogador" Binding="{Binding Nome}" Width="SizeToCells" CanUserResize="False" CanUserReorder="False" CanUserSort="False" IsReadOnly="True" />
@@ -15,7 +15,7 @@
            
             
         </DataGrid>
-        <DataGrid x:Name="dtSelecionados" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="655,132,0,0" VerticalAlignment="Top" Height="188" Width="294">
+        <DataGrid x:Name="dtSelecionados" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="655,132,0,0" VerticalAlignment="Top" Height="188" Width="294" EnableRowVirtualization="False">
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Jogador" Binding="{Binding Nome}" Width="SizeToCells" CanUserResize="False" CanUserReorder="False" CanUserSort="False" IsReadOnly="True" />
                 <DataGridTextColumn Header="E-mail" Binding="{Binding Email}" Width="SizeToCells" CanUserResize="False" CanUserReorder="False" CanUserSort="False" IsReadOnly="True" />
@@ -23,11 +23,12 @@
             </DataGrid.Columns>
             
         </DataGrid>
-        <Button x:Name="btnApagar" Content="Remover da lista" HorizontalAlignment="Left" Margin="669,337,0,0" VerticalAlignment="Top" Width="134" Height="37" FontSize="16" Click="btnApagar_Click"/>
+        <Button x:Name="btnApagar" Content="Remover da lista" HorizontalAlignment="Left" Margin="655,337,0,0" VerticalAlignment="Top" Width="134" Height="37" FontSize="16" Click="btnApagar_Click"/>
         <Button x:Name="btnAdicionar" Content="Adicionar à  lista" HorizontalAlignment="Left" Margin="492,132,0,0" VerticalAlignment="Top" Width="136" Height="37" FontSize="16" Click="btnAdicionar_Click"/>
         <Button x:Name="btnSair" Content="Sair" HorizontalAlignment="Left" Margin="846,556,0,0" VerticalAlignment="Top" Width="133" Height="37" FontSize="16"/>
-        <ComboBox x:Name="cmbPartida" HorizontalAlignment="Left" Margin="21,81,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btGravar" Content="Gravar" HorizontalAlignment="Left" Margin="815,337,0,0" VerticalAlignment="Top" Width="134" Height="37" FontSize="16" Click="btGravar_Click"/>
 
+        <ComboBox x:Name="cmbPartida" ItemsSource="{Binding Path=Aventura}" DisplayMemberPath="NomeAventura" HorizontalAlignment="Left" Margin="21,81,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">

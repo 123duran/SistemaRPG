@@ -13,7 +13,7 @@ namespace SistemaRPG
         private String nmCarac;
         private String tipoCarac;
         private int modCarac;
-        //private Personagem personagem;
+        private Personagem personagem;
 
         public int CodCarac
         {

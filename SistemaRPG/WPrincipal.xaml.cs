@@ -103,5 +103,17 @@ namespace SistemaRPG
             xp.ShowDialog();
         }
 
+        private void MenuItem_Click_5(object sender, RoutedEventArgs e)
+        {
+            WCarregaAventura avent = new WCarregaAventura();
+            avent.ShowDialog();
+        }
+
+        private void MenuItem_Click_6(object sender, RoutedEventArgs e)
+        {
+            WEnviarDados env = new WEnviarDados();
+            env.ShowDialog();
+        }
+
     }
 }

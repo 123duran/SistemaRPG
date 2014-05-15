@@ -49,7 +49,7 @@ namespace SistemaRPG
             }
         }
 
-        public List<PersonagemPartida> SelecionaPartida(PersonagemPartida p)
+        public List<PartidaPersonagem> SelecionaPartida(PartidaPersonagem p)
         {
             SqlDataReader drPartida = null;
             try
@@ -66,28 +66,31 @@ namespace SistemaRPG
                                             ON p.COD_AVENTURA = av.COD_AVENTURA 
                                             INNER JOIN Cadastro c 
                                             ON av.COD_LOGIN = c.COD_LOGIN
-                                            WHERE c.COD_LOGIN = @COD_LOGIN";
+                                            WHERE c.COD_LOGIN = @cod";
 
-                        SqlParameter parLogin = new SqlParameter("@COD_LOGIN", //p.Partida.Aventura.Cadastro.CodLogin);
+                        SqlParameter parLogin = new SqlParameter("@cod", p.Partida.Aventura.Cadastro.CodLogin);
                         cmd.Parameters.Add(parLogin);
 
-                        List<PersonagemPartida> perPartida = new List<PersonagemPartida>();
-                        
+                        List<PartidaPersonagem> pList = new List<PartidaPersonagem>();
+
                         drPartida = cmd.ExecuteReader();
                         while (drPartida.Read())
                         {
-                            p = new PersonagemPartida();
-                            p.Partida.CodPartida = Convert.ToInt32(drPartida["COD_PARTIDA"]);
+                            p = new PartidaPersonagem();
                             p.Partida.Aventura.NomeAventura = drPartida["AVENTURA"].ToString();
 
-                            perPartida.Add(p);
+                            pList.Add(p);
                         }
                         drPartida.Close();
-                        return perPartida;
+                        return pList;
                     }
-                    catch (SqlException ex) 
-                    { 
-                        throw ex; 
+                    catch (SqlException ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        Conexao.fecharConexao();
                     }
                 }
             }

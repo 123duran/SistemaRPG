@@ -10,8 +10,8 @@ namespace SistemaRPG
     {
         private int codPartida;
         private string descricao;
-        //private Aventura aventura;
-        //private Resultado resultado;
+        private Aventura aventura;
+        private Resultado resultado;
 
         public int CodPartida
         {
@@ -25,6 +25,17 @@ namespace SistemaRPG
             set { descricao = value; }
         }
 
+        public Aventura Aventura
+        {
+            get { return aventura; }
+            set { aventura = value; }
+        }
+
+        public Resultado Resultado
+        {
+            get { return resultado; }
+            set { resultado = value; }
+        }
        
     }
 }

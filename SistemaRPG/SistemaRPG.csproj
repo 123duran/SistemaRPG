@@ -82,7 +82,7 @@
     <Compile Include="PartidaDAO.cs" />
     <Compile Include="Personagem.cs" />
     <Compile Include="PersonagemDAO.cs" />
-    <Compile Include="PersonagemPartida.cs" />
+    <Compile Include="PartidaPersonagem.cs" />
     <Compile Include="Resultado.cs" />
     <Compile Include="ResultadoDAO.cs" />
     <Compile Include="Service References\localhost\Reference.cs">
@@ -94,8 +94,14 @@
     <Compile Include="WCadastro.xaml.cs">
       <DependentUpon>WCadastro.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WCarregarAventura.xaml.cs">
+      <DependentUpon>WCarregarAventura.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WDadosJogadores.xaml.cs">
       <DependentUpon>WDadosJogadores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WEnviarDados.xaml.cs">
+      <DependentUpon>WEnviarDados.xaml</DependentUpon>
     </Compile>
     <Compile Include="WEnviarEmail.xaml.cs">
       <DependentUpon>WEnviarEmail.xaml</DependentUpon>
@@ -143,7 +149,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WCarregarAventura.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WDadosJogadores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WEnviarDados.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

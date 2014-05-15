@@ -60,6 +60,55 @@ namespace SistemaRPG
             }
         }
 
+        public List<Aventura> populaAventura(int codlogin )
+        {
+            SqlDataReader drAventura = null;
+            try
+            {
+                using (SqlConnection con = Conexao.obterConexao())
+                {
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+
+                        cmd.CommandText = @"SELECT av.AVENTURA AS Aventura FROM AVENTURA av INNER JOIN CADASTRO c
+                                            ON av.COD_LOGIN = c.COD_LOGIN WHERE c.COD_LOGIN = @cod AND c.PERFIL = 'Administrador' AND c.ATIVO = 1 ORDER BY 1";
+
+                        SqlParameter parAv = new SqlParameter("@cod", codlogin);
+                        cmd.Parameters.Add(parAv);
+
+                        List<Aventura> aventura = new List<Aventura>();
+                        Aventura av = null;
+                        drAventura = cmd.ExecuteReader();
+
+                        while (drAventura.Read())
+                        {
+                        
+                        av = new Aventura();
+                            av.NomeAventura = drAventura["Aventura"].ToString();
+
+                            aventura.Add(av);
+                       }
+                        drAventura.Close();
+                        return aventura;
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        Conexao.fecharConexao();
+                    }
+                }
+            }
+            catch (Exception e) 
+            { 
+                throw e; 
+            }
+        }
+
         public void Gravar(Aventura av)
         {
             try
@@ -71,7 +120,7 @@ namespace SistemaRPG
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = "INSERT INTO Aventura (NOME_AVENTURA, SENHA) VALUES(@aventura, @senha)";
+                        cmd.CommandText = "INSERT INTO Aventura (AVENTURA, SENHA) VALUES(@aventura, @senha)";
 
                         SqlParameter parAven = new SqlParameter("@aventura", av.NomeAventura);
                         SqlParameter parSenha = new SqlParameter("@senha", av.Senha);

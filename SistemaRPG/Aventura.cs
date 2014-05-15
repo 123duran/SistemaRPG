@@ -11,7 +11,7 @@ namespace SistemaRPG
         private int codAventura;
         private String nomeAventura;
         private String senha;
-        //private Cadastro cadastro = new Cadastro();
+        private Cadastro cadastro;
 
         public int CodAventura
         {
@@ -31,6 +31,11 @@ namespace SistemaRPG
             set { senha = value; }
         }
 
+        public Cadastro Cadastro
+        {
+            get { return cadastro; }
+            set { cadastro = value; }
+        }
         
     }
 }

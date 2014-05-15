@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SistemaRPG
 {
-    class PersonagemPartida
+    class PartidaPersonagem
     {
-        private Personagem personagem = new Personagem();
-        private Partida partida = new Partida();
+        private Personagem personagem;
+        private Partida partida;
 
         public Personagem Personagem
         {

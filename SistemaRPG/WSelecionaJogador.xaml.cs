@@ -22,74 +22,62 @@ namespace SistemaRPG
         List<Cadastro> listCad = new List<Cadastro>();
         WLogin wLogin = new WLogin();
         public WSelecionaJogador()
-        {
-            
-            InitializeComponent();
-            
+        {        
+            InitializeComponent();        
         }
 
         private void btnListar_Click(object sender, RoutedEventArgs e)
         {
-            CadastroDAO dao = new CadastroDAO();
+            CadastroDAO dao = CadastroDAO.getInstance();
             if (txtJogador.Text.Length != 0)
             {
                 dtJogadores.ItemsSource = dao.SelecionaPersonagem();
             }
- 
-
         }
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            PersonagemPartida p = new PersonagemPartida();
-            CadastroDAO dao = new CadastroDAO();
-            PartidaDAO partidaDao = new PartidaDAO();
-            Cadastro cad = new Cadastro();
-            cad.CodLogin = 1;
-            p.Partida.Aventura.Cadastro = cad;
-            cmbPartida.ItemsSource = partidaDao.SelecionaPartida(p);
-            dtJogadores.ItemsSource = dao.SelecionaPersonagem();
-            
+            int login;
+            login = wLogin.getLogin;
+            //login = 3;
+            AventuraDAO avDao = AventuraDAO.getInstance();
+            CadastroDAO cadDao = CadastroDAO.getInstance();
+
+            //Populando a comboBox
+            cmbPartida.ItemsSource = avDao.populaAventura(login);
+
+            //Populando a dataGrid
+            dtJogadores.ItemsSource = cadDao.SelecionaPersonagem();
+
+            MessageBox.Show(wLogin.getLogin.ToString());
         }
 
         private void btnAdicionar_Click(object sender, RoutedEventArgs e)
         {
-
             Cadastro cadast =  (Cadastro)dtJogadores.SelectedItem;
             AdicionaLista(cadast);
             dtSelecionados.ItemsSource = listCad;
+            dtSelecionados.CanUserAddRows = false;
             dtSelecionados.Items.Refresh();
-           
         }
-
-        private DataGrid  RemoveLista(DataGrid grid0)
-        {
-            //listCad.RemoveAt(linha);
-            var grid = grid0;
-            var mygrid = grid0;
-
-             if (grid0.SelectedIndex >= 0) 
-            {
-                for (int i = 0; i <= grid0.SelectedItems.Count; i++)
-                { 
-                mygrid.Items.Remove(mygrid.SelectedItems[i]);
-                };
-            }
-
-            return mygrid;
-        }
-
 
         private void AdicionaLista(Cadastro cadast)
         {
-
             listCad.Add(cadast);
         }
 
         private void btnApagar_Click(object sender, RoutedEventArgs e)
         {
-            dtSelecionados = RemoveLista(dtSelecionados);
+            if (this.dtSelecionados.SelectedIndex >= 0)
+            {
+                listCad.RemoveAt(dtSelecionados.SelectedIndex);
+            }
             dtSelecionados.Items.Refresh();
+        }
+
+        private void btGravar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
 

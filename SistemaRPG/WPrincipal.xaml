@@ -34,7 +34,7 @@
                         <Image Source="Imagens\star.png"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_Carregar aventura anterior (sessão de jogo)" Background="#FF3D98C7"  >
+                <MenuItem Header="_Carregar aventura anterior (sessão de jogo)" Background="#FF3D98C7" Click="MenuItem_Click_5"  >
                     <MenuItem.Icon>
                         <Image Source="Imagens\load.png"></Image>
                     </MenuItem.Icon>
@@ -59,7 +59,7 @@
             <MenuItem Header="ENVIO" BorderBrush="#FF3D98C7"  Foreground="White" Background="#FF3D98C7">
                 <MenuItem Header="_Enviar Ficha por E-mail" BorderThickness="0" Background="#FF3D98C7" Click="mnEnviarFicha" />
                 <MenuItem Header="_Enviar Mensagem aos jogadores" Background="#FF3D98C7" Click="MenuItem_Click_3" />
-                <MenuItem Header="_Envio de dados" Background="#FF3D98C7"  Foreground="White" BorderBrush="#FF3D98C7">
+                <MenuItem Header="_Envio de dados" Background="#FF3D98C7"  Foreground="White" BorderBrush="#FF3D98C7" Click="MenuItem_Click_6">
                     <MenuItem Header="Enviar dados aos jogadores" Background="#FF3D98C7" ></MenuItem>
                     <MenuItem Header="Rolar dados (local) " Background="#FF3D98C7" Click="mnRolarLocal" ></MenuItem>
                 </MenuItem>
