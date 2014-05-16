@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaRPG
 {
-    class Resultado
+   public class Resultado
     {
         private int codResultado;
         private DateTime data;

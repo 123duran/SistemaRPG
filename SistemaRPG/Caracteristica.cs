@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace SistemaRPG
 {
-    class Caracteristica
+    public class Caracteristica
     {
         private int codCarac;
         private String nmCarac;

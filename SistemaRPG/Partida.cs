@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaRPG
 {
-    class Partida
+    public class Partida
     {
         private int codPartida;
         private string descricao;

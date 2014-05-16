@@ -17,7 +17,7 @@ namespace SistemaRPG
             return dao;
         }
 
-        public Cadastro SelecionaCadastro(string emailLogin, string senhaLogin)
+        public void SelecionaCadastro(string emailLogin, string senhaLogin)
         {
             SqlDataReader drLogin = null;
             try
@@ -29,7 +29,7 @@ namespace SistemaRPG
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = @"SELECT EMAIL, SENHA, PERFIL, ATIVO
+                        cmd.CommandText = @"SELECT COD_LOGIN, EMAIL, SENHA, PERFIL, ATIVO
                                             FROM Cadastro WHERE EMAIL = @email AND SENHA = @senha";
 
                         SqlParameter parEmail = new SqlParameter("@email", emailLogin);
@@ -39,17 +39,18 @@ namespace SistemaRPG
                         cmd.Parameters.Add(parSenha);
 
                         drLogin = cmd.ExecuteReader();
-                        Cadastro cad = new Cadastro();
+                        //Cadastro cad = new Cadastro();
 
                         while (drLogin.Read())
                         {
-                            cad.Email = drLogin["EMAIL"].ToString();
-                            cad.Senha = drLogin["SENHA"].ToString();
-                            cad.Perfil = drLogin["PERFIL"].ToString();
-                            cad.Ativo = Convert.ToInt32(drLogin["ATIVO"]);
+                            Cadastro.Cad.CodLogin = Convert.ToInt32(drLogin["COD_LOGIN"]);
+                            Cadastro.Cad.Email = drLogin["EMAIL"].ToString();
+                            Cadastro.Cad.Senha = drLogin["SENHA"].ToString();
+                            Cadastro.Cad.Perfil = drLogin["PERFIL"].ToString();
+                            Cadastro.Cad.Ativo = Convert.ToInt32(drLogin["ATIVO"]);
                         }
                         drLogin.Close();
-                        return cad;
+                        //return Cadastro.Cad;
                     }
                     catch (Exception ex)
                     {

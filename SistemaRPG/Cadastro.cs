@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace SistemaRPG
 {
-    class Cadastro
+    public class Cadastro
     {
         private int codLogin;
         private String nome;
@@ -16,6 +16,23 @@ namespace SistemaRPG
         private String perfil;
         private int ativo;
         private Personagem personagem;
+
+        private static Cadastro cad;
+
+        public static Cadastro Cad
+        {
+            get {
+                if (cad == null)
+                {
+                    cad = new Cadastro();
+                }
+                return cad;
+            }
+        }
+
+        public Cadastro()
+        {}
+
 
         public int CodLogin
         {

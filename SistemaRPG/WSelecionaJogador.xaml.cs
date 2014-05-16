@@ -20,11 +20,13 @@ namespace SistemaRPG
     public partial class WSelecionaJogador : Window
     {
         List<Cadastro> listCad = new List<Cadastro>();
-        WLogin wLogin = new WLogin();
+        //WLogin wLogin;
         public WSelecionaJogador()
         {        
             InitializeComponent();        
         }
+
+       
 
         private void btnListar_Click(object sender, RoutedEventArgs e)
         {
@@ -37,19 +39,15 @@ namespace SistemaRPG
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            int login;
-            login = wLogin.getLogin;
-            //login = 3;
+            MessageBox.Show(Cadastro.Cad.CodLogin.ToString());//login = 3;
             AventuraDAO avDao = AventuraDAO.getInstance();
             CadastroDAO cadDao = CadastroDAO.getInstance();
 
             //Populando a comboBox
-            cmbPartida.ItemsSource = avDao.populaAventura(login);
+            cmbPartida.ItemsSource = avDao.populaAventura();
 
             //Populando a dataGrid
-            dtJogadores.ItemsSource = cadDao.SelecionaPersonagem();
-
-            MessageBox.Show(wLogin.getLogin.ToString());
+            dtJogadores.ItemsSource = cadDao.SelecionaPersonagem();                        
         }
 
         private void btnAdicionar_Click(object sender, RoutedEventArgs e)
@@ -77,7 +75,19 @@ namespace SistemaRPG
 
         private void btGravar_Click(object sender, RoutedEventArgs e)
         {
+            List<PartidaPersonagem> parPer = new List<PartidaPersonagem>();
 
+            for (int i = 0; i<= listCad.Count;i++)
+            {
+                 //parPer[i].Personagem.CodPer= listCad[i].Personagem.CodPer;
+                 
+                
+                Aventura a = (Aventura)cmbPartida.SelectedItem;
+                string value = a.NomeAventura;
+                 parPer[i].Partida.Descricao = value;
+                 MessageBox.Show(parPer[i].Partida.Descricao.ToString() + " descr e " + parPer[i].Personagem.NomePer); 
+            }
+            //MessageBox.Show(parPer[1].Partida.Descricao.ToString() + " descr e " + parPer[1].Personagem.NomePer); 
         }
 
 

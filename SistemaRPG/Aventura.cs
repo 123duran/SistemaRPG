@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaRPG
 {
-    class Aventura
+    public class Aventura
     {
         private int codAventura;
         private String nomeAventura;

@@ -10,7 +10,7 @@ namespace SistemaRPG
     /// <summary>
     /// Personagem
     /// </summary>
-    class Personagem 
+    public class Personagem 
     {
         [XmlElement("codPer")]
         private int codPer;

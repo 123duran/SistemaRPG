@@ -30,12 +30,12 @@ namespace SistemaRPG
             ValidaUsuario();
         }
 
-        public int login;
-        public int getLogin
-        {
-            get { return login; }
-            set { login = value; }
-        }
+        //public int login;
+        //public int getLogin
+        //{
+        //    get { return login; }
+        //    set { login = value; }
+        //}
 
         private void ValidaUsuario()
         {
@@ -44,8 +44,9 @@ namespace SistemaRPG
 
             string emailLogin= txtEmail.Text;
             string senhaLogin = txtSenha.Password;
-            c = dao.SelecionaCadastro(emailLogin,senhaLogin); 
-
+            dao.SelecionaCadastro(emailLogin, senhaLogin);
+            //login = c.CodLogin;
+            c = Cadastro.Cad;
  
             try
             {
@@ -55,7 +56,6 @@ namespace SistemaRPG
                     {
                         MessageBox.Show("Bem vindo ");
                         WPrincipal princ = new WPrincipal();
-                        login = c.CodLogin;
                         princ.Show();
                         this.Close();
                     }

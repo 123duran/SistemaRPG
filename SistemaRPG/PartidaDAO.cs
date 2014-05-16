@@ -100,6 +100,11 @@ namespace SistemaRPG
             }
         }
 
+        public void GravarPerPar() { 
+        
+        
+        }
+
         public void Gravar(Partida p)
         {
             try
