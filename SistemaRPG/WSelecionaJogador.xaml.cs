@@ -20,6 +20,7 @@ namespace SistemaRPG
     public partial class WSelecionaJogador : Window
     {
         List<Cadastro> listCad = new List<Cadastro>();
+        List<Cadastro> cadNaoSelec = new List<Cadastro>();
         //WLogin wLogin;
         public WSelecionaJogador()
         {        
@@ -30,16 +31,12 @@ namespace SistemaRPG
 
         private void btnListar_Click(object sender, RoutedEventArgs e)
         {
-            CadastroDAO dao = CadastroDAO.getInstance();
-            if (txtJogador.Text.Length != 0)
-            {
-                dtJogadores.ItemsSource = dao.SelecionaPersonagem();
-            }
+
         }
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(Cadastro.Cad.CodLogin.ToString());//login = 3;
+            //MessageBox.Show(Cadastro.Cad.CodLogin.ToString()); mostrava  o codlogin do jogador logado
             AventuraDAO avDao = AventuraDAO.getInstance();
             CadastroDAO cadDao = CadastroDAO.getInstance();
 
@@ -47,16 +44,32 @@ namespace SistemaRPG
             cmbPartida.ItemsSource = avDao.populaAventura();
 
             //Populando a dataGrid
-            dtJogadores.ItemsSource = cadDao.SelecionaPersonagem();                        
+            cadNaoSelec = cadDao.SelecionaPersonagem();
+            dtJogadores.ItemsSource = cadNaoSelec ;                        
         }
 
         private void btnAdicionar_Click(object sender, RoutedEventArgs e)
         {
-            Cadastro cadast =  (Cadastro)dtJogadores.SelectedItem;
-            AdicionaLista(cadast);
-            dtSelecionados.ItemsSource = listCad;
-            dtSelecionados.CanUserAddRows = false;
-            dtSelecionados.Items.Refresh();
+            //Esse if vai fazer com que só tente passar o objeto para a outra grid caso tenha algo selecionado
+            if (this.dtJogadores.SelectedIndex >= 0)
+            {
+                //Essa é um cast do item para o tipo de objeto cadastrp
+                Cadastro cadast = (Cadastro)dtJogadores.SelectedItem;
+                //Passa a o objeto obtido como Parâmetro para a função adicionalista
+                AdicionaLista(cadast);
+                //Adiciona os itens ao ItemSource do dtSelecionados
+                dtSelecionados.ItemsSource = listCad;
+                //Impede que o usuário adicione novas colunas
+                dtSelecionados.CanUserAddRows = false;
+                //Irá dar refresh nos itens da grid para que as alterações apareçam na tela
+                dtSelecionados.Items.Refresh();
+                //revomve do binding o objeto que acabou de adicionar no outro datagrid, para não adicionar o mesmo
+                //objeto duas vezes
+                cadNaoSelec.RemoveAt(dtJogadores.SelectedIndex);
+                //Refresh na datagrid de jogadores, agora sem o jogador adicionado anteriormente
+                dtJogadores.Items.Refresh();
+            }
+
         }
 
         private void AdicionaLista(Cadastro cadast)
@@ -68,26 +81,43 @@ namespace SistemaRPG
         {
             if (this.dtSelecionados.SelectedIndex >= 0)
             {
+                //adiciona o objeto ao binding do datagrid de jogadores ainda não selecionados
+                cadNaoSelec.Add(listCad[dtSelecionados.SelectedIndex]);
+                //remove o objeto do binding dos jogadores selecionados
                 listCad.RemoveAt(dtSelecionados.SelectedIndex);
+                
             }
+            //refresh no datadrid de jogadores selecionados
             dtSelecionados.Items.Refresh();
+            //refresh no datadrid de jogadores  não selecionados
+            dtJogadores.Items.Refresh();
         }
 
         private void btGravar_Click(object sender, RoutedEventArgs e)
         {
-            List<PartidaPersonagem> parPer = new List<PartidaPersonagem>();
+            //lista de aventura/personagem
+            List<AvenPerVO> avenPer = new List<AvenPerVO>();
+           
+            //Cast para passar o conteúdo atual da combo para um objeto que será usado para setar uma variável
+            Aventura a = (Aventura)cmbPartida.SelectedItem;
 
-            for (int i = 0; i<= listCad.Count;i++)
+            for (int i = 0; i < listCad.Count;i++)
             {
-                 //parPer[i].Personagem.CodPer= listCad[i].Personagem.CodPer;
-                 
+                AvenPerVO aven = new AvenPerVO();             
+                //variável que irá receber o valor vindo da combo(Nome da aventura)
+                aven.codAventura = a.CodAventura;
+                //variável que recebe os códigos dos personagens
+                aven.codPer = listCad[i].Personagem.CodPer;
+
+                avenPer.Add(aven);
                 
-                Aventura a = (Aventura)cmbPartida.SelectedItem;
-                string value = a.NomeAventura;
-                 parPer[i].Partida.Descricao = value;
-                 MessageBox.Show(parPer[i].Partida.Descricao.ToString() + " descr e " + parPer[i].Personagem.NomePer); 
             }
-            //MessageBox.Show(parPer[1].Partida.Descricao.ToString() + " descr e " + parPer[1].Personagem.NomePer); 
+            
+                     
+            for( int i = 0 ; i < avenPer.Count;i++)
+            {
+                MessageBox.Show("código da aventura = " + avenPer[i].codAventura.ToString() + " código do personagem = " + avenPer[i].codPer.ToString());
+            }
         }
 
 

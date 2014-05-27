@@ -60,6 +60,65 @@ namespace SistemaRPG
             }
         }
 
+        public List<Aventura> populaAventuraEspecifica(string codAventura)
+        {
+            SqlDataReader drAventura = null;
+            try
+            {
+                using (SqlConnection con = Conexao.obterConexao())
+                {
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+
+                        cmd.CommandText = @"SELECT 
+                                            av.DESC_AVENTURA AS Aventura,
+                                            av.cod_Aventura
+                                            FROM AVENTURA av 
+                                            INNER JOIN CADASTRO c
+                                            ON av.COD_LOGIN = c.COD_LOGIN
+                                            WHERE 
+                                            AV.COD_AVENTURA = @COD_AVENTURA    
+                                            AND    c.COD_LOGIN = @CODLOGIN
+                                            AND c.PERFIL = 'Administrador' 
+                                            AND c.ATIVO = 1 ORDER BY 1";
+
+                        SqlParameter parCodLog = new SqlParameter("@CODLOGIN", Cadastro.Cad.CodLogin);
+                        cmd.Parameters.Add(parCodLog);
+                        SqlParameter parCodAv = new SqlParameter("@COD_AVENTURA", Cadastro.Cad.CodLogin);
+                        cmd.Parameters.Add(parCodAv);
+
+                        List<Aventura> aventura = new List<Aventura>();
+                        Aventura av = null;
+                        drAventura = cmd.ExecuteReader();
+
+                        while (drAventura.Read())
+                        {
+
+                            av = new Aventura();
+                            av.NomeAventura = drAventura["Aventura"].ToString();
+                            aventura.Add(av);
+                        }
+                        drAventura.Close();
+                        return aventura;
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        Conexao.fecharConexao();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public List<Aventura> populaAventura()
         {
             SqlDataReader drAventura = null;
@@ -72,7 +131,11 @@ namespace SistemaRPG
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = @"SELECT av.AVENTURA AS Aventura FROM AVENTURA av INNER JOIN CADASTRO c
+                        cmd.CommandText = @"SELECT 
+                                            av.DESC_AVENTURA AS Aventura,
+                                            av.cod_Aventura
+                                            FROM AVENTURA av 
+                                            INNER JOIN CADASTRO c
                                             ON av.COD_LOGIN = c.COD_LOGIN WHERE c.COD_LOGIN = @cod AND c.PERFIL = 'Administrador' AND c.ATIVO = 1 ORDER BY 1";
 
                         SqlParameter parAv = new SqlParameter("@cod", Cadastro.Cad.CodLogin);
@@ -120,7 +183,7 @@ namespace SistemaRPG
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = "INSERT INTO Aventura (AVENTURA, SENHA,cod_login) VALUES(@aventura, @senha,@codlogin)";
+                        cmd.CommandText = "INSERT INTO Aventura (DESC_AVENTURA, SENHA,cod_login) VALUES(@aventura, @senha,@codlogin)";
 
                         SqlParameter parAven = new SqlParameter("@aventura", av.NomeAventura);
                         SqlParameter parSenha = new SqlParameter("@senha", av.Senha);

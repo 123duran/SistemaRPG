@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace SistemaRPG
 {
-    class PartidaPersonagem
+    class AvenPerVO
     {
-   
-        public int codPer {get;set;}
-        public string partida { get; set; }
-            
-
+        public int codPer{ get; set; }
+        public int codAventura { get; set;}
     }
 }

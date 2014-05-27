@@ -170,6 +170,114 @@ namespace SistemaRPG
 
         }
 
+
+        public List<int>  SelecionaPersonagemEspecifico(string aventura)
+        {
+            SqlDataReader drLogin = null;
+            try
+            {
+                using (SqlConnection con = Conexao.obterConexao())
+                {
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+
+                        cmd.CommandText = @"SELECT  av.COD_PER from Aventura av
+                                             where av.DESC_AVENTURA = @aventura ";
+
+                        SqlParameter parAven = new SqlParameter("@aventura", aventura);
+                        cmd.Parameters.Add(parAven);
+                        drLogin = cmd.ExecuteReader();
+                     List<int> arCodPer = new List<int>();
+
+                        int codper = 0;
+                        while (drLogin.Read())
+                        {
+                             codper = Convert.ToInt32(drLogin["COD_PER"]);
+                             arCodPer.Add(codper);
+
+                        }
+                        drLogin.Close();
+                        return arCodPer;
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        Conexao.fecharConexao();
+
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+
+        }
+
+
+        public List <Personagem> SelecionaPersonagemPorCodPer(List<int> arCodPer)
+        {
+            List<Personagem> listaPer = new List<Personagem>();
+            //Personagem per = null;
+            SqlDataReader drLogin = null;
+
+            foreach (int i in arCodPer)
+            {
+                try
+                {
+                    using (SqlConnection con = Conexao.obterConexao())
+                    {
+                        try
+                        {
+                            SqlCommand cmd = new SqlCommand();
+                            cmd.Connection = con;
+
+                            cmd.CommandText = @"SELECT  * from personagem
+                                              where cod_per = @codper";
+
+                            SqlParameter parCodPer = new SqlParameter("@aventura", i);
+                            cmd.Parameters.Add(parCodPer);
+                            drLogin = cmd.ExecuteReader();
+
+                            Personagem per = new Personagem();
+                            while (drLogin.Read())
+                            {
+                                
+                                per.CodPer = Convert.ToInt32(drLogin["COD_PER"]);
+                                per.NomePer = Convert.ToString( drLogin["Nome_per"]);
+                                
+                              
+
+                            }
+                            listaPer.Add(per);
+                            drLogin.Close();
+                        }
+                        catch (SqlException ex)
+                        {
+                            throw ex;
+                        }
+                        finally
+                        {
+                            Conexao.fecharConexao();
+
+                        }
+                    }
+                }
+                catch (Exception error)
+                {
+                    throw error;
+                }
+            } 
+            return listaPer;
+        
+        }
+
+
         public Personagem SelecionaPersonagem(Personagem p)
         {
             SqlDataReader drLogin = null;
