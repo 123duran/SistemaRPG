@@ -12,9 +12,8 @@
         <Menu BorderThickness="2" Name="menu1" Height="30" Width="452" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFEFEFF2" Foreground="Black" BorderBrush="#FFEFEFF2" >
             <MenuItem Header="CADASTRO" Background="#FFEFEFF2">
                 <MenuItem Header="Fichas" Background="#FFEFEFF2" >
-                    <MenuItem Header="Cadastrar Ficha (NPC)" Background="#FFEFEFF2"  />
-                    <MenuItem Header="Cadastrar Ficha (Personagem)" Click="mnCadastrarFicha" Background="#FFEFEFF2" />
-                </MenuItem>
+                    <MenuItem Header="Cadastrar Ficha" Background="#FFEFEFF2" Click="MenuItem_Click_1"  />
+                     </MenuItem>
          
 
             </MenuItem>
@@ -28,6 +27,10 @@
             </MenuItem>
            </Menu>
         <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha " HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="6,0,0,11" FontSize="22"/>
+        <Button Content="Rolar Dados" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="40,124,0,0"/>
+        <Button Content="Checar Mensagens" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="40,149,0,0"/>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="40,88,0,0"/>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="40,58,0,0"/>
 
     </Grid>
 </Window>

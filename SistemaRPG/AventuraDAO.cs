@@ -60,6 +60,52 @@ namespace SistemaRPG
             }
         }
 
+        public bool LoginAventura(string aventura, string senha)
+        {
+            SqlDataReader drAventura = null;
+            try
+            {
+                using (SqlConnection con = Conexao.obterConexao())
+                {
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+
+                        cmd.CommandText = @"SELECT desc_AVENTURA, SENHA FROM Aventura
+                                            WHERE desc_AVENTURA = @av AND SENHA = @senha";
+
+                        SqlParameter parAv = new SqlParameter("@av", aventura);
+                        SqlParameter parSenha = new SqlParameter("@senha", senha);
+
+                        cmd.Parameters.Add(parAv);
+                        cmd.Parameters.Add(parSenha);
+                        drAventura = cmd.ExecuteReader();
+                        if (drAventura.HasRows)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        Conexao.fecharConexao();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public List<Aventura> populaAventuraEspecifica(string codAventura)
         {
             SqlDataReader drAventura = null;
@@ -122,6 +168,7 @@ namespace SistemaRPG
         public List<Aventura> populaAventura()
         {
             SqlDataReader drAventura = null;
+            List<Aventura> aventura = new List<Aventura>();
             try
             {
                 using (SqlConnection con = Conexao.obterConexao())
@@ -133,7 +180,7 @@ namespace SistemaRPG
 
                         cmd.CommandText = @"SELECT 
                                             av.DESC_AVENTURA AS Aventura,
-                                            av.cod_Aventura
+                                            av.cod_Aventura AS  CodAventura
                                             FROM AVENTURA av 
                                             INNER JOIN CADASTRO c
                                             ON av.COD_LOGIN = c.COD_LOGIN WHERE c.COD_LOGIN = @cod AND c.PERFIL = 'Administrador' AND c.ATIVO = 1 ORDER BY 1";
@@ -141,7 +188,7 @@ namespace SistemaRPG
                         SqlParameter parAv = new SqlParameter("@cod", Cadastro.Cad.CodLogin);
                         cmd.Parameters.Add(parAv);
 
-                        List<Aventura> aventura = new List<Aventura>();
+                        
                         Aventura av = null;
                         drAventura = cmd.ExecuteReader();
 
@@ -149,12 +196,12 @@ namespace SistemaRPG
                         {
                         
                         av = new Aventura();
-                            av.NomeAventura = drAventura["Aventura"].ToString();
-
-                            aventura.Add(av);
+                        av.CodAventura = Convert.ToInt32(drAventura["CodAventura"]);
+                        av.NomeAventura = drAventura["Aventura"].ToString();                        
+                        aventura.Add(av);
                        }
                         drAventura.Close();
-                        return aventura;
+                        
                     }
                     catch (SqlException ex)
                     {
@@ -170,9 +217,11 @@ namespace SistemaRPG
             { 
                 throw e; 
             }
+
+            return aventura;
         }
 
-        public void Gravar(Aventura av)
+        public void Gravar(Aventura av, int codper )
         {
             try
             {
@@ -183,15 +232,18 @@ namespace SistemaRPG
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = "INSERT INTO Aventura (DESC_AVENTURA, SENHA,cod_login) VALUES(@aventura, @senha,@codlogin)";
-
+                        cmd.CommandText = "INSERT INTO Aventura (DESC_AVENTURA, SENHA,cod_login, cod_per) VALUES(@aventura, @senha,@codlogin, @codper)";
+                        
+              
                         SqlParameter parAven = new SqlParameter("@aventura", av.NomeAventura);
                         SqlParameter parSenha = new SqlParameter("@senha", av.Senha);
                         SqlParameter parLogin = new SqlParameter("@codlogin", Cadastro.Cad.CodLogin);
+                        SqlParameter parCodper = new SqlParameter("@codper", codper);
 
                         cmd.Parameters.Add(parLogin);
                         cmd.Parameters.Add(parAven);
                         cmd.Parameters.Add(parSenha);
+                        cmd.Parameters.Add(parCodper);
 
                         cmd.ExecuteNonQuery();
                     }

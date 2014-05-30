@@ -49,7 +49,7 @@
             <MenuItem Header="CADASTRO" Background="#FF3D98C7" Foreground="White">
                 <MenuItem Header="Fichas" Click="mnCadastrarFicha" Background="#FF3D98C7" >
                                     </MenuItem>
-                <MenuItem Header="Cadastrar Jogador na Partida" Background="#FF3D98C7" Click="mnCadastrarJogador"/>
+               
                
                 
             </MenuItem>

@@ -18,6 +18,8 @@ namespace SistemaRPG
              writer.WriteElementString("resPer",ficha.ResPer.ToString());
              writer.WriteElementString("pdvPer", ficha.PvPer.ToString());
              writer.WriteElementString("imgPer", ficha.ImgPer.ToString());
+             writer.WriteElementString("vantagens", ficha.Vantagens.ToString());
+             writer.WriteElementString("desvantagens", ficha.Vantagens.ToString());
              writer.WriteEndElement();
              //Escreve o XML para o arquivo e fecha o objeto escritor
              writer.Close();

@@ -72,7 +72,11 @@
     </ApplicationDefinition>
     <Compile Include="AvenPerVO.cs" />
     <Compile Include="Aventura.cs" />
+    <Compile Include="AventuraDado.cs" />
+    <Compile Include="AventuraDadoDAO.cs" />
     <Compile Include="AventuraDAO.cs" />
+    <Compile Include="AventuraPonto.cs" />
+    <Compile Include="AventuraPontoDAO.cs" />
     <Compile Include="CadastroDAO.cs" />
     <Compile Include="CaracteristicaDAO.cs" />
     <Compile Include="Conexao.cs" />

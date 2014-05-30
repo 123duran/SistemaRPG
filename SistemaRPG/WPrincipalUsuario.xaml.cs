@@ -44,7 +44,14 @@ namespace SistemaRPG
 
         private void mnEnviarFicha(object sender, RoutedEventArgs e)
         {
+            WEnviarFicha frm = new WEnviarFicha();
+            frm.ShowDialog();
+        }
 
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+              MainWindow frm = new MainWindow();
+              frm.ShowDialog();
         }
 
      

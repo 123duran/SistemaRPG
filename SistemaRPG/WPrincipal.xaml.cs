@@ -58,7 +58,7 @@ namespace SistemaRPG
 
         private void mnNovaAventura(object sender, RoutedEventArgs e)
         {
-            WNovaAventura nova= new WNovaAventura();
+            WSelecionaJogador nova= new WSelecionaJogador();
             nova.ShowDialog();
         }
 

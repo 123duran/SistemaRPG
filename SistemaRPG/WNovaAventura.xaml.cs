@@ -57,7 +57,7 @@ namespace SistemaRPG
 
             try
             {
-                dao.Gravar(av);
+               // dao.Gravar(av);
                 MessageBox.Show("Aventura cadastrada com sucesso!", "Aventura", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             catch (Exception ex)

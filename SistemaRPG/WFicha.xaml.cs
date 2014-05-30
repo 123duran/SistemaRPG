@@ -113,11 +113,29 @@ namespace SistemaRPG
             {
                 ficha.RacaPer = txtRaca.Text;
             }
-            else
+              else
             {
                 varTemp += " Raça";
             }
-            ficha.TipoPer = "personagem";
+            if (txtVantagens.Text.Length > 0)
+            {
+                ficha.Vantagens = txtVantagens.Text;
+            }
+            else 
+            {
+                varTemp += "Vantagens";
+            }
+
+            if (txtDesvantagens.Text.Length > 0)
+            {
+                ficha.Desvantagens = txtDesvantagens.Text;
+            }
+            else
+            {
+                varTemp += "Vantagens";
+            }
+            ficha.NivelPer =Convert.ToInt32(txtNivel.Text);
+
         }
 
         private void txtRes_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -153,10 +171,12 @@ namespace SistemaRPG
 
         public void escreverFicha(string lvlPer) {
 
-            ficha.TipoPer = lvlPer;
+            ficha.NivelPer = Convert.ToInt32(lvlPer);
             prenche();
             ManipulaXML mani = new ManipulaXML();
             mani.escrever(ficha);
+            PersonagemDAO dao = new PersonagemDAO();
+            dao.Gravar(ficha);
             this.Close();
         
         }
@@ -168,8 +188,11 @@ namespace SistemaRPG
            {
                lvlPer = txtNivel.Text;
                if (txtNivel.Text.Length > 0)
+               {
+                   ficha.TipoPer = "NPC";
                    escreverFicha(lvlPer);
-               else 
+               }
+               else
                {
                    MessageBox.Show("Insira o nível do seu Pesonagem por favor.");
                }
@@ -177,6 +200,8 @@ namespace SistemaRPG
 
            }
            else {
+
+               ficha.TipoPer = "personagem";
                escreverFicha(lvlPer);
            }
 

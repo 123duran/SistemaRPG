@@ -12,7 +12,7 @@
         <Button Content="Login" HorizontalAlignment="Left" Margin="270,198,0,0" VerticalAlignment="Top" Width="82" Click="btLogin" Height="30" FontSize="14" TabIndex="5"/>
         <Label Content="Aventura"  HorizontalAlignment="Left" Margin="157,97,0,0" VerticalAlignment="Top" TabIndex="0" FontSize="14"/>
         <Label Content="Senha:" HorizontalAlignment="Left" Margin="172,142,0,0" VerticalAlignment="Top" TabIndex="0" FontSize="14"/>
-        <PasswordBox x:Name="txtSenha_Copy" HorizontalAlignment="Left" Margin="228,144,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="180" Height="22" FontSize="14" TabIndex="2" FlowDirection="RightToLeft">
+        <PasswordBox x:Name="pbSenha" HorizontalAlignment="Left" Margin="228,144,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="180" Height="22" FontSize="14" TabIndex="2" FlowDirection="RightToLeft">
             <PasswordBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -22,7 +22,7 @@
                 </TransformGroup>
             </PasswordBox.RenderTransform>
         </PasswordBox>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="229,102,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
+        <TextBox x:Name="txtAVentura" HorizontalAlignment="Left" Height="23" Margin="229,102,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
         <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,249,0,0" FontSize="36"/>
         <Label Foreground="White" Content="Seleciona a sua Aventura" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="116,24,0,0" FontSize="36"/>
 

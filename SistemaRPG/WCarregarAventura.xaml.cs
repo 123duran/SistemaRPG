@@ -26,7 +26,31 @@ namespace SistemaRPG
 
         private void btLogin(object sender, RoutedEventArgs e)
         {
+            try
+            {
 
+                if (Login(txtAVentura.Text, pbSenha.Password))
+                {
+                    WSelecionaJogadorAventura aven = new WSelecionaJogadorAventura();
+                    aven.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Senha/aventura inválida");
+                }
+            }
+            catch(Exception error) 
+            {
+                MessageBox.Show(error.ToString());
+            }
+            
+        }
+
+        public bool Login(string aventura, string senha) 
+        {
+            AventuraDAO dao = new AventuraDAO();
+            return dao.LoginAventura(aventura, senha);
         }
     }
 }

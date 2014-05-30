@@ -33,15 +33,16 @@ namespace SistemaRPG
             CadastroDAO cadDao = new CadastroDAO();
 
             cmbAventura.ItemsSource = avDao.populaAventura();
-            string codAventura = cmbAventura.SelectedItem.ToString();
-
-            // através da combobox preenche a variável que será usada para voltar uma lista de int
-            //tal lista de int irá ser passada para outra função que retorna os jogadores cadastrados naquela aventura
-            cadNaoSelec = cadDao.SelecionaPersonagemPorCodPer(cadDao.SelecionaPersonagemEspecifico(codAventura));
+            //string codAventura = cmbAventura.SelectedItem.ToString();
+            //string codAventura = ((ComboBoxItem)cmbAventura.SelectedItem).Content.ToString();
+            //// através da combobox preenche a variável que será usada para voltar uma lista de int
+            ////tal lista de int irá ser passada para outra função que retorna os jogadores cadastrados naquela aventura
             
-            dtJogAven.ItemsSource = cadNaoSelec;
-            dtJogAven.Items.Refresh();
-            dtJogPar.ItemsSource = cadSelec;
+            //cadNaoSelec = cadDao.SelecionaPersonagemPorCodPer(cadDao.SelecionaPersonagemEspecifico(codAventura));
+            
+            //dtJogAven.ItemsSource = cadNaoSelec;
+            //dtJogAven.Items.Refresh();
+            //dtJogPar.ItemsSource = cadSelec;
             
 
         }
@@ -115,6 +116,33 @@ namespace SistemaRPG
             {
                 parDao.GravarPerPar(codPar, codper[i]);
             }
+        }
+
+        private void cmbAventura_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //string codAventura = "";
+
+            Aventura a = (Aventura)cmbAventura.SelectedItem;
+            
+            // através da combobox preenche a variável que será usada para voltar uma lista de int
+            //tal lista de int irá ser passada para outra função que retorna os jogadores cadastrados naquela aventura
+            CadastroDAO cadDao = new CadastroDAO();
+
+           // dtJogAven.Items.Clear();
+            List<Personagem> listaNaoSelec = new List<Personagem>();
+
+            listaNaoSelec = cadDao.SelecionaPersonagemPorCodPer(cadDao.SelecionaPersonagemEspecifico(a.NomeAventura));
+
+            this.dtJogAven.ItemsSource = listaNaoSelec;
+
+            foreach (Personagem p in listaNaoSelec)
+            {
+                MessageBox.Show(p.NomePer);
+            }
+          
+            
+            dtJogAven.Items.Refresh();
+         //   dtJogPar.ItemsSource = cadSelec;
         }
 
     }

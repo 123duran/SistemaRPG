@@ -27,10 +27,9 @@ namespace SistemaRPG
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = "INSERT INTO Personagem (COD_CAR, NOME_PER, IMG_PER, RACA_PER, FORCA_PER, TIPO_PER, NIVEL_PER, HAB_PER, RES_PER, ARM_PER, PV_PER, PDF_PER)" +
-                            "VALUES (@carac, @nome, @img, @raca, @forca, @tipo, @nivel, @hab, @res, @arm, @pv, @pdf)";
+                        cmd.CommandText = "INSERT INTO Personagem (NOME_PER, IMG_PER, RACA_PER, FORCA_PER, TIPO_PER, NIVEL_PER, HAB_PER, RES_PER, ARM_PER, PV_PER, PDF_PER, COD_LOGIN,VANTAGENS,DESVANTAGENS)" +
+                            "VALUES (@nome, @img, @raca, @forca, @tipo, @nivel, @hab, @res, @arm, @pv, @pdf,@codlogin,@vantagens,@desvantagens)";
 
-                        SqlParameter parCarac = new SqlParameter("@carac", p.Caracteristica.CodCarac);
                         SqlParameter parNome = new SqlParameter("@nome", p.NomePer);
                         SqlParameter parImg = new SqlParameter("@img", p.ImgPer);
                         SqlParameter parRaca = new SqlParameter("@raca", p.RacaPer);
@@ -42,8 +41,10 @@ namespace SistemaRPG
                         SqlParameter parArm = new SqlParameter("@arm", p.ArmPer);
                         SqlParameter parPv = new SqlParameter("@pv", p.PvPer);
                         SqlParameter parPdf = new SqlParameter("@pdf", p.PdfPer);
+                        SqlParameter parCod = new SqlParameter("@codlogin", Cadastro.Cad.CodLogin);
+                        SqlParameter parVan = new SqlParameter("@vantagens", p.Vantagens);
+                        SqlParameter parDesvan = new SqlParameter("@desvantagens", p.Desvantagens);
 
-                        cmd.Parameters.Add(parCarac);
                         cmd.Parameters.Add(parNome);
                         cmd.Parameters.Add(parImg);
                         cmd.Parameters.Add(parRaca);
@@ -55,6 +56,9 @@ namespace SistemaRPG
                         cmd.Parameters.Add(parArm);
                         cmd.Parameters.Add(parPv);
                         cmd.Parameters.Add(parPdf);
+                        cmd.Parameters.Add(parCod);
+                        cmd.Parameters.Add(parVan);
+                        cmd.Parameters.Add(parDesvan);
 
                         cmd.ExecuteNonQuery();
 

@@ -183,22 +183,30 @@ namespace SistemaRPG
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = @"SELECT  av.COD_PER from Aventura av
-                                             where av.DESC_AVENTURA = @aventura ";
+                        cmd.CommandText = @"SELECT  p.Nome_per, av.COD_PER from Aventura av
+                                            inner join personagem p
+                                            on p.cod_per = av.cod_per 
+                                            where av.DESC_AVENTURA = @aventura ";
 
                         SqlParameter parAven = new SqlParameter("@aventura", aventura);
                         cmd.Parameters.Add(parAven);
                         drLogin = cmd.ExecuteReader();
                      List<int> arCodPer = new List<int>();
-
-                        int codper = 0;
+                     List<Personagem> listaPer = new List<Personagem>();
+                     int codper = 0;
                         while (drLogin.Read())
                         {
                              codper = Convert.ToInt32(drLogin["COD_PER"]);
                              arCodPer.Add(codper);
 
                         }
+                       
+
+
+
                         drLogin.Close();
+                        //return listaPer;
+                        
                         return arCodPer;
                     }
                     catch (SqlException ex)
@@ -240,7 +248,7 @@ namespace SistemaRPG
                             cmd.CommandText = @"SELECT  * from personagem
                                               where cod_per = @codper";
 
-                            SqlParameter parCodPer = new SqlParameter("@aventura", i);
+                            SqlParameter parCodPer = new SqlParameter("@codper", i);
                             cmd.Parameters.Add(parCodPer);
                             drLogin = cmd.ExecuteReader();
 

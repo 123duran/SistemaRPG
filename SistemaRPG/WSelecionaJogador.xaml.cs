@@ -41,7 +41,7 @@ namespace SistemaRPG
             CadastroDAO cadDao = CadastroDAO.getInstance();
 
             //Populando a comboBox
-            cmbPartida.ItemsSource = avDao.populaAventura();
+        //    cmbPartida.ItemsSource = avDao.populaAventura();
 
             //Populando a dataGrid
             cadNaoSelec = cadDao.SelecionaPersonagem();
@@ -98,19 +98,25 @@ namespace SistemaRPG
             //lista de aventura/personagem
             List<AvenPerVO> avenPer = new List<AvenPerVO>();
            
-            //Cast para passar o conteúdo atual da combo para um objeto que será usado para setar uma variável
-            Aventura a = (Aventura)cmbPartida.SelectedItem;
+
+            
+           Aventura a = new Aventura();
+           a.NomeAventura = txtNomeAventura.Text;
+           a.Senha = pbSenha.Password;
+            AventuraDAO dao = new AventuraDAO();
 
             for (int i = 0; i < listCad.Count;i++)
             {
-                AvenPerVO aven = new AvenPerVO();             
-                //variável que irá receber o valor vindo da combo(Nome da aventura)
-                aven.codAventura = a.CodAventura;
-                //variável que recebe os códigos dos personagens
-                aven.codPer = listCad[i].Personagem.CodPer;
+                dao.Gravar(a, listCad[i].Personagem.CodPer);
 
-                avenPer.Add(aven);
+                //AvenPerVO aven = new AvenPerVO();             
+                //variável que irá receber o valor vindo da combo(Nome da aventura)
+                //aven.codAventura = a.CodAventura;
+                //variável que recebe os códigos dos personagens
+                //aven.codPer = listCad[i].Personagem.CodPer;
+                //  avenPer.Add(aven);
                 
+
             }
             
                      

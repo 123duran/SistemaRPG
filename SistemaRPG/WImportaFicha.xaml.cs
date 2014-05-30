@@ -54,6 +54,9 @@ namespace SistemaRPG
                     ManipulaXML xml = new ManipulaXML();
                     Personagem ficha = null;
                     ficha = xml.lerFicha(txtCaminho.Text);
+                    PersonagemDAO dao = new PersonagemDAO();
+                    dao.Gravar(ficha);
+
                     MessageBox.Show("imagem : " + ficha.ImgPer.ToString() + "resistencia" + ficha.ResPer.ToString() + "pdv: " + ficha.PvPer.ToString());
                 }
                 catch (Exception er)

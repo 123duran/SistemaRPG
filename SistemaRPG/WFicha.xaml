@@ -29,42 +29,11 @@
         </Button>
         <Button Content="Limpar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" Margin="292,65,0,0" Height="18"/>
         <Button Content="Enviar" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="55" Margin="292,0,0,600" Height="18"/>
-        <RichTextBox HorizontalAlignment="Left" Height="126" VerticalAlignment="Top" Width="120" Margin="17,510,0,0">
-            <RichTextBox.Effect>
-                <DropShadowEffect  ShadowDepth="2.5" Opacity="5" Direction="135" BlurRadius="5"/>
-            </RichTextBox.Effect>
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text=""/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="16,450,0,0" Height="22"/>
-        <Label Content="Vantagens" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,428,0,0" Height="26" Width="102"/>
-        <Button Opacity="0.5" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="219,478,0,0" RenderTransformOrigin="-0.667,3.1" Height="20">
-            <Button.Effect>
-                <DropShadowEffect  ShadowDepth="2.5" Opacity="5" Direction="135" BlurRadius="5"/>
-            </Button.Effect>
-        </Button>
+        <Label Content="Vantagens" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,429,0,0" Height="26" Width="102"/>
+        
 
-
-        <Button Opacity="0.5" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="152,478,0,0" RenderTransformOrigin="-0.667,3.1" Height="20">
-            <Button.Effect>
-                <DropShadowEffect  ShadowDepth="2.5" Opacity="5" Direction="135" BlurRadius="5"/>
-            </Button.Effect>
-        </Button>
-        <RichTextBox HorizontalAlignment="Left" Height="126" VerticalAlignment="Top" Width="120" Margin="149,510,0,0">
-            <RichTextBox.Effect>
-                <DropShadowEffect  ShadowDepth="2.5" Opacity="5" Direction="135" BlurRadius="5"/>
-            </RichTextBox.Effect>
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text=""/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="148,450,0,0" Height="22"/>
-        <Label Content="Desvantagens" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="143,429,0,0" Height="26" Width="84"/>
+        
+        <Label Content="Desvantagens" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,429,0,0" Height="26" Width="84"/>
         <Label Content="Pontos de vida:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,195,0,0" Width="120" Height="26"/>
         <Label x:Name="lblPV" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,195,0,0" Width="86" Height="26"/>
         <Image HorizontalAlignment="Left" Height="126" VerticalAlignment="Top" Width="172" Margin="26,65,0,0" >
@@ -85,7 +54,7 @@
                 <DropShadowEffect  ShadowDepth="2.5" Opacity="5" Direction="135" BlurRadius="5"/>
             </Button.Effect>
         </Button>
-        <RichTextBox Margin="292,450,0,0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Width="622" Height="186" VerticalAlignment="Top">
+        <RichTextBox x:Name="txtMochila" Margin="292,450,0,0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Width="622" Height="204" VerticalAlignment="Top">
             <RichTextBox.Effect>
                 <DropShadowEffect  ShadowDepth="2.5" Opacity="5" Direction="135" BlurRadius="5"/>
             </RichTextBox.Effect>
@@ -96,7 +65,7 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <RichTextBox Margin="353,0,0,101" HorizontalAlignment="Left" Width="327" Height="404" VerticalAlignment="Bottom" Grid.Column="3">
+        <RichTextBox x:Name="txtBackground" Margin="341,0,0,101" HorizontalAlignment="Left" Width="327" Height="404" VerticalAlignment="Bottom" Grid.Column="3">
 
             <RichTextBox.Effect>
                 <DropShadowEffect  ShadowDepth="2.5" Opacity="5" Direction="135" BlurRadius="5"/>
@@ -120,16 +89,8 @@
         <TextBox x:Name="txtPDF" HorizontalAlignment="Left" Height="24" Margin="66,397,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
         <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha - Cadastro de fichas" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,659,0,0" FontSize="36" Grid.ColumnSpan="4"/>
         <Label Content="Mochila" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="285,420,0,0"/>
-        <Button Opacity="0.5" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="84,478,0,0" RenderTransformOrigin="-0.667,3.1" Height="20">
-            <Button.Effect>
-                <DropShadowEffect  ShadowDepth="2.5" Opacity="5" Direction="135" BlurRadius="5"/>
-            </Button.Effect>
-        </Button>
-        <Button Opacity="0.5" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="20,478,0,0" RenderTransformOrigin="-0.667,3.1" Height="20">
-            <Button.Effect>
-                <DropShadowEffect  ShadowDepth="2.5" Opacity="5" Direction="135" BlurRadius="5"/>
-            </Button.Effect>
-        </Button>
+        <TextBox x:Name="txtVantagens" HorizontalAlignment="Left" Height="195" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="10,459,0,0"/>
+        <TextBox x:Name="txtDesvantagens" HorizontalAlignment="Left" Height="195" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="150,459,0,0"/>
 
 
 

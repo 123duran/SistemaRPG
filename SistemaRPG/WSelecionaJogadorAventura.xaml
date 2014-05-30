@@ -4,10 +4,6 @@
         Title="Seleciona Jogadores da Aventura" Height="600" Width="1076.992" Loaded="Window_Loaded_1">
     <Grid>
         <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha " HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="16,0,0,30" FontSize="22" Width="225"/>
-        <DataGrid x:Name="dtJogAven" HorizontalAlignment="Left" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="20,184,0,0" VerticalAlignment="Top" Height="214" Width="380">
-            <DataGridTextColumn Header="CodPer" Binding="{Binding Personagem.CodPer}" Width="50" CanUserResize="False" CanUserReorder="False" CanUserSort="False" IsReadOnly="True"/>
-            <DataGridTextColumn Header="Personagem" Binding="{Binding Personagem.NomePer}" Width="SizeToCells" CanUserResize="False" CanUserReorder="False" CanUserSort="False" IsReadOnly="True"/>
-        </DataGrid>
         <DataGrid x:Name="dtJogPar" HorizontalAlignment="Left" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="656,188,0,0" VerticalAlignment="Top" Height="214" Width="384">
             <DataGridTextColumn Header="CodPer" Binding="{Binding Personagem.CodPer}" Width="50" CanUserResize="False" CanUserReorder="False" CanUserSort="False" IsReadOnly="True"/>
             <DataGridTextColumn Header="Personagem" Binding="{Binding Personagem.NomePer}" Width="SizeToCells" CanUserResize="False" CanUserReorder="False" CanUserSort="False" IsReadOnly="True"/>
@@ -16,11 +12,19 @@
         <Button Content="-" HorizontalAlignment="Left" Margin="490,308,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click_2"/>
         <Label Foreground="White" Content="Personagens Cadastrados na Aventura" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="16,0,0,385" FontSize="22" Width="384"/>
         <Label Foreground="White" Content="Personagens Cadastrados na Partida" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="656,0,0,385" FontSize="22" Width="384"/>
-        <ComboBox x:Name="cmbAventura" ItemsSource="{Binding Path=Aventura}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="211" Margin="30,75,0,0"/>
+        <ComboBox x:Name="cmbAventura" ItemsSource="{Binding Path=Aventura}" DisplayMemberPath="NomeAventura"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="211" Margin="30,75,0,0" SelectionChanged="cmbAventura_SelectionChanged"/>
         <Label Foreground="White" Content="Selecione a Aventura" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="30,0,0,494" FontSize="22" Width="384"/>
         <Button x:Name="btnGravar" Content="Gravar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="660,420,0,0" Click="btnGravar_Click"/>
         <TextBox x:Name="txtNomePar" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="245" Margin="382,74,0,0"/>
         <Label Foreground="White" Content="Digite o nome da Partida" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="375,0,0,494" FontSize="22" Width="384"/>
+        <DataGrid x:Name="dtJogAven" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" Margin="0,184,613,0" VerticalAlignment="Top" SelectionMode="Extended" Height="250" HorizontalAlignment="Right" Width="446">
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="CodPer" Binding="{Binding CodPer}" Width="50" CanUserResize="False" CanUserReorder="False" CanUserSort="False" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Personagem" Binding="{Binding NomePer}" Width="SizeToCells" CanUserResize="False" CanUserReorder="False" CanUserSort="False" IsReadOnly="True"/>
+            </DataGrid.Columns>
+
+
+        </DataGrid>
 
     </Grid>
     <Window.Background>

@@ -37,7 +37,10 @@ namespace SistemaRPG
             }
             else
             {
-                MessageBox.Show("não está vazio");
+                //Cast para passar o conteúdo atual da combo para um objeto que será usado para setar uma variável
+                Aventura a = (Aventura)cmbAventura.SelectedItem;
+                gravarPonto(a.NomeAventura,a.CodAventura,txtInfo.Text);
+                this.Close();
             }
         }
 
@@ -51,10 +54,16 @@ namespace SistemaRPG
                 return false;
         }
 
-        public void gravarPonto(string texto)
+        public void gravarPonto(string Desc_aventura, int codAven,string texto)
         {
 
 
+        }
+
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            AventuraDAO avDao = AventuraDAO.getInstance();
+            cmbAventura.ItemsSource = avDao.populaAventura();
         }
     }
 }

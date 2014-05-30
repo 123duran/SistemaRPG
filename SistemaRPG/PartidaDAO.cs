@@ -233,7 +233,6 @@ namespace SistemaRPG
                     {
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
-
                         cmd.CommandText = "INSERT INTO Partida (COD_AVENTURA, DESC_PARTIDA) VALUES (@codAv, @desc + GETDATE())";
 
                         SqlParameter parAv = new SqlParameter("@codAv", codAv);
