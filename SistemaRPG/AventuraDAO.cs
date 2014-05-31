@@ -221,7 +221,7 @@ namespace SistemaRPG
             return aventura;
         }
 
-        public void Gravar(Aventura av, int codper )
+        public void Gravar(int codaven ,Aventura av, int codper )
         {
             try
             {
@@ -232,14 +232,15 @@ namespace SistemaRPG
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = "INSERT INTO Aventura (DESC_AVENTURA, SENHA,cod_login, cod_per) VALUES(@aventura, @senha,@codlogin, @codper)";
-                        
-              
+                        cmd.CommandText = "INSERT INTO Aventura (COD_AVENTURA, DESC_AVENTURA, SENHA,cod_login, cod_per) VALUES(@codaventura, @aventura, @senha,@codlogin, @codper)";
+
+                        SqlParameter parCodAven = new SqlParameter("@aventura", codaven);
                         SqlParameter parAven = new SqlParameter("@aventura", av.NomeAventura);
                         SqlParameter parSenha = new SqlParameter("@senha", av.Senha);
                         SqlParameter parLogin = new SqlParameter("@codlogin", Cadastro.Cad.CodLogin);
                         SqlParameter parCodper = new SqlParameter("@codper", codper);
 
+                        cmd.Parameters.Add(parCodAven);
                         cmd.Parameters.Add(parLogin);
                         cmd.Parameters.Add(parAven);
                         cmd.Parameters.Add(parSenha);

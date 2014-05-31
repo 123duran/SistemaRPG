@@ -105,19 +105,14 @@ namespace SistemaRPG
            a.Senha = pbSenha.Password;
             AventuraDAO dao = new AventuraDAO();
 
+            //fazer um max aventura +1 e atribuir a uma variavel que será usada para incluir a aventura
+            int codaven = dao.maxAventura() +1 ;
+
             for (int i = 0; i < listCad.Count;i++)
             {
-                dao.Gravar(a, listCad[i].Personagem.CodPer);
+                dao.Gravar( codaven, a, listCad[i].Personagem.CodPer); //mudar o dao para inserir o parametro cod aventura
 
-                //AvenPerVO aven = new AvenPerVO();             
-                //variável que irá receber o valor vindo da combo(Nome da aventura)
-                //aven.codAventura = a.CodAventura;
-                //variável que recebe os códigos dos personagens
-                //aven.codPer = listCad[i].Personagem.CodPer;
-                //  avenPer.Add(aven);
-                
-
-            }
+                           } //pedir para o mario trocar o banco
             
                      
             for( int i = 0 ; i < avenPer.Count;i++)

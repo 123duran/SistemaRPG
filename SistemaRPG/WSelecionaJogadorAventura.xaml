@@ -13,7 +13,7 @@
         <Label Foreground="White" Content="Personagens Cadastrados na Aventura" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="16,0,0,385" FontSize="22" Width="384"/>
         <Label Foreground="White" Content="Personagens Cadastrados na Partida" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="656,0,0,385" FontSize="22" Width="384"/>
         <ComboBox x:Name="cmbAventura" ItemsSource="{Binding Path=Aventura}" DisplayMemberPath="NomeAventura"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="211" Margin="30,75,0,0" SelectionChanged="cmbAventura_SelectionChanged"/>
-        <Label Foreground="White" Content="Selecione a Aventura" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="30,0,0,494" FontSize="22" Width="384"/>
+        <Label Foreground="White" Content="Selecione a Aventura" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="30,0,0,494" FontSize="22" Width="225"/>
         <Button x:Name="btnGravar" Content="Gravar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="660,420,0,0" Click="btnGravar_Click"/>
         <TextBox x:Name="txtNomePar" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="245" Margin="382,74,0,0"/>
         <Label Foreground="White" Content="Digite o nome da Partida" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="375,0,0,494" FontSize="22" Width="384"/>

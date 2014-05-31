@@ -27,8 +27,8 @@ namespace SistemaRPG
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = "INSERT INTO Personagem (NOME_PER, IMG_PER, RACA_PER, FORCA_PER, TIPO_PER, NIVEL_PER, HAB_PER, RES_PER, ARM_PER, PV_PER, PDF_PER, COD_LOGIN,VANTAGENS,DESVANTAGENS)" +
-                            "VALUES (@nome, @img, @raca, @forca, @tipo, @nivel, @hab, @res, @arm, @pv, @pdf,@codlogin,@vantagens,@desvantagens)";
+                        cmd.CommandText = "INSERT INTO Personagem (NOME_PER, IMG_PER, RACA_PER, FORCA_PER, TIPO_PER, NIVEL_PER, HAB_PER, RES_PER, ARM_PER, PV_PER, PDF_PER, COD_LOGIN, VANTAGENS, DESVANTAGENS, INVENTARIO, BACKGROUND)" +
+                            "VALUES (@nome, @img, @raca, @forca, @tipo, @nivel, @hab, @res, @arm, @pv, @pdf, @codlogin, @vantagens, @desvantagens, @inventario, @background)";
 
                         SqlParameter parNome = new SqlParameter("@nome", p.NomePer);
                         SqlParameter parImg = new SqlParameter("@img", p.ImgPer);
@@ -44,6 +44,8 @@ namespace SistemaRPG
                         SqlParameter parCod = new SqlParameter("@codlogin", Cadastro.Cad.CodLogin);
                         SqlParameter parVan = new SqlParameter("@vantagens", p.Vantagens);
                         SqlParameter parDesvan = new SqlParameter("@desvantagens", p.Desvantagens);
+                        SqlParameter parInvent = new SqlParameter("@inventario", p.Inventario);
+                        SqlParameter parBackground = new SqlParameter("@background", p.Background);
 
                         cmd.Parameters.Add(parNome);
                         cmd.Parameters.Add(parImg);
@@ -59,6 +61,8 @@ namespace SistemaRPG
                         cmd.Parameters.Add(parCod);
                         cmd.Parameters.Add(parVan);
                         cmd.Parameters.Add(parDesvan);
+                        cmd.Parameters.Add(parInvent);
+                        cmd.Parameters.Add(parBackground);
 
                         cmd.ExecuteNonQuery();
 

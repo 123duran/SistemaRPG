@@ -1,0 +1,22 @@
+﻿<Window x:Class="SistemaRPG.WSelecionaFicha"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WSelecionaFicha" Height="525.564" Width="795.113" Loaded="Window_Loaded_1">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="#FF3D98C7" Offset="0.393"/>
+            <GradientStop Color="#FF1F5F8B" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <ComboBox x:Name="cmbAventura" ItemsSource="{Binding Path=Aventura}" DisplayMemberPath="NomeAventura"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="211" Margin="30,80,0,0" SelectionChanged="cmbAventura_SelectionChanged"/>
+        <DataGrid x:Name="dtJogAven" ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="False" Margin="0,194,250,0" VerticalAlignment="Top" SelectionMode="Extended" Height="257" HorizontalAlignment="Right" Width="511">
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="CodPer" Binding="{Binding CodPer}" Width="50" CanUserResize="False" CanUserReorder="False" CanUserSort="False" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Personagem" Binding="{Binding NomePer}" Width="SizeToCells" CanUserResize="False" CanUserReorder="False" CanUserSort="False" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Foreground="White" Content="Selecione a Aventura" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="30,0,0,420" FontSize="22" Width="225"/>
+        <Button Content="Mostrar ficha&#xD;&#xA;" HorizontalAlignment="Left" Height="23" Margin="614,428,0,0" VerticalAlignment="Top" Width="134"/>
+    </Grid>
+</Window>

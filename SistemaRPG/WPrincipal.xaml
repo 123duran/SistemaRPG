@@ -72,5 +72,7 @@
             
         </Menu>
         <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha " HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="6,0,0,11" FontSize="22"/>
+        <Image HorizontalAlignment="Left" Height="205" VerticalAlignment="Top" Width="200" Margin="417,85,0,0" Source="Imagens/518px-Color-scroll-Step-6.jpg" MouseDown="Image_MouseDown_2"/>
+        <Label Content="Consultar fichas" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,139,0,0" FontFamily="Monotype Corsiva"/>
     </Grid>
 </Window>

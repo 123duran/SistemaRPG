@@ -115,5 +115,11 @@ namespace SistemaRPG
             env.ShowDialog();
         }
 
+        private void Image_MouseDown_2(object sender, MouseButtonEventArgs e)
+        {
+            WSelecionaFicha sel = new WSelecionaFicha();
+            sel.Show();
+        }
+
     }
 }

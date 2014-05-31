@@ -54,6 +54,12 @@ namespace SistemaRPG
         [XmlElement("Desvantagens")]
         private string desvantagens;
 
+        [XmlElement("Inventário")]
+        private string inventario;
+
+        [XmlElement("Background")]
+        private string background;
+
         private Partida partida;
         private Cadastro cadastro;
         private Caracteristica caracteristica;
@@ -64,7 +70,6 @@ namespace SistemaRPG
             get { return codPer; }
             set { codPer = value; }
         }
-
 
         public String Desvantagens
         {
@@ -143,6 +148,18 @@ namespace SistemaRPG
         {
             get { return pdfPer; }
             set { pdfPer = value; }
+        }
+
+        public string Inventario
+        {
+            get { return inventario; }
+            set { inventario = value; }
+        }
+
+        public string Background
+        {
+            get { return background; }
+            set { background = value; }
         }
 
         public Cadastro Cadastro

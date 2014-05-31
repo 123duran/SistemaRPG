@@ -129,6 +129,9 @@
     <Compile Include="WLogin.xaml.cs">
       <DependentUpon>WLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WMostraFicha.xaml.cs">
+      <DependentUpon>WMostraFicha.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WNovaAventura.xaml.cs">
       <DependentUpon>WNovaAventura.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,9 @@
     </Compile>
     <Compile Include="WRolarWeb.xaml.cs">
       <DependentUpon>WRolarWeb.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WSelecionaFicha.xaml.cs">
+      <DependentUpon>WSelecionaFicha.xaml</DependentUpon>
     </Compile>
     <Compile Include="WSelecionaJogador.xaml.cs">
       <DependentUpon>WSelecionaJogador.xaml</DependentUpon>
@@ -209,6 +215,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="WMostraFicha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WNovaAventura.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -226,6 +236,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WRolarWeb.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WSelecionaFicha.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -369,6 +383,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagens\load.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\518px-Color-scroll-Step-6.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
