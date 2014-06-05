@@ -60,6 +60,61 @@ namespace SistemaRPG
             }
         }
 
+
+        public List<Aventura> populaAventuraNovo()
+        {
+            SqlDataReader drAventura = null;
+            List<Aventura> aventura = new List<Aventura>();
+            try
+            {
+                using (SqlConnection con = Conexao.obterConexao())
+                {
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+
+                        cmd.CommandText = @"SELECT 
+                                            DISTINCT( av.DESC_AVENTURA )AS Aventura
+                                            FROM AVENTURA av 
+                                            INNER JOIN CADASTRO c
+                                            ON av.COD_LOGIN = c.COD_LOGIN WHERE c.COD_LOGIN = @cod AND c.PERFIL = 'Administrador' AND c.ATIVO = 1 ORDER BY 1";
+
+                        SqlParameter parAv = new SqlParameter("@cod", Cadastro.Cad.CodLogin);
+                        cmd.Parameters.Add(parAv);
+
+
+                        Aventura av = null;
+                        drAventura = cmd.ExecuteReader();
+
+                        while (drAventura.Read())
+                        {
+
+                            av = new Aventura();
+                            av.NomeAventura = drAventura["Aventura"].ToString();
+                            aventura.Add(av);
+                        }
+                        drAventura.Close();
+
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        Conexao.fecharConexao();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return aventura;
+        }
+
         public bool LoginAventura(string aventura, string senha)
         {
             SqlDataReader drAventura = null;

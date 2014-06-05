@@ -54,6 +54,12 @@ namespace SistemaRPG
               frm.ShowDialog();
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+             WRolarLocal rolar = new WRolarLocal()
+             rolar.ShowDialog();
+        }
+
      
     }
 }

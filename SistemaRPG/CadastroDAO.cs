@@ -228,6 +228,76 @@ namespace SistemaRPG
         }
 
 
+
+        public Personagem SelecionaPersonagemUnicoPorCodPer(int codPer)
+        {
+
+            //Personagem per = null;
+            SqlDataReader drLogin = null;
+
+
+
+            try
+            {
+                using (SqlConnection con = Conexao.obterConexao())
+                {
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+
+                        cmd.CommandText = @"SELECT  * from personagem
+                                              where cod_per = @codper";
+
+                        SqlParameter parCodPer = new SqlParameter("@codper", codPer);
+                        cmd.Parameters.Add(parCodPer);
+                        drLogin = cmd.ExecuteReader();
+
+                        Personagem per = new Personagem();
+                        while (drLogin.Read())
+                        {
+
+                            per.CodPer = Convert.ToInt32(drLogin["COD_PER"]);
+                            per.NomePer = Convert.ToString(drLogin["NOME_PER"]);
+                            per.ArmPer = Convert.ToInt32(drLogin["ARM_PER"]);
+                            per.Background = drLogin["BACKGROUND"].ToString();
+                            per.Desvantagens = drLogin["DESVANTAGENS"].ToString();
+                            per.ForcaPer = Convert.ToInt32(drLogin["FORCA_PER"]);
+                            per.HabPer = Convert.ToInt32(drLogin["HAB_PER"]);
+                            per.ImgPer = Convert.ToInt32(drLogin["IMG_PER"]);
+                            per.Inventario = drLogin["INVENTARIO"].ToString();
+                            per.NivelPer = Convert.ToInt32(drLogin["NIVEL_PER"]);
+                            per.PdfPer = Convert.ToInt32(drLogin["PDF_PER"]); ;
+                            per.PvPer = Convert.ToInt32(drLogin["PV_PER"]);
+                            per.RacaPer = drLogin["RACA_PER"].ToString();;
+                            per.ResPer = Convert.ToInt32(drLogin["RES_PER"]);
+                            per.TipoPer = drLogin["TIPO_PER"].ToString();
+                            per.Vantagens = drLogin["VANTAGENS"].ToString();
+                        }
+                        drLogin.Close();
+                        return per;
+
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        Conexao.fecharConexao();
+
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+
+
+
+        }
+
         public List <Personagem> SelecionaPersonagemPorCodPer(List<int> arCodPer)
         {
             List<Personagem> listaPer = new List<Personagem>();

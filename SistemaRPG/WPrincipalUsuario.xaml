@@ -27,10 +27,8 @@
             </MenuItem>
            </Menu>
         <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha " HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="6,0,0,11" FontSize="22"/>
-        <Button Content="Rolar Dados" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="40,124,0,0"/>
-        <Button Content="Checar Mensagens" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="40,149,0,0"/>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="40,88,0,0"/>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="40,58,0,0"/>
+        <Button Content="Rolar Dados" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="40,124,0,0" Click="Button_Click_1"/>
+        <Button Content="Checar Fichas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="40,149,0,0"/>
 
     </Grid>
 </Window>

@@ -24,11 +24,6 @@ namespace SistemaRPG
             InitializeComponent();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void cmbAventura_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //string codAventura = "";
@@ -41,19 +36,13 @@ namespace SistemaRPG
 
             // dtJogAven.Items.Clear();
             List<Personagem> listaNaoSelec = new List<Personagem>();
-
+            
             listaNaoSelec = cadDao.SelecionaPersonagemPorCodPer(cadDao.SelecionaPersonagemEspecifico(a.NomeAventura));
-
+           
             this.dtJogAven.ItemsSource = listaNaoSelec;
 
-            foreach (Personagem p in listaNaoSelec)
-            {
-                MessageBox.Show(p.NomePer);
-            }
-
-
             dtJogAven.Items.Refresh();
-            //   dtJogPar.ItemsSource = cadSelec;
+            // dtJogPar.ItemsSource = cadSelec;
         }
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
@@ -61,7 +50,19 @@ namespace SistemaRPG
             AventuraDAO avDao = AventuraDAO.getInstance();
             CadastroDAO cadDao = new CadastroDAO();
 
-            cmbAventura.ItemsSource = avDao.populaAventura();
+            cmbAventura.ItemsSource = avDao.populaAventuraNovo();
+        }
+
+        private void btMostrar_Click(object sender, RoutedEventArgs e)
+        {
+            
+            if(dtJogAven.SelectedIndex >= 0)
+            {
+                Personagem p = (Personagem)dtJogAven.SelectedItem;
+
+                WMostraFicha wMostra = new WMostraFicha(p);
+                wMostra.ShowDialog();
+            }
         }
     }
 }

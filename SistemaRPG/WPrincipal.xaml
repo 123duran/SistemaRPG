@@ -65,14 +65,12 @@
                 </MenuItem>
             </MenuItem>
 
-            <MenuItem Header="EXPERIÊNCIA" Foreground="White" Background="#FF3D98C7">
-                <MenuItem Header="_Envio de XP aos jogadores" Background="#FF3D98C7" Foreground="White" Click="MenuItem_Click_4"/>
-            </MenuItem>
+            
            
             
         </Menu>
         <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha " HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="6,0,0,11" FontSize="22"/>
-        <Image HorizontalAlignment="Left" Height="205" VerticalAlignment="Top" Width="200" Margin="417,85,0,0" Source="Imagens/518px-Color-scroll-Step-6.jpg" MouseDown="Image_MouseDown_2"/>
-        <Label Content="Consultar fichas" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,139,0,0" FontFamily="Monotype Corsiva"/>
+        <Image HorizontalAlignment="Left" Height="205" VerticalAlignment="Top" Width="200" Margin="394,108,0,0" Source="Imagens/text_directory.png" MouseDown="Image_MouseDown_2"/>
+        <Label Content="Consultar fichas" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="428,265,0,0" FontFamily="Monotype Corsiva"/>
     </Grid>
 </Window>

@@ -1,14 +1,14 @@
 ﻿<Window x:Class="SistemaRPG.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="740" Width="1360" ResizeMode="NoResize" WindowState="Maximized" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="Cadastro de Fichas" Height="657.5" Width="608" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FF3D98C7" Offset="0.393"/>
             <GradientStop Color="#FF1F5F8B" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
-    <Grid Margin="0,6,-43,-72" Height="737" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1397">
+    <Grid Margin="0,4,-795,-112" Height="737" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1397">
        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="453*"/>
@@ -16,31 +16,15 @@
             <ColumnDefinition Width="34*"/>
             <ColumnDefinition Width="763*"/>
         </Grid.ColumnDefinitions>
-
-        <Button Content="Salvar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="55" Margin="0,0,105,625" Height="21" RenderTransformOrigin="0.5,0.5" Click="Button_Click_2">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.89"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button Content="Limpar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" Margin="292,65,0,0" Height="18"/>
-        <Button Content="Enviar" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="55" Margin="292,0,0,600" Height="18"/>
-        <Label Content="Vantagens" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,429,0,0" Height="26" Width="102"/>
+        <Label Content="Vantagens" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,336,0,0" Height="26" Width="102"/>
         
 
         
-        <Label Content="Desvantagens" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,429,0,0" Height="26" Width="84"/>
+        <Label Content="Desvantagens" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,336,0,0" Height="26" Width="84"/>
         <Label Content="Pontos de vida:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,195,0,0" Width="120" Height="26"/>
         <Label x:Name="lblPV" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,195,0,0" Width="86" Height="26"/>
-        <Image HorizontalAlignment="Left" Height="126" VerticalAlignment="Top" Width="172" Margin="26,65,0,0" >
-            <Image.Effect>
-                <DropShadowEffect Color="Aquamarine" BlurRadius="30"/>
-
-            </Image.Effect>
+        <Image x:Name="ImagePer" HorizontalAlignment="Left" Height="107" VerticalAlignment="Top" Width="149" Margin="119,45,0,0" Source="Imagens/CHOOSE.jpg" MouseDown="Image_MouseDown_2" >
+            
         </Image>
         <Label Content="Nome" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,227,0,0" Height="26" Width="43"/>
         <Label Content="Raça" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,253,0,0" Height="26" Width="35"/>
@@ -48,49 +32,28 @@
         <TextBox x:Name="txtNomePer" HorizontalAlignment="Left" Height="24" Margin="64,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204"/>
         <TextBox x:Name="txtRaca" HorizontalAlignment="Left" Height="24" Margin="64,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" SelectionBrush="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
         <TextBox x:Name="txtNivel" HorizontalAlignment="Left" Height="24" Margin="64,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86"/>
-        <Label Content="Inventário" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="292,479,0,0" Height="26" Width="138"/>
-        <Button IsCancel="True" Content="Sair" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" Margin="624,688,0,0" Height="21" Grid.Column="3" Click="Button_Click_1">
-            <Button.Effect>
-                <DropShadowEffect  ShadowDepth="2.5" Opacity="5" Direction="135" BlurRadius="5"/>
-            </Button.Effect>
-        </Button>
-        <RichTextBox x:Name="txtMochila" Margin="292,450,0,0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Width="622" Height="204" VerticalAlignment="Top">
-            <RichTextBox.Effect>
-                <DropShadowEffect  ShadowDepth="2.5" Opacity="5" Direction="135" BlurRadius="5"/>
-            </RichTextBox.Effect>
-            
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text=""/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-        <RichTextBox x:Name="txtBackground" Margin="341,0,0,101" HorizontalAlignment="Left" Width="327" Height="404" VerticalAlignment="Bottom" Grid.Column="3">
-
-            <RichTextBox.Effect>
-                <DropShadowEffect  ShadowDepth="2.5" Opacity="5" Direction="135" BlurRadius="5"/>
-            </RichTextBox.Effect>
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text=""/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-        <Label Content="Background" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="353,206,0,0" Height="26" Width="138" Grid.Column="3"/>
-        <Label Content="Força" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,342,0,0" Height="26" Width="43"/>
-        <Label Content="Res." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,342,0,0" Height="26" Width="35"/>
-        <Label Content="Arm." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="148,367,0,0" Height="26" Width="37"/>
-        <TextBox x:Name="txtForca" HorizontalAlignment="Left" Height="24" Margin="66,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
-        <TextBox x:Name="txtRes" HorizontalAlignment="Left" Height="24" Margin="182,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" LostKeyboardFocus="txtRes_LostKeyboardFocus"/>
-        <TextBox x:Name="txtArm" HorizontalAlignment="Left" Height="24" Margin="182,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72"/>
-        <Label Content="Hab." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,367,0,0" Height="26" Width="43"/>
-        <TextBox x:Name="txtHabil" HorizontalAlignment="Left" Height="24" Margin="66,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
-        <Label Content="PDF" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,393,0,0" Height="26" Width="37"/>
-        <TextBox x:Name="txtPDF" HorizontalAlignment="Left" Height="24" Margin="66,397,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
-        <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha - Cadastro de fichas" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,659,0,0" FontSize="36" Grid.ColumnSpan="4"/>
-        <Label Content="Mochila" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="285,420,0,0"/>
-        <TextBox x:Name="txtVantagens" HorizontalAlignment="Left" Height="195" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="10,459,0,0"/>
-        <TextBox x:Name="txtDesvantagens" HorizontalAlignment="Left" Height="195" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="150,459,0,0"/>
+        <Label Content="Inventário" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,340,0,0" Height="26" Width="138" Grid.ColumnSpan="2"/>
+        <Label Content="Background" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,340,0,0" Height="26" Width="138" Grid.Column="1"/>
+        <Label Content="Força" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="308,234,0,0" Height="26" Width="43"/>
+        <Label Content="Res." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="440,234,0,0" Height="26" Width="35" Grid.ColumnSpan="2"/>
+        <Label Content="Arm." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="438,259,0,0" Height="26" Width="37" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtForca" HorizontalAlignment="Left" Height="24" Margin="356,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
+        <TextBox x:Name="txtRes" HorizontalAlignment="Left" Height="24" Margin="19,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" LostKeyboardFocus="txtRes_LostKeyboardFocus" Grid.Column="1"/>
+        <TextBox x:Name="txtArm" HorizontalAlignment="Left" Height="24" Margin="19,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" Grid.Column="1"/>
+        <Label Content="Hab." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="308,259,0,0" Height="26" Width="43"/>
+        <TextBox x:Name="txtHabil" HorizontalAlignment="Left" Height="24" Margin="356,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
+        <Label Content="PDF" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,285,0,0" Height="26" Width="37"/>
+        <TextBox x:Name="txtPDF" HorizontalAlignment="Left" Height="24" Margin="356,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
+        <Label Foreground="White" Content="Sistema de RPG 3D&amp;T Alpha - Cadastro de fichas" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,566,0,0" FontSize="24" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtVantagens" HorizontalAlignment="Left" Height="195" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="10,366,0,0"/>
+        <TextBox x:Name="txtDesvantagens" HorizontalAlignment="Left" Height="195" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="150,366,0,0"/>
+        <Label Content="Selecione a sua imagem" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="106,150,0,0" Height="26" Width="141"/>
+        <TextBox x:Name="txtInventario" HorizontalAlignment="Left" Height="195" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="300,366,0,0"/>
+        <TextBox x:Name="txtBackGround" HorizontalAlignment="Left" Height="195" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="438,366,0,0" Grid.ColumnSpan="2"/>
+        <Image Height="107" VerticalAlignment="Top" Margin="273,49,79,0" Source="Imagens/document_save.png" MouseDown="Image_MouseDown_3"/>
+        <Label Content="Salvar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="302,156,0,0"/>
+        <Image HorizontalAlignment="Left" Height="103" VerticalAlignment="Top" Width="102" Margin="406,49,0,0" Source="Imagens/sair.jpg" MouseDown="Image_MouseDown_4" Grid.ColumnSpan="2"/>
+        <Label Content="Sair/Cancelar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="413,156,0,0" Grid.ColumnSpan="2"/>
 
 
 

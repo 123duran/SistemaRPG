@@ -27,8 +27,8 @@ namespace SistemaRPG
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
 
-                        cmd.CommandText = "INSERT INTO Personagem (NOME_PER, IMG_PER, RACA_PER, FORCA_PER, TIPO_PER, NIVEL_PER, HAB_PER, RES_PER, ARM_PER, PV_PER, PDF_PER, COD_LOGIN, VANTAGENS, DESVANTAGENS, INVENTARIO, BACKGROUND)" +
-                            "VALUES (@nome, @img, @raca, @forca, @tipo, @nivel, @hab, @res, @arm, @pv, @pdf, @codlogin, @vantagens, @desvantagens, @inventario, @background)";
+                        cmd.CommandText = "INSERT INTO Personagem (NOME_PER, IMG_PER, RACA_PER, FORCA_PER, TIPO_PER, NIVEL_PER, HAB_PER, RES_PER, ARM_PER, PV_PER, PDF_PER, COD_LOGIN, VANTAGENS, DESVANTAGENS, INVENTARIO, BACKGROUND XP)" +
+                            "VALUES (@nome, @img, @raca, @forca, @tipo, @nivel, @hab, @res, @arm, @pv, @pdf, @codlogin, @vantagens, @desvantagens, @inventario, @background, 0)";
 
                         SqlParameter parNome = new SqlParameter("@nome", p.NomePer);
                         SqlParameter parImg = new SqlParameter("@img", p.ImgPer);

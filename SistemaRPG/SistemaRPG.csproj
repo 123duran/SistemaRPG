@@ -387,6 +387,18 @@
   <ItemGroup>
     <Resource Include="Imagens\518px-Color-scroll-Step-6.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\CHOOSE.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\sair.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\document_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\text_directory.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

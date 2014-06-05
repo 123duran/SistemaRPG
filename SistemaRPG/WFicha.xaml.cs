@@ -183,27 +183,7 @@ namespace SistemaRPG
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-           MessageBoxResult result =  MessageBox.Show("Seu personagem é um NPC?", "Importante!", MessageBoxButton.YesNo,MessageBoxImage.Question);
-           if (result == MessageBoxResult.Yes)
-           {
-               lvlPer = txtNivel.Text;
-               if (txtNivel.Text.Length > 0)
-               {
-                   ficha.TipoPer = "NPC";
-                   escreverFicha(lvlPer);
-               }
-               else
-               {
-                   MessageBox.Show("Insira o nível do seu Pesonagem por favor.");
-               }
-
-
-           }
-           else {
-
-               ficha.TipoPer = "personagem";
-               escreverFicha(lvlPer);
-           }
+           
 
         }
 
@@ -213,6 +193,47 @@ namespace SistemaRPG
             MessageBox.Show(wImg.getImagem.ToString());
             wImg.ShowDialog();
             MessageBox.Show(wImg.getImagem.ToString());
+        }
+
+        private void Image_MouseDown_2(object sender, MouseButtonEventArgs e)
+        {
+            //WSelecionarImagem frm = new WSelecionarImagem();
+            MessageBox.Show(wImg.getImagem.ToString());
+            wImg.ShowDialog();
+            MessageBox.Show(wImg.getImagem.ToString());
+         
+        }
+
+        private void Image_MouseDown_3(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Seu personagem é um NPC?", "Importante!", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                lvlPer = txtNivel.Text;
+                if (txtNivel.Text.Length > 0)
+                {
+                    ficha.TipoPer = "NPC";
+                    escreverFicha(lvlPer);
+                }
+                else
+                {
+                    MessageBox.Show("Insira o nível do seu Pesonagem por favor.");
+                }
+
+
+            }
+            else
+            {
+
+                ficha.TipoPer = "personagem";
+                escreverFicha(lvlPer);
+            }
+        }
+
+        private void Image_MouseDown_4(object sender, MouseButtonEventArgs e)
+        {
+            wImg.Close();
+            this.Close();
         }
 
 

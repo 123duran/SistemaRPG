@@ -17,6 +17,6 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label Foreground="White" Content="Selecione a Aventura" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="30,0,0,420" FontSize="22" Width="225"/>
-        <Button Content="Mostrar ficha&#xD;&#xA;" HorizontalAlignment="Left" Height="23" Margin="614,428,0,0" VerticalAlignment="Top" Width="134"/>
+        <Button x:Name="btMostrar" Content="Mostrar ficha" HorizontalAlignment="Left" Height="23" Margin="614,428,0,0" VerticalAlignment="Top" Width="134" Click="btMostrar_Click"/>
     </Grid>
 </Window>
