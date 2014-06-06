@@ -19,8 +19,9 @@ namespace SistemaRPG
     /// </summary>
     public partial class WSelecionaJogadorAventura : Window
     {
-        List<Personagem> cadNaoSelec = new List<Personagem>();
+        //List<Personagem> cadNaoSelec = new List<Personagem>();
         List<Personagem> cadSelec = new List<Personagem>();
+        List<Personagem> listaNaoSelec = new List<Personagem>();
         public WSelecionaJogadorAventura()
         {
             InitializeComponent();
@@ -33,18 +34,8 @@ namespace SistemaRPG
             CadastroDAO cadDao = new CadastroDAO();
 
             cmbAventura.ItemsSource = avDao.populaAventura();
-            //string codAventura = cmbAventura.SelectedItem.ToString();
-            //string codAventura = ((ComboBoxItem)cmbAventura.SelectedItem).Content.ToString();
-            //// através da combobox preenche a variável que será usada para voltar uma lista de int
-            ////tal lista de int irá ser passada para outra função que retorna os jogadores cadastrados naquela aventura
-            
-            //cadNaoSelec = cadDao.SelecionaPersonagemPorCodPer(cadDao.SelecionaPersonagemEspecifico(codAventura));
-            
-            //dtJogAven.ItemsSource = cadNaoSelec;
-            //dtJogAven.Items.Refresh();
             //dtJogPar.ItemsSource = cadSelec;
             
-
         }
 
         //botão de adicionar
@@ -53,8 +44,12 @@ namespace SistemaRPG
             Personagem per = new Personagem();
             per = (Personagem)dtJogAven.SelectedItem;
             AdicionaLista(per);
+            dtJogPar.ItemsSource = null;
+            this.dtJogPar.ItemsSource = cadSelec;
             dtJogPar.Items.Refresh();
-            cadNaoSelec.RemoveAt(dtJogAven.SelectedIndex);
+            listaNaoSelec.RemoveAt(dtJogAven.SelectedIndex);
+            
+            //.Remove((Personagem)dtJogAven.SelectedItem);
             dtJogAven.Items.Refresh();
            
         }
@@ -72,8 +67,8 @@ namespace SistemaRPG
         {
             if (this.dtJogAven.SelectedItems.Count > 0) 
             {
-                cadNaoSelec.Add(cadSelec[dtJogAven.SelectedIndex]);
-                cadSelec.RemoveAt(dtJogAven.SelectedIndex);
+                listaNaoSelec.Add(cadSelec[dtJogAven.SelectedIndex]);
+                listaNaoSelec.RemoveAt(dtJogAven.SelectedIndex);
              }
 
             dtJogAven.Items.Refresh();
@@ -128,12 +123,13 @@ namespace SistemaRPG
             //tal lista de int irá ser passada para outra função que retorna os jogadores cadastrados naquela aventura
             CadastroDAO cadDao = new CadastroDAO();
 
-           // dtJogAven.Items.Clear();
-            List<Personagem> listaNaoSelec = new List<Personagem>();
+           
+            //List<Personagem> listaNaoSelec = new List<Personagem>();
 
             listaNaoSelec = cadDao.SelecionaPersonagemPorCodPer(cadDao.SelecionaPersonagemEspecifico(a.NomeAventura));
 
             this.dtJogAven.ItemsSource = listaNaoSelec;
+       
 
             foreach (Personagem p in listaNaoSelec)
             {

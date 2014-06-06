@@ -41,6 +41,8 @@
         <TextBox x:Name="txtHPAtual" HorizontalAlignment="Left" Height="23" Margin="198,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="81"/>
         <Label Content="HP Max." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,88,0,0" Height="26" Width="53"/>
         <Label Content="HP Atual" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="136,88,0,0" Height="26" Width="66" RenderTransformOrigin="0.5,0.5"/>
-        <Image x:Name="imgPer" HorizontalAlignment="Left" Height="144" VerticalAlignment="Top" Width="161" Margin="373,31,0,0" />
+        <Image x:Name="imgPer" HorizontalAlignment="Left" Height="190" VerticalAlignment="Top" Width="197" Margin="334,51,0,0" Source="Imagens/human.jpeg" Stretch="Fill"   />
+        <Image HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="270" Margin="301,8,0,0" Source="Imagens/moldura.png" Stretch="Fill" StretchDirection="DownOnly"/>
+        <Button Content="Atualizar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="496,549,0,0"/>
     </Grid>
 </Window>
